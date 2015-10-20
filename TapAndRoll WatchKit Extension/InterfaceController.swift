@@ -1,26 +1,41 @@
 //
-//  ViewController.swift
-//  TapAndRoll
+//  InterfaceController.swift
+//  TapAndRoll WatchKit Extension
 //
 //  Created by Ronald Fischer on 10/5/15.
 //  Copyright (c) 2015 qpiapps. All rights reserved.
 //
 
-import UIKit
+import WatchKit
+import Foundation
 
-class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //createDieImage()
+class InterfaceController: WKInterfaceController {
+
+    @IBOutlet weak var dieLabel: WKInterfaceLabel!
+    @IBOutlet weak var dieImage: WKInterfaceImage!
+    
+    
+    @IBAction func rollButton() {
+        dieImage.startAnimating()
+    }
+    
+    override func awakeWithContext(context: AnyObject?) {
+        super.awakeWithContext(context)
+        createDieImage()
+        dieImage.setImageNamed("path\\dieImage0.png")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
     }
 
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
+    
     func createDieImage() {
         var dieSize = CGSize(width: 150, height: 150)
         UIGraphicsBeginImageContext(dieSize)
@@ -44,7 +59,6 @@ class ViewController: UIViewController {
             data.writeToFile(file, atomically: true)
             
         }
-        
     }
-}
 
+}

@@ -13,6 +13,13 @@
 		A50C64731BC32F28008FB51F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50C64721BC32F28008FB51F /* Images.xcassets */; };
 		A50C64761BC32F28008FB51F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50C64741BC32F28008FB51F /* LaunchScreen.xib */; };
 		A50C64821BC32F29008FB51F /* TapAndRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50C64811BC32F29008FB51F /* TapAndRollTests.swift */; };
+		A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A11BC369F2003C1D05 /* InterfaceController.swift */; };
+		A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A31BC369F2003C1D05 /* NotificationController.swift */; };
+		A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772A51BC369F2003C1D05 /* Images.xcassets */; };
+		A57772AA1BC369F2003C1D05 /* TapAndRoll WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */; };
+		A57772B21BC369F2003C1D05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57772B01BC369F2003C1D05 /* Interface.storyboard */; };
+		A57772B41BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772B31BC369F2003C1D05 /* Images.xcassets */; };
+		A57772B71BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +30,35 @@
 			remoteGlobalIDString = A50C64651BC32F28008FB51F;
 			remoteInfo = TapAndRoll;
 		};
+		A57772AB1BC369F2003C1D05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A50C645E1BC32F28008FB51F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A57772A81BC369F2003C1D05;
+			remoteInfo = "TapAndRoll WatchKit App";
+		};
+		A57772B51BC369F2003C1D05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A50C645E1BC32F28008FB51F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A577729B1BC369F2003C1D05;
+			remoteInfo = "TapAndRoll WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A57772BE1BC369F2003C1D05 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A57772B71BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A50C64661BC32F28008FB51F /* TapAndRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapAndRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +71,16 @@
 		A50C647B1BC32F29008FB51F /* TapAndRollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapAndRollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50C64801BC32F29008FB51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A50C64811BC32F29008FB51F /* TapAndRollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapAndRollTests.swift; sourceTree = "<group>"; };
+		A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TapAndRoll WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A577729F1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57772A01BC369F2003C1D05 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A57772A11BC369F2003C1D05 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A57772A31BC369F2003C1D05 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		A57772A51BC369F2003C1D05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TapAndRoll WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57772AF1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57772B11BC369F2003C1D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A57772B31BC369F2003C1D05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +98,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A57772991BC369F2003C1D05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +113,8 @@
 			children = (
 				A50C64681BC32F28008FB51F /* TapAndRoll */,
 				A50C647E1BC32F29008FB51F /* TapAndRollTests */,
+				A577729D1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */,
+				A57772AD1BC369F2003C1D05 /* TapAndRoll WatchKit App */,
 				A50C64671BC32F28008FB51F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +124,8 @@
 			children = (
 				A50C64661BC32F28008FB51F /* TapAndRoll.app */,
 				A50C647B1BC32F29008FB51F /* TapAndRollTests.xctest */,
+				A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */,
+				A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +168,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A577729D1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A57772A11BC369F2003C1D05 /* InterfaceController.swift */,
+				A57772A31BC369F2003C1D05 /* NotificationController.swift */,
+				A57772A51BC369F2003C1D05 /* Images.xcassets */,
+				A577729E1BC369F2003C1D05 /* Supporting Files */,
+			);
+			path = "TapAndRoll WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A577729E1BC369F2003C1D05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A577729F1BC369F2003C1D05 /* Info.plist */,
+				A57772A01BC369F2003C1D05 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A57772AD1BC369F2003C1D05 /* TapAndRoll WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				A57772B01BC369F2003C1D05 /* Interface.storyboard */,
+				A57772B31BC369F2003C1D05 /* Images.xcassets */,
+				A57772AE1BC369F2003C1D05 /* Supporting Files */,
+			);
+			path = "TapAndRoll WatchKit App";
+			sourceTree = "<group>";
+		};
+		A57772AE1BC369F2003C1D05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A57772AF1BC369F2003C1D05 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +216,12 @@
 				A50C64621BC32F28008FB51F /* Sources */,
 				A50C64631BC32F28008FB51F /* Frameworks */,
 				A50C64641BC32F28008FB51F /* Resources */,
+				A57772BE1BC369F2003C1D05 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A57772B61BC369F2003C1D05 /* PBXTargetDependency */,
 			);
 			name = TapAndRoll;
 			productName = TapAndRoll;
@@ -150,6 +246,39 @@
 			productReference = A50C647B1BC32F29008FB51F /* TapAndRollTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A577729B1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A57772BD1BC369F2003C1D05 /* Build configuration list for PBXNativeTarget "TapAndRoll WatchKit Extension" */;
+			buildPhases = (
+				A57772981BC369F2003C1D05 /* Sources */,
+				A57772991BC369F2003C1D05 /* Frameworks */,
+				A577729A1BC369F2003C1D05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A57772AC1BC369F2003C1D05 /* PBXTargetDependency */,
+			);
+			name = "TapAndRoll WatchKit Extension";
+			productName = "TapAndRoll WatchKit Extension";
+			productReference = A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		A57772A81BC369F2003C1D05 /* TapAndRoll WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A57772BC1BC369F2003C1D05 /* Build configuration list for PBXNativeTarget "TapAndRoll WatchKit App" */;
+			buildPhases = (
+				A57772A71BC369F2003C1D05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TapAndRoll WatchKit App";
+			productName = "TapAndRoll WatchKit App";
+			productReference = A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +294,12 @@
 					A50C647A1BC32F29008FB51F = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = A50C64651BC32F28008FB51F;
+					};
+					A577729B1BC369F2003C1D05 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A57772A81BC369F2003C1D05 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -183,6 +318,8 @@
 			targets = (
 				A50C64651BC32F28008FB51F /* TapAndRoll */,
 				A50C647A1BC32F29008FB51F /* TapAndRollTests */,
+				A577729B1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */,
+				A57772A81BC369F2003C1D05 /* TapAndRoll WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +339,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A577729A1BC369F2003C1D05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */,
+				A57772AA1BC369F2003C1D05 /* TapAndRoll WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57772A71BC369F2003C1D05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57772B21BC369F2003C1D05 /* Interface.storyboard in Resources */,
+				A57772B41BC369F2003C1D05 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +380,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A57772981BC369F2003C1D05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */,
+				A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +396,16 @@
 			isa = PBXTargetDependency;
 			target = A50C64651BC32F28008FB51F /* TapAndRoll */;
 			targetProxy = A50C647C1BC32F29008FB51F /* PBXContainerItemProxy */;
+		};
+		A57772AC1BC369F2003C1D05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A57772A81BC369F2003C1D05 /* TapAndRoll WatchKit App */;
+			targetProxy = A57772AB1BC369F2003C1D05 /* PBXContainerItemProxy */;
+		};
+		A57772B61BC369F2003C1D05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A577729B1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */;
+			targetProxy = A57772B51BC369F2003C1D05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -250,6 +424,14 @@
 				A50C64751BC32F28008FB51F /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A57772B01BC369F2003C1D05 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A57772B11BC369F2003C1D05 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -390,6 +572,62 @@
 			};
 			name = Release;
 		};
+		A57772B81BC369F2003C1D05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TapAndRoll WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A57772B91BC369F2003C1D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TapAndRoll WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A57772BA1BC369F2003C1D05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = TapAndRoll_WatchKit_Extension;
+				INFOPLIST_FILE = "TapAndRoll WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		A57772BB1BC369F2003C1D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = TapAndRoll_WatchKit_Extension;
+				INFOPLIST_FILE = "TapAndRoll WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,12 +647,30 @@
 				A50C64871BC32F29008FB51F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A50C64881BC32F29008FB51F /* Build configuration list for PBXNativeTarget "TapAndRollTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A50C64891BC32F29008FB51F /* Debug */,
 				A50C648A1BC32F29008FB51F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A57772BC1BC369F2003C1D05 /* Build configuration list for PBXNativeTarget "TapAndRoll WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A57772BA1BC369F2003C1D05 /* Debug */,
+				A57772BB1BC369F2003C1D05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A57772BD1BC369F2003C1D05 /* Build configuration list for PBXNativeTarget "TapAndRoll WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A57772B81BC369F2003C1D05 /* Debug */,
+				A57772B91BC369F2003C1D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
