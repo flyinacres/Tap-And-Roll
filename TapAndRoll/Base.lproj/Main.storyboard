@@ -16,12 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aJ-Rw-2UT">
-                                <rect key="frame" x="-5" y="-13" width="600" height="600"/>
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-aS-7Kk">
+                                <rect key="frame" x="200" y="180" width="200" height="200"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-Mc-iPf">
+                                <rect key="frame" x="277" y="416" width="46" height="30"/>
+                                <state key="normal" title="Roll">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rollButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lk8-mi-3Wg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Oun-Mc-iPf" secondAttribute="centerX" id="Sa3-DZ-ln7"/>
+                            <constraint firstAttribute="centerY" secondItem="HBN-aS-7Kk" secondAttribute="centerY" id="ecc-oB-cvB"/>
+                            <constraint firstAttribute="centerX" secondItem="HBN-aS-7Kk" secondAttribute="centerX" id="qh0-0Y-x3Q"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dieImage" destination="HBN-aS-7Kk" id="e1P-IH-aco"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

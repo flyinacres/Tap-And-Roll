@@ -23,12 +23,12 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         createDieImage()
-        dieImage.setImageNamed("path\\dieImage0.png")
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        dieImage.setImageNamed("dieImage")
     }
 
     override func didDeactivate() {
@@ -54,7 +54,7 @@ class InterfaceController: WKInterfaceController {
             
             // Write the image as a file
             let data = UIImagePNGRepresentation(image)
-            let file = "path\\dieImage\(centerX).png"
+            let file = "dieImage\(centerX).png"
             println(file)
             data.writeToFile(file, atomically: true)
             

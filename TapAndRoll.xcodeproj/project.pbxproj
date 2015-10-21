@@ -20,6 +20,8 @@
 		A57772B21BC369F2003C1D05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57772B01BC369F2003C1D05 /* Interface.storyboard */; };
 		A57772B41BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772B31BC369F2003C1D05 /* Images.xcassets */; };
 		A57772B71BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A592BC8C1BD6E84C00731BAB /* William.png in Resources */ = {isa = PBXBuildFile; fileRef = A592BC8B1BD6E84C00731BAB /* William.png */; };
+		A5B79A511BD6D97C00D26AB1 /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B79A501BD6D97C00D26AB1 /* DieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		A57772AF1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57772B11BC369F2003C1D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A57772B31BC369F2003C1D05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A592BC8B1BD6E84C00731BAB /* William.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = William.png; sourceTree = "<group>"; };
+		A5B79A501BD6D97C00D26AB1 /* DieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +139,11 @@
 			children = (
 				A50C646B1BC32F28008FB51F /* AppDelegate.swift */,
 				A50C646D1BC32F28008FB51F /* ViewController.swift */,
+				A5B79A501BD6D97C00D26AB1 /* DieView.swift */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
 				A50C64741BC32F28008FB51F /* LaunchScreen.xib */,
+				A592BC8B1BD6E84C00731BAB /* William.png */,
 				A50C64691BC32F28008FB51F /* Supporting Files */,
 			);
 			path = TapAndRoll;
@@ -330,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50C64711BC32F28008FB51F /* Main.storyboard in Resources */,
+				A592BC8C1BD6E84C00731BAB /* William.png in Resources */,
 				A50C64761BC32F28008FB51F /* LaunchScreen.xib in Resources */,
 				A50C64731BC32F28008FB51F /* Images.xcassets in Resources */,
 			);
@@ -369,6 +376,7 @@
 			files = (
 				A50C646E1BC32F28008FB51F /* ViewController.swift in Sources */,
 				A50C646C1BC32F28008FB51F /* AppDelegate.swift in Sources */,
+				A5B79A511BD6D97C00D26AB1 /* DieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +673,7 @@
 				A57772BB1BC369F2003C1D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A57772BD1BC369F2003C1D05 /* Build configuration list for PBXNativeTarget "TapAndRoll WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -673,6 +682,7 @@
 				A57772B91BC369F2003C1D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
