@@ -35,13 +35,13 @@ class ViewController: UIViewController {
     var maxSides = 10
     var totalRolls = 0
     var curRolls = 0
-    var dieSides = 3
+    var dieSides = 5
     func doDieAnimation() {
         let filePath = fileDir.stringByAppendingPathComponent("dieImage\(counter).png");
         println(filePath)
         dieImage.image = UIImage(named: filePath)
         
-        if counter == maxSides-1 {
+        if counter == dieSides-1 {
             counter = 0
         } else {
             counter++
@@ -87,12 +87,12 @@ class ViewController: UIViewController {
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
         println("size is \(rect)")
         
-        for centerX in 0...maxSides {
+        for centerX in 0...dieSides {
             UIGraphicsBeginImageContext(dieSize)
             let context = UIGraphicsGetCurrentContext()
             
             //draw a circle at centerX
-            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: centerX + dieSides, color: UIColor.blueColor())
+            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, startAngle: degree2radian((360/CGFloat(dieSides*2))*CGFloat(centerX)), color: UIColor.blueColor())
             
             // Create a snapshot
             let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         return b
     }
     
-    func polygonPointArray(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat)->[CGPoint] {
+    func polygonPointArray(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat, startAngle:CGFloat)->[CGPoint] {
         let angle = degree2radian(360/CGFloat(sides))
         let cx = x // x origin
         let cy = y // y origin
@@ -123,17 +123,17 @@ class ViewController: UIViewController {
         var i = 0
         var points = [CGPoint]()
         while i <= sides {
-            var xpo = cx + r * cos(angle * CGFloat(i))
-            var ypo = cy + r * sin(angle * CGFloat(i))
+            var xpo = cx + r * cos(angle * CGFloat(i) + startAngle)
+            var ypo = cy + r * sin(angle * CGFloat(i) + startAngle)
             points.append(CGPoint(x: xpo, y: ypo))
             i++;
         }
         return points
     }
     
-    func polygonPath(x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int) -> CGPathRef {
+    func polygonPath(x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, startAngle:CGFloat) -> CGPathRef {
         let path = CGPathCreateMutable()
-        let points = polygonPointArray(sides, x: x, y: y,radius: radius)
+        let points = polygonPointArray(sides, x: x, y: y,radius: radius, startAngle: startAngle)
         var cpg = points[0]
         CGPathMoveToPoint(path, nil, cpg.x, cpg.y)
         for p in points {
@@ -144,12 +144,20 @@ class ViewController: UIViewController {
         return path
     }
     
-    func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, color:UIColor) {
-        let path = polygonPath(x, y: y, radius: radius, sides: sides)
+    func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, startAngle:CGFloat, color:UIColor) {
+        let path = polygonPath(x, y: y, radius: radius, sides: sides, startAngle: startAngle)
         CGContextAddPath(ctx, path)
-        let cgcolor = color.CGColor
-        CGContextSetFillColorWithColor(ctx,cgcolor)
+        CGContextSetFillColorWithColor(ctx, color.CGColor)
         CGContextFillPath(ctx)
+        
+        // Code to draw a single pip
+        // TODO: Need to put varying number of pips on sides
+        let rectangle = CGRect(x: x, y: y, width: 20, height: 20)
+        CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
+        CGContextSetLineWidth(ctx, 3)
+        CGContextSetStrokeColorWithColor(ctx, UIColor.blackColor().CGColor)
+        CGContextAddEllipseInRect(ctx, rectangle)
+        CGContextDrawPath(ctx, kCGPathFillStroke)
     }
  
 }
