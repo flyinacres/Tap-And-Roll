@@ -107,7 +107,7 @@ class ViewController: UIViewController {
             let context = UIGraphicsGetCurrentContext()
             
             //draw a shape at centerX
-            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, curSide: centerX, color: UIColor.blueColor())
+            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, curSide: centerX, color: dieColor)
             
             // Create a snapshot
             let image = UIGraphicsGetImageFromCurrentImageContext()
