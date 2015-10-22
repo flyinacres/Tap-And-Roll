@@ -11,62 +11,83 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var dieImage: UIImageView!
-    var fileDir = ""
     var timer = NSTimer()
     
+    // Functions for manipulating image files
+    var imageFile = ImageFile()
+
     
     @IBAction func rollButton(sender: AnyObject) {
-        rollDie()
+        if !isAnimating {
+            rollDie()
+        }
     }
     
     func imageTapped(sender: UITapGestureRecognizer) {
-        rollDie()
+        if !isAnimating {
+            rollDie()
+        }
     }
     
     func rollDie() {
+        
+        totalRolls = Int(arc4random_uniform(UInt32(dieSides + 4))) + 1
+        
+        isAnimating = true
         timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: Selector("doDieAnimation"), userInfo: nil, repeats: true)
+        
+        // This sort of code could be used to animate the appearance of the die...
         //UIView.animateWithDuration(1, animations: { () -> Void in
         //    self.dieImage.center = CGPointMake(self.dieImage.center.x + 400, self.dieImage.center.y)
         //})
         
     }
     
-    var counter = 0
     var maxSides = 10
     var totalRolls = 0
     var curRolls = 0
-    var dieSides = 5
+
+    var curSide = 1
+    var isAnimating = false
     func doDieAnimation() {
-        let filePath = fileDir.stringByAppendingPathComponent("dieImage\(counter).png");
-        println(filePath)
-        dieImage.image = UIImage(named: filePath)
+        curSide = pickNextDieSide(curSide)
+        setCurDieImage(curSide)
         
-        if counter == dieSides-1 {
-            counter = 0
-        } else {
-            counter++
-        }
-        
-        if curRolls == totalRolls {
+        if curRolls >= totalRolls {
             curRolls = 0
             timer.invalidate()
+            isAnimating = false
         } else {
             curRolls++
         }
     }
     
+    func setCurDieImage(currentSide: Int) {
+        dieImage.image = UIImage(named: imageFile.imageFilePath(currentSide))
+    }
+    
+    func pickNextDieSide(curSide: Int) -> Int {
+        var nextSide = Int(arc4random_uniform(UInt32(dieSides-1))) + 1
+        if nextSide == curSide {
+            nextSide++
+            if nextSide > dieSides {
+                nextSide = 1
+            }
+        }
+        
+        return nextSide
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         println(self.view.frame)
-        // Do any additional setup after loading the view, typically from a nib.
-        fileDir = getWritablePath()
-        createDieImage(fileDir, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
-        let filePath = fileDir.stringByAppendingPathComponent("dieImage3.png");
-        println(filePath)
-        dieImage.image = UIImage(named: filePath)
-        println(dieImage.image)
         
-        totalRolls = Int(arc4random_uniform(UInt32(dieSides + 4)))
+        // Do any additional setup after loading the view, typically from a nib.
+        createDieImages(UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
+        
+        curSide = 1
+        setCurDieImage(curSide)
         
         dieImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapped:"))
     }
@@ -76,33 +97,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getWritablePath() -> String {
-        let dirs : [String] = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String])!
-        return dirs[0] //documents directory
-    }
-    
-    func createDieImage(fileDir: String, width: CGFloat, height: CGFloat) {
+    func createDieImages(width: CGFloat, height: CGFloat) {
     
         let dieSize = CGSize(width: Int(width), height: Int(height))
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
-        println("size is \(rect)")
         
-        for centerX in 0...dieSides {
+        for centerX in 1...dieSides {
             UIGraphicsBeginImageContext(dieSize)
             let context = UIGraphicsGetCurrentContext()
             
-            //draw a circle at centerX
-            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, startAngle: degree2radian((360/CGFloat(dieSides*2))*CGFloat(centerX)), color: UIColor.blueColor())
+            //draw a shape at centerX
+            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, curSide: centerX, color: UIColor.blueColor())
             
             // Create a snapshot
             let image = UIGraphicsGetImageFromCurrentImageContext()
             
             // Write the image as a file
-            let data = UIImagePNGRepresentation(image)
-            let filePath = fileDir.stringByAppendingPathComponent("dieImage\(centerX).png");
-            //println(filePath)
-            var b = data.writeToFile(filePath, atomically: true)
-            println("success of the write is \(b)")
+            imageFile.writeImage(UIImagePNGRepresentation(image), fileNumber: centerX)
+
             UIGraphicsEndImageContext()
         }
         
@@ -116,6 +128,7 @@ class ViewController: UIViewController {
     }
     
     func polygonPointArray(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat, startAngle:CGFloat)->[CGPoint] {
+        println("Total number of sides is \(sides)")
         let angle = degree2radian(360/CGFloat(sides))
         let cx = x // x origin
         let cy = y // y origin
@@ -137,18 +150,25 @@ class ViewController: UIViewController {
         var cpg = points[0]
         CGPathMoveToPoint(path, nil, cpg.x, cpg.y)
         for p in points {
-            println("point is \(p)")
             CGPathAddLineToPoint(path, nil, p.x, p.y)
         }
         CGPathCloseSubpath(path)
         return path
     }
     
-    func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, startAngle:CGFloat, color:UIColor) {
+    func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, curSide: Int, color:UIColor) {
+        let startAngle: CGFloat = degree2radian((360/CGFloat(sides*2))*CGFloat(curSide))
         let path = polygonPath(x, y: y, radius: radius, sides: sides, startAngle: startAngle)
         CGContextAddPath(ctx, path)
         CGContextSetFillColorWithColor(ctx, color.CGColor)
         CGContextFillPath(ctx)
+        
+        
+        //drawPip(ctx, x: x, y: y)
+        drawText(ctx, x: x, y: y, radius: radius, color: UIColor.blackColor(), text: "\(curSide)")
+    }
+    
+    func drawPip(ctx:CGContextRef, x:CGFloat, y:CGFloat) {
         
         // Code to draw a single pip
         // TODO: Need to put varying number of pips on sides
@@ -158,6 +178,40 @@ class ViewController: UIViewController {
         CGContextSetStrokeColorWithColor(ctx, UIColor.blackColor().CGColor)
         CGContextAddEllipseInRect(ctx, rectangle)
         CGContextDrawPath(ctx, kCGPathFillStroke)
+    }
+    
+    func drawText(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, color:UIColor, text:String) {
+        
+        // Flip text co-ordinate space, see: http://blog.spacemanlabs.com/2011/08/quick-tip-drawing-core-text-right-side-up/
+//        CGContextTranslateCTM(ctx, 0.0, CGRectGetHeight(rect))
+        CGContextTranslateCTM(ctx, 0.0, 568)
+        CGContextScaleCTM(ctx, 1.0, -1.0)
+        // dictates on how inset the ring of numbers will be
+        let inset:CGFloat = radius/3.5
+        let path = CGPathCreateMutable()
+        
+
+        // Font name must be written exactly the same as the system stores it (some names are hyphenated, some aren't) and must exist on the user's device. Otherwise there will be a crash. (In real use checks and fallbacks would be created.) For a list of iOS 7 fonts see here: http://support.apple.com/en-us/ht5878
+        let aFont = UIFont(name: "Optima-Bold", size: radius/2)
+        // create a dictionary of attributes to be applied to the string
+        let attr:CFDictionaryRef = [NSFontAttributeName:aFont!,NSForegroundColorAttributeName:color]
+        // create the attributed string
+        let text = CFAttributedStringCreate(nil, text, attr)
+        // create the line of text
+        let line = CTLineCreateWithAttributedString(text)
+        // retrieve the bounds of the text
+        let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
+        // set the line width to stroke the text with
+        CGContextSetLineWidth(ctx, 1.5)
+        // set the drawing mode to stroke
+        CGContextSetTextDrawingMode(ctx, kCGTextFill)
+        // Set text position and draw the line into the graphics context, text length and height is adjusted for
+        CGContextSetTextPosition(ctx, x-15, y-15)
+        // the line of text is drawn - see https://developer.apple.com/library/ios/DOCUMENTATION/StringsTextFonts/Conceptual/CoreText_Programming/LayoutOperations/LayoutOperations.html
+        // draw the line of text
+        CTLineDraw(line, ctx)
+
+        
     }
  
 }
