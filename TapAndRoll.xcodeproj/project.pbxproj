@@ -26,6 +26,7 @@
 		A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE501BD957A600F51885 /* ImageFile.swift */; };
 		A5EFEE531BD983B200F51885 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEE521BD983B200F51885 /* colorPalette.plist */; };
 		A5EFEE551BD983CC00F51885 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */; };
+		A5EFEE571BD9D5E700F51885 /* YLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE561BD9D5E700F51885 /* YLColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		A5EFEE501BD957A600F51885 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
 		A5EFEE521BD983B200F51885 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
 		A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		A5EFEE561BD9D5E700F51885 /* YLColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				A50C646D1BC32F28008FB51F /* ViewController.swift */,
 				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
 				A5B79A501BD6D97C00D26AB1 /* DieView.swift */,
+				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
 				A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
@@ -391,6 +394,7 @@
 				A5EFEE4F1BD9513C00F51885 /* OptionsViewController.swift in Sources */,
 				A5EFEE551BD983CC00F51885 /* ColorPickerViewController.swift in Sources */,
 				A50C646C1BC32F28008FB51F /* AppDelegate.swift in Sources */,
+				A5EFEE571BD9D5E700F51885 /* YLColor.swift in Sources */,
 				A5B79A511BD6D97C00D26AB1 /* DieView.swift in Sources */,
 				A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */,
 			);
