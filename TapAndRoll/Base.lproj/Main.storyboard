@@ -34,27 +34,40 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GA-kJe">
-                                <rect key="frame" x="271" y="500" width="58" height="30"/>
-                                <state key="normal" title="New Die">
+                                <rect key="frame" x="260" y="500" width="80" height="30"/>
+                                <state key="normal" title="Change Die">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="cSg-0j-pJw" kind="show" id="RfC-xv-7oH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-MA-pxh">
+                                <rect key="frame" x="225" y="120" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="QEX-9A-SnL"/>
+                                    <constraint firstAttribute="height" constant="21" id="VZb-wY-dn9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Oun-Mc-iPf" firstAttribute="top" secondItem="HBN-aS-7Kk" secondAttribute="bottom" constant="36" id="Imi-xq-whL"/>
                             <constraint firstAttribute="centerX" secondItem="Oun-Mc-iPf" secondAttribute="centerX" id="Sa3-DZ-ln7"/>
+                            <constraint firstAttribute="centerX" secondItem="AXb-MA-pxh" secondAttribute="centerX" id="ddN-tN-y4m"/>
                             <constraint firstAttribute="centerY" secondItem="HBN-aS-7Kk" secondAttribute="centerY" id="ecc-oB-cvB"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="70" id="h21-3n-Op3"/>
                             <constraint firstAttribute="centerX" secondItem="hcA-GA-kJe" secondAttribute="centerX" id="hUo-c6-YHG"/>
+                            <constraint firstItem="AXb-MA-pxh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="onk-SF-0JP"/>
                             <constraint firstAttribute="centerX" secondItem="HBN-aS-7Kk" secondAttribute="centerX" id="qh0-0Y-x3Q"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dieImage" destination="HBN-aS-7Kk" id="e1P-IH-aco"/>
+                        <outlet property="dieLabel" destination="AXb-MA-pxh" id="6ek-dM-lY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -147,8 +160,12 @@
                                     <action selector="sidesChoice:" destination="cSg-0j-pJw" eventType="valueChanged" id="msp-Ga-XSf"/>
                                 </connections>
                             </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YR-qH-PrI">
-                                <rect key="frame" x="285" y="520" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YR-qH-PrI">
+                                <rect key="frame" x="237" y="527" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7Fk-DP-KbP"/>
+                                    <constraint firstAttribute="width" constant="150" id="eJq-1I-LmE"/>
+                                </constraints>
                                 <state key="normal" title="Roll">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -167,7 +184,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-Xl-Omv">
-                                <rect key="frame" x="150" y="204" width="300" height="231"/>
+                                <rect key="frame" x="150" y="205" width="300" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Hvg-Of-y5l"/>
@@ -207,16 +224,32 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNE-kd-Pw0">
+                                <rect key="frame" x="357" y="74" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ekd-4W-aqd"/>
+                                    <constraint firstAttribute="height" constant="30" id="aGz-pi-gah"/>
+                                </constraints>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="cSg-0j-pJw" eventType="touchUpInside" id="qaC-T9-jRU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="c7N-GM-Yb5" secondAttribute="trailing" constant="8" id="774-8y-Zzm"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Ad3-58-Fjw"/>
                             <constraint firstAttribute="centerX" secondItem="wgV-My-TIh" secondAttribute="centerX" id="CQ3-ah-fKW"/>
+                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="54" id="D3a-A2-xa6"/>
                             <constraint firstAttribute="centerX" secondItem="fTp-Yq-CCw" secondAttribute="centerX" id="E9S-aY-9wC"/>
                             <constraint firstItem="c7N-GM-Yb5" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="6" id="HdS-4N-AT3"/>
                             <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="44" id="MSc-lN-wgY"/>
                             <constraint firstItem="wgV-My-TIh" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="18" id="QFo-6e-jl3"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Rjl-fT-L83"/>
+                            <constraint firstAttribute="centerX" secondItem="5YR-qH-PrI" secondAttribute="centerX" id="SgN-yv-JaK"/>
                             <constraint firstItem="c7N-GM-Yb5" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="10" id="evj-eq-hbu"/>
                             <constraint firstItem="fTp-Yq-CCw" firstAttribute="top" secondItem="Oc2-Xl-V8o" secondAttribute="bottom" constant="29" id="f1m-ds-Xzl"/>
                             <constraint firstAttribute="centerX" secondItem="c7N-GM-Yb5" secondAttribute="centerX" id="fSa-Do-NTY"/>
@@ -229,13 +262,16 @@
                     <connections>
                         <outlet property="colorButton" destination="wgV-My-TIh" id="fU4-Cd-vec"/>
                         <outlet property="curStepperValue" destination="Oc2-Xl-V8o" id="ifh-h0-hxV"/>
+                        <outlet property="dieTableView" destination="fMg-Xl-Omv" id="lVq-Iv-beZ"/>
                         <outlet property="nameField" destination="c7N-GM-Yb5" id="cYg-5y-EUO"/>
+                        <outlet property="rollButtonLabel" destination="5YR-qH-PrI" id="Ele-0q-nKa"/>
+                        <outlet property="saveButtonLabel" destination="NNE-kd-Pw0" id="kmM-Gd-ioD"/>
                         <outlet property="sidesLabel" destination="fTp-Yq-CCw" id="Nzg-aW-wi0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8d-Xu-ZHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="390"/>
+            <point key="canvasLocation" x="306" y="427"/>
         </scene>
     </scenes>
     <resources>

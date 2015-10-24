@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var dieLabel: UILabel!
     @IBOutlet weak var dieImage: UIImageView!
+    
     var timer = NSTimer()
     
     // Functions for manipulating image files
@@ -63,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     func setCurDieImage(currentSide: Int) {
-        dieImage.image = UIImage(named: imageFile.imageFilePath(currentSide))
+        dieImage.image = UIImage(named: imageFile.imageFilePath(savedDice[currentDie].name, fileNumber: currentSide))
     }
     
     func pickNextDieSide(curSide: Int) -> Int {
@@ -90,6 +92,10 @@ class ViewController: UIViewController {
         setCurDieImage(curSide)
         
         dieImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapped:"))
+        
+        // Update the label on this page to reflect the die
+        // in use
+        dieLabel.text = savedDice[currentDie].name
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,18 +108,26 @@ class ViewController: UIViewController {
         let dieSize = CGSize(width: Int(width), height: Int(height))
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
         
+        // It makes no sense to have fewer than 3 or more than 10 sides...
+        var drawableSides = dieSides
+        if dieSides < 3 {
+            drawableSides = 3
+        } else if dieSides > 10 {
+            drawableSides = 10
+        }
+        
         for centerX in 1...dieSides {
             UIGraphicsBeginImageContext(dieSize)
             let context = UIGraphicsGetCurrentContext()
             
             //draw a shape at centerX
-            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: dieSides, curSide: centerX, color: dieColor)
+            drawPolygonUsingPath(context, x: CGRectGetMidX(rect),y: CGRectGetMidY(rect),radius: CGRectGetWidth(rect)/3, sides: drawableSides, curSide: centerX, color: dieColor)
             
             // Create a snapshot
             let image = UIGraphicsGetImageFromCurrentImageContext()
             
             // Write the image as a file
-            imageFile.writeImage(UIImagePNGRepresentation(image), fileNumber: centerX)
+            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: savedDice[currentDie].name, fileNumber: centerX)
 
             UIGraphicsEndImageContext()
         }
@@ -128,7 +142,6 @@ class ViewController: UIViewController {
     }
     
     func polygonPointArray(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat, startAngle:CGFloat)->[CGPoint] {
-        println("Total number of sides is \(sides)")
         let angle = degree2radian(360/CGFloat(sides))
         let cx = x // x origin
         let cy = y // y origin

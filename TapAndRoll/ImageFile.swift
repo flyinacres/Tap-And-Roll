@@ -16,14 +16,16 @@ class ImageFile {
         fileDir = dirs[0] //documents directory
     }
     
-    func writeImage(data: NSData, fileNumber: Int) {
-        var b = data.writeToFile(imageFilePath(fileNumber), atomically: true)
-        println("success of the write is \(b)")
+    func writeImage(data: NSData, dieName: String, fileNumber: Int) {
+        var b = data.writeToFile(imageFilePath(dieName, fileNumber: fileNumber), atomically: true)
+        println("Write of \(dieName)\(fileNumber) is \(b)")
         
     }
     
-    func imageFilePath(fileNumber: Int) -> String {
-        return fileDir.stringByAppendingPathComponent("dieImage\(fileNumber).png");
+    func imageFilePath(dieName: String, fileNumber: Int) -> String {
+        let fileName = "dieImage\(dieName)\(fileNumber).png"
+        println("The filenName is \(fileName)")
+        return fileDir.stringByAppendingPathComponent(fileName);
     }
 
     
