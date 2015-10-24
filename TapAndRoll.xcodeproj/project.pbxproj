@@ -27,6 +27,8 @@
 		A5EFEE531BD983B200F51885 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEE521BD983B200F51885 /* colorPalette.plist */; };
 		A5EFEE551BD983CC00F51885 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */; };
 		A5EFEE571BD9D5E700F51885 /* YLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE561BD9D5E700F51885 /* YLColor.swift */; };
+		A5EFEE5A1BDB544300F51885 /* DieSets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */; };
+		A5EFEE5C1BDC20BC00F51885 /* DicePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		A5EFEE521BD983B200F51885 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
 		A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		A5EFEE561BD9D5E700F51885 /* YLColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLColor.swift; sourceTree = "<group>"; };
+		A5EFEE591BDB544300F51885 /* DieSets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DieSets.xcdatamodel; sourceTree = "<group>"; };
+		A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DicePersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +154,14 @@
 				A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */,
 				A5EFEE521BD983B200F51885 /* colorPalette.plist */,
 				A50C646B1BC32F28008FB51F /* AppDelegate.swift */,
+				A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */,
 				A50C646D1BC32F28008FB51F /* ViewController.swift */,
 				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
 				A5B79A501BD6D97C00D26AB1 /* DieView.swift */,
 				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
 				A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */,
+				A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
 				A50C64741BC32F28008FB51F /* LaunchScreen.xib */,
 				A592BC8B1BD6E84C00731BAB /* William.png */,
@@ -395,7 +401,9 @@
 				A5EFEE551BD983CC00F51885 /* ColorPickerViewController.swift in Sources */,
 				A50C646C1BC32F28008FB51F /* AppDelegate.swift in Sources */,
 				A5EFEE571BD9D5E700F51885 /* YLColor.swift in Sources */,
+				A5EFEE5A1BDB544300F51885 /* DieSets.xcdatamodeld in Sources */,
 				A5B79A511BD6D97C00D26AB1 /* DieView.swift in Sources */,
+				A5EFEE5C1BDC20BC00F51885 /* DicePersistence.swift in Sources */,
 				A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +713,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A5EFEE591BDB544300F51885 /* DieSets.xcdatamodel */,
+			);
+			currentVersion = A5EFEE591BDB544300F51885 /* DieSets.xcdatamodel */;
+			path = DieSets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A50C645E1BC32F28008FB51F /* Project object */;
 }

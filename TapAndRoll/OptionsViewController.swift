@@ -16,8 +16,8 @@ var dieColor = UIColor.blueColor()
 var currentDie = 0
 
 // The dice currently saved long term, including some pre-created ones
-var savedDice: [(name: String, color: String, sides: Int)] = [(name: "D6", color: "#0000ff", sides: 6), (name: "D8", color: "#38ff38", sides: 8), (name: "D4", color: "#ff8056", sides: 4)]
-
+var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "D6", color: "#0000ff", sides: 6), (dieSet: 0, name: "D8", color: "#38ff38", sides: 8), (dieSet: 0, name: "D4", color: "#ff8056", sides: 4)]
+var savedDice: [(dieSet: Int, name: String, color: String, sides: Int)]  = []
 
 class OptionsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITextFieldDelegate  {
 
@@ -75,13 +75,19 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         
         if let index = findDieByName(nameField.text) {
             // Only update the color--this die already exists
-            savedDice[index] = (name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
+            savedDice[index] = (dieSet: 0, name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
+            
+            // Now update the info for this die
+            DicePersistence.sharedInstance.updateDieInStorage(0, name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
         } else {
             // Add new die
             
             // Swift bug--thanks for wasting hours of my life...
             // Swift cannot figure out the types of tuples and refuses to add them to an array.
-            savedDice.append(name: nameField.text as String, color: dieColor.toHexString() as String, sides: dieSides as Int)
+            savedDice.append(dieSet: 0 as Int, name: nameField.text as String, color: dieColor.toHexString() as String, sides: dieSides as Int)
+            
+            // Now permanently save this die
+            DicePersistence.sharedInstance.saveDieToStorage(0, name: nameField.text, color: dieColor.toHexString(), sides: dieSides)
             
             // Don't forget to update the selection to the newly added die
             currentDie = savedDice.count - 1
@@ -116,6 +122,23 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize the set of saved dice at least the first time.  After this assume that dice are
+        // added as they are saved or updated
+        if savedDice.count == 0 {
+            var readDice: [(dieSet: Int, name: String, color: String, sides: Int)]?
+            readDice = DicePersistence.sharedInstance.loadDiceFromStorage(0)
+            if readDice == nil || readDice!.count == 0 {
+                DicePersistence.sharedInstance.saveDieSet(0, theSavedDice: originalSavedDice)
+                readDice = DicePersistence.sharedInstance.loadDiceFromStorage(0)
+                if readDice != nil {
+                   savedDice = readDice!
+                }
+            } else {
+                savedDice = readDice!
+            }
+
+        }
         
         // Set up the delegate for working with the editable die name field
         nameField.delegate = self
