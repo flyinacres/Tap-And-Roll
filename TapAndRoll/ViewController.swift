@@ -18,15 +18,31 @@ class ViewController: UIViewController {
     // Functions for manipulating image files
     var imageFile = ImageFile()
 
-    
+    // Roll the die if the button is tapped
     @IBAction func rollButton(sender: AnyObject) {
         if !isAnimating {
             rollDie()
         }
     }
     
+    
+    // Roll the die if the image is tapped
     func imageTapped(sender: UITapGestureRecognizer) {
         if !isAnimating {
+            rollDie()
+        }
+    }
+    
+    
+    // Enable this view controller to get shake events, and others
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    
+    // Roll the die if the phone is shaken
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == .MotionShake {
             rollDie()
         }
     }

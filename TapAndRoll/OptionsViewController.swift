@@ -43,7 +43,10 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     
     // Popup the color selection popover
     @IBAction func colorSelection(sender: UIButton) {
-        
+      
+        // First, get rid of the keyboard if it is up--it takes too much space away from the color picker
+        self.view.endEditing(true)
+
         let popoverVC = storyboard?.instantiateViewControllerWithIdentifier("colorPickerPopover") as! ColorPickerViewController
         popoverVC.modalPresentationStyle = .Popover
         popoverVC.preferredContentSize = CGSizeMake(284, 446)
