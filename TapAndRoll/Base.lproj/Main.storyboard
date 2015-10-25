@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-MA-pxh">
-                                <rect key="frame" x="225" y="120" width="150" height="21"/>
+                                <rect key="frame" x="225" y="170" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="QEX-9A-SnL"/>
                                     <constraint firstAttribute="height" constant="21" id="VZb-wY-dn9"/>
@@ -52,16 +52,61 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6L-M4S">
+                                <rect key="frame" x="6" y="30" width="588" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="JiB-Dc-qX6"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uGA-cO-ySB">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AvailableDieCell" id="UYl-Kp-X9v" customClass="DieViewCell" customModule="TapAndRoll" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-cs-F32">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="CSn-cs-F32" secondAttribute="trailing" constant="5" id="Ebb-X8-BzD"/>
+                                            <constraint firstItem="CSn-cs-F32" firstAttribute="top" secondItem="UYl-Kp-X9v" secondAttribute="top" constant="5" id="MJW-hG-LTH"/>
+                                            <constraint firstItem="CSn-cs-F32" firstAttribute="leading" secondItem="UYl-Kp-X9v" secondAttribute="leading" constant="5" id="Zw8-9w-OKn"/>
+                                            <constraint firstAttribute="bottom" secondItem="CSn-cs-F32" secondAttribute="bottom" constant="5" id="jpX-Ub-rVO"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dieCellImage" destination="CSn-cs-F32" id="Y9I-lf-6SZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="8RR-0Z-OuD"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="4or-da-9uM"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ReZ-6L-M4S" secondAttribute="trailing" constant="-10" id="3gW-Y5-qk5"/>
+                            <constraint firstItem="ReZ-6L-M4S" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-10" id="BX3-bz-rqq"/>
                             <constraint firstItem="Oun-Mc-iPf" firstAttribute="top" secondItem="HBN-aS-7Kk" secondAttribute="bottom" constant="36" id="Imi-xq-whL"/>
                             <constraint firstAttribute="centerX" secondItem="Oun-Mc-iPf" secondAttribute="centerX" id="Sa3-DZ-ln7"/>
+                            <constraint firstItem="ReZ-6L-M4S" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="d8l-40-b2h"/>
                             <constraint firstAttribute="centerX" secondItem="AXb-MA-pxh" secondAttribute="centerX" id="ddN-tN-y4m"/>
                             <constraint firstAttribute="centerY" secondItem="HBN-aS-7Kk" secondAttribute="centerY" id="ecc-oB-cvB"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="70" id="h21-3n-Op3"/>
                             <constraint firstAttribute="centerX" secondItem="hcA-GA-kJe" secondAttribute="centerX" id="hUo-c6-YHG"/>
-                            <constraint firstItem="AXb-MA-pxh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="onk-SF-0JP"/>
+                            <constraint firstItem="AXb-MA-pxh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="150" id="onk-SF-0JP"/>
                             <constraint firstAttribute="centerX" secondItem="HBN-aS-7Kk" secondAttribute="centerX" id="qh0-0Y-x3Q"/>
                         </constraints>
                     </view>
@@ -94,7 +139,7 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hnp-8i-qZR">
-                                <rect key="frame" x="24" y="8" width="268" height="430"/>
+                                <rect key="frame" x="8" y="8" width="268" height="430"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="430" id="q2i-HN-LXm"/>
@@ -126,7 +171,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XFv-Tu-kdz" firstAttribute="leading" secondItem="PXN-nc-6dF" secondAttribute="leadingMargin" constant="-8" id="0nZ-ih-Zxg"/>
-                            <constraint firstItem="Hnp-8i-qZR" firstAttribute="leading" secondItem="PXN-nc-6dF" secondAttribute="leadingMargin" constant="8" id="HTI-0g-zvN"/>
+                            <constraint firstItem="Hnp-8i-qZR" firstAttribute="leading" secondItem="PXN-nc-6dF" secondAttribute="leadingMargin" constant="-8" id="HTI-0g-zvN"/>
                             <constraint firstItem="Hnp-8i-qZR" firstAttribute="top" secondItem="PXN-nc-6dF" secondAttribute="topMargin" constant="8" id="azd-ze-mpe"/>
                             <constraint firstItem="Hnp-8i-qZR" firstAttribute="top" secondItem="PXN-nc-6dF" secondAttribute="topMargin" id="lhs-Yy-cso"/>
                             <constraint firstItem="XFv-Tu-kdz" firstAttribute="top" secondItem="PXN-nc-6dF" secondAttribute="topMargin" constant="8" id="luZ-KT-cKy"/>
@@ -238,7 +283,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="c7N-GM-Yb5" secondAttribute="trailing" constant="8" id="774-8y-Zzm"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Ad3-58-Fjw"/>

@@ -28,6 +28,7 @@
 		A5EFEE5A1BDB544300F51885 /* DieSets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */; };
 		A5EFEE5C1BDC20BC00F51885 /* DicePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */; };
 		A5EFEEC31BDD62A300F51885 /* diceroll.caf in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEEC21BDD54FF00F51885 /* diceroll.caf */; };
+		A5EFEEC71BDD8DF900F51885 /* DieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		A5EFEE591BDB544300F51885 /* DieSets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DieSets.xcdatamodel; sourceTree = "<group>"; };
 		A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DicePersistence.swift; sourceTree = "<group>"; };
 		A5EFEEC21BDD54FF00F51885 /* diceroll.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = diceroll.caf; sourceTree = "<group>"; };
+		A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
 				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
+				A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */,
 				A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */,
 				A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
@@ -399,6 +402,7 @@
 				A50C646C1BC32F28008FB51F /* AppDelegate.swift in Sources */,
 				A5EFEE571BD9D5E700F51885 /* YLColor.swift in Sources */,
 				A5EFEE5A1BDB544300F51885 /* DieSets.xcdatamodeld in Sources */,
+				A5EFEEC71BDD8DF900F51885 /* DieViewCell.swift in Sources */,
 				A5EFEE5C1BDC20BC00F51885 /* DicePersistence.swift in Sources */,
 				A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */,
 			);

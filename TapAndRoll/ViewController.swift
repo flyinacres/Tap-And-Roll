@@ -9,19 +9,22 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+
+// Functions for manipulating image files
+var imageFile = ImageFile()
+let reuseIdentifier = "AvailableDieCell"
+
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var dieLabel: UILabel!
     @IBOutlet weak var dieImage: UIImageView!
     
+
     // Timer for animating the die
     var timer = NSTimer()
     
     // Audio player for sound effects
     var player: AVAudioPlayer = AVAudioPlayer()
-
-    // Functions for manipulating image files
-    var imageFile = ImageFile()
     
     // The total times the die roll animation plays
     var totalRolls = 0
@@ -122,10 +125,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(self.view.frame)
         
-        // Do any additional setup after loading the view, typically from a nib.
-//        createDieImages(UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height, radius: 100)
         createDieImages(100, height: 100, radius: 50)
         
         curSide = 1
@@ -316,5 +316,44 @@ class ViewController: UIViewController {
         
     }
  
+    
+    // UICollectionViewDataSource Protocol:
+    // Returns the number of rows in collection view
+    internal func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    // UICollectionViewDataSource Protocol:
+    // Returns the number of columns in collection view
+    internal func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return savedDice.count
+    }
+    // UICollectionViewDataSource Protocol:
+    // Initializes the collection view cells
+    internal func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DieViewCell
+        
+        let i = indexPath.section
+        cell.dieCellImage.image = UIImage(named: imageFile.imageFilePath(savedDice[i].name, fileNumber: savedDice[i].sides))
+        
+        cell.backgroundColor = UIColor.clearColor()
+        cell.tag = i
+        
+        return cell
+    }
+    
+    // Recognizes and handles when a collection view cell has been selected
+    internal func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var cell: UICollectionViewCell  = collectionView.cellForItemAtIndexPath(indexPath)! as UICollectionViewCell
+        
+        // Update to the selected die
+        currentDie = cell.tag
+        
+        // dispatch this so that the UI is updated
+        dispatch_async(dispatch_get_main_queue()) {
+            self.dieImage.image = UIImage(named: imageFile.imageFilePath(savedDice[currentDie].name, fileNumber: savedDice[currentDie].sides))
+        }
+        
+    }
 }
 
