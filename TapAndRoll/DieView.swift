@@ -17,7 +17,7 @@ class DieView: UIView {
         // Drawing code
         for centerX in 0...100 {
             //draw a circle at centerX
-            var rect = CGRect(x: centerX, y: 300, width: 150, height: 150)
+            var rect = CGRect(x: centerX, y: 300, width: 100, height: 100)
                 var path = UIBezierPath(ovalInRect: rect)
             UIColor.greenColor().setFill()
             path.fill()
@@ -28,14 +28,14 @@ class DieView: UIView {
 
     
     func createDieImage() {
-        var dieSize = CGSize(width: 150, height: 150)
+        var dieSize = CGSize(width: 100, height: 100)
         UIGraphicsBeginImageContext(dieSize)
         
         let context = UIGraphicsGetCurrentContext()
         
         for centerX in 0...10 {
             //draw a circle at centerX
-            var rect = CGRect(x: centerX, y: 300, width: 150, height: 150)
+            var rect = CGRect(x: centerX, y: 300, width: 100, height: 100)
             var path = UIBezierPath(ovalInRect: rect)
             UIColor.greenColor().setFill()
             path.fill()
