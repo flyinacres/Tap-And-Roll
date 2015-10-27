@@ -18,38 +18,92 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var dieLabel: UILabel!
     @IBOutlet weak var dieImage: UIImageView!
+    @IBOutlet weak var diceView: UIView!
     
+    @IBOutlet weak var dieSelectionCollectionView: UICollectionView!
 
-    // Timer for animating the die
-    var timer = NSTimer()
     
     // Audio player for sound effects
     var player: AVAudioPlayer = AVAudioPlayer()
     
-    // The total times the die roll animation plays
-    var totalRolls = 0
-    
-    // The number of times the die roll animation has currently played
-    var curRolls = 0
-    
     // The current die side showing
     var curSide = 1
-    
-    // True when an animation is already in process
-    var isAnimating = false
 
+    private static var allDice = [Die]()
+    
+    var numDSCVRows = 1
+
+    
+    let defaultDiceViewBounds: CGFloat = 110
+    let diceViewBoundsMax: CGFloat = 320
+    let diceViewBoundsDelta: CGFloat = 105
+    let maxDicePerRow: Int = 3
+    
+    // Add the specified die to the view, if possible
+    func addDieToDiceView(name: String, sides: Int, color: UIColor) {
+        var totalDiceInView = ViewController.allDice.count
+        
+        if totalDiceInView == 9 {
+            let alertController = UIAlertController(title: "Maximum Dice", message:
+                "No more dice can be added.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        // TODO: Need to figure out how to avoid doing this if die images already exist
+        createDieImages(name, sides: sides, color: color, width: 100, height: 100, radius: 50)
+
+        // Need to figure out how to increase the bounds, and where to add the new die
+        var height = CGFloat((totalDiceInView / maxDicePerRow + 1) * 105 + 5)
+        
+        var newDieImage = UIImage(named: imageFile.imageFilePath(name, fileNumber: sides))
+
+        let newDie = Die(image: newDieImage!, name: name, sides: sides, dieSound: player, rdfv: removeDieFromDiceView)
+        
+        ViewController.allDice.append(newDie)
+        
+        newDie.frame = figureDiePosFrameRect(totalDiceInView)
+        newDie.removeDieFromView = removeDieFromDiceView
+        // Actually add the die
+        diceView.addSubview(newDie)
+    }
+    
+    // Calculate the placement (or re-placement) of a die from the total number and current height
+    func figureDiePosFrameRect(dieNumber: Int) -> CGRect {
+        var height = CGFloat((dieNumber / maxDicePerRow + 1) * 105 + 5)
+        var xStart = CGFloat(dieNumber % maxDicePerRow * 105 + 5)
+        var yStart = CGFloat(height - 105)
+        
+        return CGRect(x: xStart, y: yStart, width: 100, height: 100)
+    }
+    
+    
+    // The painful process of removing a particular die
+    func removeDieFromDiceView(dieToRemove: Die) {
+        
+        // Remove the die from the list of all the dice
+        var found = false
+        for (i, die) in enumerate(ViewController.allDice) {
+            if die == dieToRemove {
+                ViewController.allDice.removeAtIndex(i)
+                dieToRemove.removeFromSuperview()
+                found = true
+            } else if found {
+                // After removing the indicated die, move the others to their new positions
+                die.frame = figureDiePosFrameRect(i-1)
+            }
+        }
+    }
 
     // Roll the die if the button is tapped
     @IBAction func rollButton(sender: AnyObject) {
-            rollDie()
+        for die in ViewController.allDice {
+            die.rollDie()
+        }
     }
-    
-    
-    // Roll the die if the image is tapped
-    func imageTapped(sender: UITapGestureRecognizer) {
-            rollDie()
-    }
-    
+
     
     // Enable this view controller to get shake events, and others
     override func canBecomeFirstResponder() -> Bool {
@@ -60,78 +114,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // Roll the die if the phone is shaken
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == .MotionShake {
-            rollDie()
-        }
-    }
-    
-    
-    // Function to actually do the die roll animation
-    func rollDie() {
-        
-        // Don't allow die roll when it is still animating another roll
-        if isAnimating {
-            return
-        }
-        
-        totalRolls = Int(arc4random_uniform(6)) + 2
-        
-        isAnimating = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: Selector("doDieAnimation"), userInfo: nil, repeats: true)
-        
-        // This sort of code could be used to animate the appearance of the die...
-        //UIView.animateWithDuration(1, animations: { () -> Void in
-        //    self.dieImage.center = CGPointMake(self.dieImage.center.x + 400, self.dieImage.center.y)
-        //})
-        
-    }
-    
-    func doDieAnimation() {
-        curSide = pickNextDieSide(curSide)
-        setCurDieImage(curSide)
-        
-        // Play the sound effect just after the rolls start
-        if (curRolls == 1) {
-            player.play()
-        }
-        
-        // Check for the end of the animation
-        if curRolls >= totalRolls {
-            curRolls = 0
-            timer.invalidate()
-            isAnimating = false
-        } else {
-            curRolls++
-        }
-    }
-    
-    // Set the die image based upon the number of the side
-    func setCurDieImage(currentSide: Int) {
-        dieImage.image = UIImage(named: imageFile.imageFilePath(savedDice[currentDie].name, fileNumber: currentSide))
-    }
-    
-    // Intelligently pick a side--never duplicate numbers consecutively
-    func pickNextDieSide(curSide: Int) -> Int {
-        var nextSide = Int(arc4random_uniform(UInt32(dieSides-1))) + 1
-        if nextSide == curSide {
-            nextSide++
-            if nextSide > dieSides {
-                nextSide = 1
+            for die in ViewController.allDice {
+                die.rollDie()
             }
         }
-        
-        return nextSide
     }
+
+    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createDieImages(100, height: 100, radius: 50)
-        
         curSide = 1
-        setCurDieImage(curSide)
-        
-        dieImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapped:"))
         
         // Update the label on this page to reflect the die
         // in use
@@ -144,8 +140,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if e != nil {
             println("Error playing sound effect \(e)")
         }
+        
+        diceView.layer.borderWidth = 3
+        var diceViewBackground = UIImageView(image: UIImage(named: "WoodBackground.png"))
+        diceView.addSubview(diceViewBackground)
+        
+        // Put a first die in the view
+        for die in ViewController.allDice {
+            diceView.addSubview(die)
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -153,28 +158,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // Create the images for all of the die's sides
-    func createDieImages(width: CGFloat, height: CGFloat, radius: CGFloat) {
+    func createDieImages(name: String, sides: Int, color: UIColor, width: CGFloat, height: CGFloat, radius: CGFloat) {
     
         let dieSize = CGSize(width: Int(width), height: Int(height))
         
         // It makes no sense to have fewer than 3 or more than 6 sides...
-        var drawableSides = dieSides
-        if dieSides < 5 {
+        var drawableSides = sides
+        if sides < 5 {
             drawableSides = 5
-        } else if dieSides > 8 {
+        } else if sides > 8 {
             drawableSides = 8
         }
         drawableSides = drawableSides - 2
         
-        for centerX in 1...dieSides {
+        for centerX in 1...sides {
             UIGraphicsBeginImageContext(dieSize)
             let context = UIGraphicsGetCurrentContext()
             
             //draw a shape at centerX
-            let image = drawPolygonUsingPath(context, x: width/2, y: height/2, radius: radius, sides: drawableSides, curSide: centerX, color: dieColor)
+            let image = drawPolygonUsingPath(context, x: width/2, y: height/2, radius: radius, sides: drawableSides, curSide: centerX, color: color)
             
             // Write the image as a file
-            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: savedDice[currentDie].name, fileNumber: centerX)
+            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: name, fileNumber: centerX)
 
             UIGraphicsEndImageContext()
         }
@@ -320,7 +325,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // UICollectionViewDataSource Protocol:
     // Returns the number of rows in collection view
     internal func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return numDSCVRows
     }
     // UICollectionViewDataSource Protocol:
     // Returns the number of columns in collection view
@@ -348,10 +353,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Update to the selected die
         currentDie = cell.tag
+        addDieToDiceView(savedDice[currentDie].name, sides: savedDice[currentDie].sides, color: UIColor(hexString: savedDice[currentDie].color))
         
         // dispatch this so that the UI is updated
         dispatch_async(dispatch_get_main_queue()) {
-            self.dieImage.image = UIImage(named: imageFile.imageFilePath(savedDice[currentDie].name, fileNumber: savedDice[currentDie].sides))
+            self.dieLabel.text = savedDice[currentDie].name
         }
         
     }

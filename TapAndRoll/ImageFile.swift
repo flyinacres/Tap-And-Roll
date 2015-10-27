@@ -18,7 +18,7 @@ class ImageFile {
     
     func writeImage(data: NSData, dieName: String, fileNumber: Int) {
         var b = data.writeToFile(imageFilePath(dieName, fileNumber: fileNumber), atomically: true)
-        //println("Write of \(dieName)\(fileNumber) is \(b)")
+        println("Write of \(dieName)\(fileNumber) is \(b)")
         //NSLog("testing, 1, 2, 3")
         
     }

@@ -22,7 +22,6 @@ var savedDice: [(dieSet: Int, name: String, color: String, sides: Int)]  = []
 class OptionsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITextFieldDelegate  {
 
     
-    @IBOutlet weak var rollButtonLabel: UIButton!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var curStepperValue: UIStepper!
     @IBOutlet weak var sidesLabel: UILabel!
@@ -101,8 +100,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             
             // And update the button labels
             updateSaveButtonLabelOnChange()
-            rollButtonLabel.setTitle("Roll \(nameField.text)", forState: .Normal)
-
+ 
         }
     }
     
@@ -220,8 +218,6 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             curStepperValue.value = Double(dieSides)
             
             setButtonColor(UIColor(hexString: currentDieFromRow.color))
-            
-            rollButtonLabel.setTitle("Roll \(currentDieFromRow.name)", forState: .Normal)
             
             // Now update the global current die, to ensure it is in sync with the UI
             currentDie = currentRow
