@@ -108,7 +108,7 @@ class Die: UIImageView {
         
         var rotation = CGFloat(0)
         if curRolls < totalRolls {
-            var degrees = Int(arc4random_uniform(90)) - 45
+            var degrees = Int(arc4random_uniform(80)) - 40
             rotation = DEGREES_TO_RADIANS(CGFloat(degrees))
         }
         
@@ -142,7 +142,7 @@ class Die: UIImageView {
     
     // Intelligently pick a side--never duplicate numbers consecutively
     func pickNextDieSide(curSide: Int) -> Int {
-        var nextSide = Int(arc4random_uniform(UInt32(sides-1))) + 1
+        var nextSide = Int(arc4random_uniform(UInt32(sides))) + 1
         if nextSide == curSide {
             nextSide++
             if nextSide > dieSides {

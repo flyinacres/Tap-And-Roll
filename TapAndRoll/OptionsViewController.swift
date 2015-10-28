@@ -16,7 +16,8 @@ var dieColor = UIColor.blueColor()
 var currentDie = 0
 
 // The dice currently saved long term, including some pre-created ones
-var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "D6", color: "#0000ff", sides: 6), (dieSet: 0, name: "D8", color: "#38ff38", sides: 8), (dieSet: 0, name: "D4", color: "#ff8056", sides: 4)]
+// Start with a standard D&D set
+var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "d4", color: "#D0643E", sides: 4), (dieSet: 0, name: "d6", color: "#3246AD", sides: 6), (dieSet: 0, name: "d8", color: "#4B6947", sides: 8), (dieSet: 0, name: "d10", color: "#870A15", sides: 10), (dieSet: 0, name: "d10 alt", color: "#A90C1B", sides: 10), (dieSet: 0, name: "d12", color: "#B81AB8", sides: 12), (dieSet: 0, name: "d20 The Big Gun", color: "#5910F6", sides: 20)]
 var savedDice: [(dieSet: Int, name: String, color: String, sides: Int)]  = []
 
 class OptionsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITextFieldDelegate  {
@@ -137,6 +138,12 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         colorButton.setTitleColor(color, forState:UIControlState.Normal)
         dieColor = color
     }
+    
+    // Only support portrait mode for now
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

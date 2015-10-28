@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let maxDicePerRow: Int = 3
     
     // Add the specified die to the view, if possible
-    func addDieToDiceView(name: String, sides: Int, color: UIColor) {
+    func addDieToDiceView(name: String, sides: Int, color: UIColor, startPoint: CGPoint) {
         var totalDiceInView = ViewController.allDice.count
         
         if totalDiceInView == 9 {
@@ -62,10 +62,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         ViewController.allDice.append(newDie)
         
-        newDie.frame = figureDiePosFrameRect(totalDiceInView)
-        newDie.removeDieFromView = removeDieFromDiceView
-        // Actually add the die
+        // Animate the adding of the die
+        newDie.center = startPoint
         diceView.addSubview(newDie)
+        newDie.removeDieFromView = self.removeDieFromDiceView
+
+        var finalFrame = figureDiePosFrameRect(totalDiceInView)
+        var finalPoint = CGPointMake(finalFrame.midX, finalFrame.midY)
+        println("Starting from \(startPoint) to \(finalPoint)")
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            newDie.center = finalPoint
+            })
+
     }
     
     // Calculate the placement (or re-placement) of a die from the total number and current height
@@ -81,18 +89,33 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // The painful process of removing a particular die
     func removeDieFromDiceView(dieToRemove: Die) {
         
-        // Remove the die from the list of all the dice
-        var found = false
-        for (i, die) in enumerate(ViewController.allDice) {
-            if die == dieToRemove {
-                ViewController.allDice.removeAtIndex(i)
-                dieToRemove.removeFromSuperview()
-                found = true
-            } else if found {
-                // After removing the indicated die, move the others to their new positions
-                die.frame = figureDiePosFrameRect(i-1)
-            }
-        }
+        // A little delta in the y angle to make it interesting
+        var yDelta = CGFloat(arc4random_uniform(200)) - 100
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            dieToRemove.center = CGPointMake(dieToRemove.center.x + 400, dieToRemove.center.y + yDelta)
+            }, completion: { finished in
+                // Do the actual removal work after the cool animation
+                // Remove the die from the list of all the dice
+                var found = false
+                for (i, die) in enumerate(ViewController.allDice) {
+                    if die == dieToRemove {
+                        ViewController.allDice.removeAtIndex(i)
+                        dieToRemove.removeFromSuperview()
+                        found = true
+                    } else if found {
+                        // After removing the indicated die, move the others to their new positions
+                        UIView.animateWithDuration(1, animations: { () -> Void in
+                            var finalFrame = self.figureDiePosFrameRect(i-1)
+                            var finalPoint = CGPointMake(finalFrame.midX, finalFrame.midY)
+                            die.center = finalPoint
+                        })
+
+                       // die.frame = self.figureDiePosFrameRect(i-1)
+                    }
+                }
+        })
+        
     }
 
     // Roll the die if the button is tapped
@@ -136,7 +159,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         
         curSide = 1
-        println("Going through View did Load")
         // Set up the sound effects
         var e: NSErrorPointer = NSErrorPointer()
         let audioPath = NSBundle.mainBundle().pathForResource("diceroll", ofType: "caf")!
@@ -183,11 +205,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DieViewCell
         
         let i = indexPath.section
-        println("Initializing the collectionview for \(savedDice[i].name) \(savedDice[i].sides)")
         // Read the image--if it does not exist then create the image set
         var readImage = UIImage(named: imageFile.imageFilePath(savedDice[i].name, fileNumber: savedDice[i].sides))
         if readImage == nil {
-            println("Updating images for \(savedDice[i].name)")
             readImage = drawDice.createDieImages(savedDice[i].name, sides: savedDice[i].sides, color: UIColor(hexString: savedDice[i].color), width: 100, height: 100, radius: 50)
         }
         
@@ -205,7 +225,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Update to the selected die
         currentDie = cell.tag
-        addDieToDiceView(savedDice[currentDie].name, sides: savedDice[currentDie].sides, color: UIColor(hexString: savedDice[currentDie].color))
+        
+        // Note that I had to convert the cell.center to the proper coordinate system
+        addDieToDiceView(savedDice[currentDie].name, sides: savedDice[currentDie].sides, color: UIColor(hexString: savedDice[currentDie].color), startPoint: collectionView.convertPoint(cell.center, toView: diceView))
         
         // dispatch this so that the UI is updated
         dispatch_async(dispatch_get_main_queue()) {
