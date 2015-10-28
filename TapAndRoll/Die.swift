@@ -96,9 +96,23 @@ class Die: UIImageView {
 
     }
     
+    // Macro to convert--easier to think in degrees
+    func DEGREES_TO_RADIANS(x: CGFloat) -> CGFloat {
+        return (CGFloat(M_PI) * (x) / 180.0)    // Set the die image based upon the number of the side
+    }
+    
+    
+    // Do the actual animation
     func doDieAnimation() {
         curSide = pickNextDieSide(curSide)
-        setCurDieImage(curSide)
+        
+        var rotation = CGFloat(0)
+        if curRolls < totalRolls {
+            var degrees = Int(arc4random_uniform(90)) - 45
+            rotation = DEGREES_TO_RADIANS(CGFloat(degrees))
+        }
+        
+        setCurDieImage(curSide, rotation: rotation)
         
         // Play the sound effect just after the rolls start
         if curRolls == 1 {
@@ -117,9 +131,13 @@ class Die: UIImageView {
         }
     }
     
-    // Set the die image based upon the number of the side
-    func setCurDieImage(currentSide: Int) {
-        self.image = UIImage(named: imageFile.imageFilePath(name, fileNumber: currentSide))
+    func setCurDieImage(currentSide: Int, rotation: CGFloat) {
+        var image = UIImage(named: imageFile.imageFilePath(name, fileNumber: currentSide))
+        if image == nil {
+            println("ERROR: The image fetched for \(name) \(currentSide) is \(image)")
+        }
+        self.image = image
+        self.transform = CGAffineTransformMakeRotation(rotation)
     }
     
     // Intelligently pick a side--never duplicate numbers consecutively

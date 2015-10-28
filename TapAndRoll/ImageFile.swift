@@ -18,15 +18,13 @@ class ImageFile {
     
     func writeImage(data: NSData, dieName: String, fileNumber: Int) {
         var b = data.writeToFile(imageFilePath(dieName, fileNumber: fileNumber), atomically: true)
-        println("Write of \(dieName)\(fileNumber) is \(b)")
-        //NSLog("testing, 1, 2, 3")
-        
+        if b == false {
+            println("ERROR: Failed to write file \(dieName)\(fileNumber)")
+        }
     }
     
     func imageFilePath(dieName: String, fileNumber: Int) -> String {
         let fileName = "dieImage\(dieName)\(fileNumber).png"
-        //println("The filenName is \(fileName)")
-        //NSLog("The fileName is \(fileName)")
         return fileDir.stringByAppendingPathComponent(fileName);
     }
 

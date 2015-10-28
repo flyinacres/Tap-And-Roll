@@ -81,6 +81,23 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             
             // Now update the info for this die
             DicePersistence.sharedInstance.updateDieInStorage(0, name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
+            
+            // Delete the old file so that they will be rewritten.
+            var e = NSErrorPointer()
+            println("Removing file \(savedDice[index].name) \(savedDice[index].sides)")
+            var result = NSFileManager.defaultManager().removeItemAtPath(imageFile.imageFilePath(savedDice[index].name, fileNumber: savedDice[index].sides), error: e)
+            if e != nil {
+                println("Error trying to erase previous file: \(e)")
+            }
+            println("Result of the delete was \(result)")
+            var readImage = UIImage(named: imageFile.imageFilePath(savedDice[index].name, fileNumber: savedDice[index].sides))
+            if readImage != nil {
+                println("Found file that should have been deleted")
+            }
+
+            // Make sure table updates to show any changes
+            dieTableView.reloadData()
+
         } else {
             // Add new die
             
@@ -146,6 +163,10 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         
         // On view load the current options must all represent the selected die
         updateForCurrentDie(currentDie)
+        
+        dieTableView.layer.borderWidth = 3
+        dieTableView.layer.cornerRadius = 20.0
+        dieTableView.layer.shadowOpacity = 10.0
     }
 
     override func didReceiveMemoryWarning() {

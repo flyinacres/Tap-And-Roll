@@ -11,17 +11,18 @@ import AVFoundation
 
 
 // Functions for manipulating image files
-var imageFile = ImageFile()
+let imageFile = ImageFile()
 let reuseIdentifier = "AvailableDieCell"
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var dieLabel: UILabel!
     @IBOutlet weak var dieImage: UIImageView!
     @IBOutlet weak var diceView: UIView!
     
     @IBOutlet weak var dieSelectionCollectionView: UICollectionView!
 
+    // Reference to the class that does all of the actual dice image drawing
+    let drawDice = DrawDice()
     
     // Audio player for sound effects
     var player: AVAudioPlayer = AVAudioPlayer()
@@ -33,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var numDSCVRows = 1
 
-    
+
     let defaultDiceViewBounds: CGFloat = 110
     let diceViewBoundsMax: CGFloat = 320
     let diceViewBoundsDelta: CGFloat = 105
@@ -51,9 +52,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.presentViewController(alertController, animated: true, completion: nil)
             return
         }
-        
-        // TODO: Need to figure out how to avoid doing this if die images already exist
-        createDieImages(name, sides: sides, color: color, width: 100, height: 100, radius: 50)
 
         // Need to figure out how to increase the bounds, and where to add the new die
         var height = CGFloat((totalDiceInView / maxDicePerRow + 1) * 105 + 5)
@@ -119,20 +117,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
-
     
-
+    // TODO: This does not make a difference.  Still cannot get dice to update when color is changed
+    // Warning, this also causes the view to segue back to the Dice Creation page--the order
+    // the operations have is undetermined
+    @IBAction func changeDiceSelected(sender: AnyObject) {
+        println("This should always be called when the changeButton is hit")
+        for die in ViewController.allDice {
+            die.removeFromSuperview()
+        }
+        for cell in dieSelectionCollectionView.visibleCells() as! [DieViewCell] {
+            cell.dieCellImage.image = nil
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         curSide = 1
-        
-        // Update the label on this page to reflect the die
-        // in use
-        dieLabel.text = savedDice[currentDie].name
-        
+        println("Going through View did Load")
         // Set up the sound effects
         var e: NSErrorPointer = NSErrorPointer()
         let audioPath = NSBundle.mainBundle().pathForResource("diceroll", ofType: "caf")!
@@ -141,7 +145,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             println("Error playing sound effect \(e)")
         }
         
+        dieSelectionCollectionView.layer.borderWidth = 3
+        dieSelectionCollectionView.layer.cornerRadius = 20.0
+
         diceView.layer.borderWidth = 3
+        diceView.layer.cornerRadius = 20.0
+        diceView.clipsToBounds = true
         var diceViewBackground = UIImageView(image: UIImage(named: "WoodBackground.png"))
         diceView.addSubview(diceViewBackground)
         
@@ -156,171 +165,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Dispose of any resources that can be recreated.
     }
     
-    
-    // Create the images for all of the die's sides
-    func createDieImages(name: String, sides: Int, color: UIColor, width: CGFloat, height: CGFloat, radius: CGFloat) {
-    
-        let dieSize = CGSize(width: Int(width), height: Int(height))
-        
-        // It makes no sense to have fewer than 3 or more than 6 sides...
-        var drawableSides = sides
-        if sides < 5 {
-            drawableSides = 5
-        } else if sides > 8 {
-            drawableSides = 8
-        }
-        drawableSides = drawableSides - 2
-        
-        for centerX in 1...sides {
-            UIGraphicsBeginImageContext(dieSize)
-            let context = UIGraphicsGetCurrentContext()
-            
-            //draw a shape at centerX
-            let image = drawPolygonUsingPath(context, x: width/2, y: height/2, radius: radius, sides: drawableSides, curSide: centerX, color: color)
-            
-            // Write the image as a file
-            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: name, fileNumber: centerX)
-
-            UIGraphicsEndImageContext()
-        }
-        
-        
-    }
-
-    
-    func degree2radian(a:CGFloat)->CGFloat {
-        let b = CGFloat(M_PI) * a/180
-        return b
-    }
-    
-    func polygonPointArray(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat, startAngle:CGFloat)->[CGPoint] {
-        let angle = degree2radian(360/CGFloat(sides))
-        let cx = x // x origin
-        let cy = y // y origin
-        let r  = radius // radius of circle
-        var i = 0
-        var points = [CGPoint]()
-        while i <= sides {
-            var xpo = cx + r * cos(angle * CGFloat(i) + startAngle)
-            var ypo = cy + r * sin(angle * CGFloat(i) + startAngle)
-            points.append(CGPoint(x: xpo, y: ypo))
-            i++;
-        }
-        return points
-    }
-    
-    func polygonPath(x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, startAngle:CGFloat) -> CGPathRef {
-        let path = CGPathCreateMutable()
-        let points = polygonPointArray(sides, x: x, y: y,radius: radius, startAngle: startAngle)
-        var cpg = points[0]
-        CGPathMoveToPoint(path, nil, cpg.x, cpg.y)
-        for p in points {
-            CGPathAddLineToPoint(path, nil, p.x, p.y)
-        }
-        CGPathCloseSubpath(path)
-        return path
-    }
-    
-    func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, curSide: Int, color:UIColor)->UIImage {
-        let startAngle: CGFloat = degree2radian((360/CGFloat(sides*2))*CGFloat(curSide))
-        let path = polygonPath(x, y: y, radius: radius, sides: sides, startAngle: startAngle)
-        CGContextAddPath(ctx, path)
-        CGContextSetFillColorWithColor(ctx, color.CGColor)
-        CGContextFillPath(ctx)
-        
-        
-        //drawPip(ctx, x: x, y: y)
-//        drawText(ctx, x: x, y: y, radius: radius, color: UIColor.blackColor(), text: "\(curSide)")
-        return textToImage("\(curSide)", inImage: UIGraphicsGetImageFromCurrentImageContext(), atPoint: CGPoint(x: x, y: y))
-    }
-    
-    func drawPip(ctx:CGContextRef, x:CGFloat, y:CGFloat) {
-        
-        // Code to draw a single pip
-        // TODO: Need to put varying number of pips on sides
-        let rectangle = CGRect(x: x, y: y, width: 20, height: 20)
-        CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
-        CGContextSetLineWidth(ctx, 3)
-        CGContextSetStrokeColorWithColor(ctx, UIColor.blackColor().CGColor)
-        CGContextAddEllipseInRect(ctx, rectangle)
-        CGContextDrawPath(ctx, kCGPathFillStroke)
-    }
-    
-    // Draw arbitrary text on to my image
-    let fontSize: CGFloat = 24
-    func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint)->UIImage{
-        
-        // Setup the font specific variables
-        var textColor: UIColor = UIColor.whiteColor()
-        var textFont: UIFont = UIFont(name: "Helvetica Bold", size: fontSize)!
-        
-        // Get the size of the display text, useful for centering
-        let textSize: CGSize = drawText.sizeWithAttributes([NSFontAttributeName: textFont.fontWithSize(fontSize)])
-        
-        //Setup the image context using the passed image.
-        UIGraphicsBeginImageContext(inImage.size)
-        
-        //Setups up the font attributes that will be later used to dictate how the text should be drawn
-        let textFontAttributes = [
-            NSFontAttributeName: textFont,
-            NSForegroundColorAttributeName: textColor,
-        ]
-        
-        //Put the image into a rectangle as large as the original image.
-        inImage.drawInRect(CGRectMake(0, 0, inImage.size.width, inImage.size.height))
-        
-        // Creating a point within the space that is as bit as the image.
-        var rect: CGRect = CGRectMake(atPoint.x - (textSize.width/2), atPoint.y - (textSize.height/2), inImage.size.width, inImage.size.height)
-        
-        //Now Draw the text into an image.
-        drawText.drawInRect(rect, withAttributes: textFontAttributes)
-        
-        // Create a new image out of the images we have created
-        var newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        // End the context now that we have the image we need
-        UIGraphicsEndImageContext()
-        
-        //And pass it back up to the caller.
-        return newImage
-        
-    }
-    
-    // A deep-in-the-mud way to draw text on an image.  Not sure I will use this
-    func drawText(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, color:UIColor, text:String) {
-        
-        // Flip text co-ordinate space, see: http://blog.spacemanlabs.com/2011/08/quick-tip-drawing-core-text-right-side-up/
-//        CGContextTranslateCTM(ctx, 0.0, CGRectGetHeight(rect))
-        CGContextTranslateCTM(ctx, 0.0, 568)
-        CGContextScaleCTM(ctx, 1.0, -1.0)
-        // dictates on how inset the ring of numbers will be
-        let inset:CGFloat = radius/3.5
-        let path = CGPathCreateMutable()
-        
-
-        // Font name must be written exactly the same as the system stores it (some names are hyphenated, some aren't) and must exist on the user's device. Otherwise there will be a crash. (In real use checks and fallbacks would be created.) For a list of iOS 7 fonts see here: http://support.apple.com/en-us/ht5878
-        let aFont = UIFont(name: "Optima-Bold", size: radius/4)
-        // create a dictionary of attributes to be applied to the string
-        let attr:CFDictionaryRef = [NSFontAttributeName:aFont!,NSForegroundColorAttributeName:color]
-        // create the attributed string
-        let text = CFAttributedStringCreate(nil, text, attr)
-        // create the line of text
-        let line = CTLineCreateWithAttributedString(text)
-        // retrieve the bounds of the text
-        let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
-        // set the line width to stroke the text with
-        CGContextSetLineWidth(ctx, 1.5)
-        // set the drawing mode to stroke
-        CGContextSetTextDrawingMode(ctx, kCGTextFill)
-        // Set text position and draw the line into the graphics context, text length and height is adjusted for
-        CGContextSetTextPosition(ctx, x-15, y-15)
-        // the line of text is drawn - see https://developer.apple.com/library/ios/DOCUMENTATION/StringsTextFonts/Conceptual/CoreText_Programming/LayoutOperations/LayoutOperations.html
-        // draw the line of text
-        CTLineDraw(line, ctx)
-
-        
-    }
- 
     
     // UICollectionViewDataSource Protocol:
     // Returns the number of rows in collection view
@@ -339,7 +183,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DieViewCell
         
         let i = indexPath.section
-        cell.dieCellImage.image = UIImage(named: imageFile.imageFilePath(savedDice[i].name, fileNumber: savedDice[i].sides))
+        println("Initializing the collectionview for \(savedDice[i].name) \(savedDice[i].sides)")
+        // Read the image--if it does not exist then create the image set
+        var readImage = UIImage(named: imageFile.imageFilePath(savedDice[i].name, fileNumber: savedDice[i].sides))
+        if readImage == nil {
+            println("Updating images for \(savedDice[i].name)")
+            readImage = drawDice.createDieImages(savedDice[i].name, sides: savedDice[i].sides, color: UIColor(hexString: savedDice[i].color), width: 100, height: 100, radius: 50)
+        }
+        
+        cell.dieCellImage.image = readImage
         
         cell.backgroundColor = UIColor.clearColor()
         cell.tag = i
@@ -357,7 +209,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // dispatch this so that the UI is updated
         dispatch_async(dispatch_get_main_queue()) {
-            self.dieLabel.text = savedDice[currentDie].name
+            //self.dieLabel.text = savedDice[currentDie].name
         }
         
     }

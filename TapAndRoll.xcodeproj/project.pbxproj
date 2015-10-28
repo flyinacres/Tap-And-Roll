@@ -31,6 +31,7 @@
 		A5EFEEC71BDD8DF900F51885 /* DieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */; };
 		A5EFEEC91BDEC75900F51885 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEEC81BDEC75900F51885 /* Die.swift */; };
 		A5EFEECD1BDF1B5500F51885 /* WoodBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEECC1BDF1B5500F51885 /* WoodBackground.png */; };
+		A5EFEECF1BDFF9B900F51885 /* DrawDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieViewCell.swift; sourceTree = "<group>"; };
 		A5EFEEC81BDEC75900F51885 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		A5EFEECC1BDF1B5500F51885 /* WoodBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WoodBackground.png; sourceTree = "<group>"; };
+		A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawDice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				A50C646B1BC32F28008FB51F /* AppDelegate.swift */,
 				A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */,
 				A50C646D1BC32F28008FB51F /* ViewController.swift */,
+				A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */,
 				A5EFEEC81BDEC75900F51885 /* Die.swift */,
 				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
 				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
@@ -413,6 +416,7 @@
 				A5EFEE5C1BDC20BC00F51885 /* DicePersistence.swift in Sources */,
 				A5EFEEC91BDEC75900F51885 /* Die.swift in Sources */,
 				A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */,
+				A5EFEECF1BDFF9B900F51885 /* DrawDice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
