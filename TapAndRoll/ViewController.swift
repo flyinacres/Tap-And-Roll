@@ -62,17 +62,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         ViewController.allDice.append(newDie)
         
-        // Animate the adding of the die
-        newDie.center = startPoint
-        diceView.addSubview(newDie)
-        newDie.removeDieFromView = self.removeDieFromDiceView
+        // Animate the adding of the die in the main view
+        // Coordinates are originally in diceView space, so make them work for the main view
+        view.addSubview(newDie)
+        newDie.center = view.convertPoint(startPoint, fromView: diceView)
 
         var finalFrame = figureDiePosFrameRect(totalDiceInView)
         var finalPoint = CGPointMake(finalFrame.midX, finalFrame.midY)
-        println("Starting from \(startPoint) to \(finalPoint)")
-        UIView.animateWithDuration(1, animations: { () -> Void in
-            newDie.center = finalPoint
-            })
+        
+        UIView.animateWithDuration(0.75, animations: { () -> Void in
+            newDie.center = self.view.convertPoint(finalPoint, fromView: self.diceView)
+            }, completion: { finished in
+                // remove from super view
+                newDie.removeFromSuperview()
+                
+                // add to subview
+                self.diceView.addSubview(newDie)
+                
+                // put it in proper location
+                newDie.center = finalPoint
+                
+                newDie.removeDieFromView = self.removeDieFromDiceView
+        })
 
     }
     
@@ -105,7 +116,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         found = true
                     } else if found {
                         // After removing the indicated die, move the others to their new positions
-                        UIView.animateWithDuration(1, animations: { () -> Void in
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
                             var finalFrame = self.figureDiePosFrameRect(i-1)
                             var finalPoint = CGPointMake(finalFrame.midX, finalFrame.midY)
                             die.center = finalPoint
@@ -167,10 +178,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             println("Error playing sound effect \(e)")
         }
         
-        dieSelectionCollectionView.layer.borderWidth = 3
+        dieSelectionCollectionView.layer.borderWidth = 2
         dieSelectionCollectionView.layer.cornerRadius = 20.0
 
-        diceView.layer.borderWidth = 3
+        diceView.layer.borderWidth = 2
         diceView.layer.cornerRadius = 20.0
         diceView.clipsToBounds = true
         var diceViewBackground = UIImageView(image: UIImage(named: "WoodBackground.png"))
@@ -212,11 +223,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         cell.dieCellImage.image = readImage
-        
+        var gestureRecognizer = UISwipeGestureRecognizer(target: self, action: "cellSwiped:")
+        gestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down
+        cell.addGestureRecognizer(gestureRecognizer)
+
         cell.backgroundColor = UIColor.clearColor()
         cell.tag = i
         
         return cell
+    }
+    
+    // Allow user to swipe down to add a die to the set
+    func cellSwiped(gesture: UIGestureRecognizer) {
+        let view: UIView = gesture.view!
+        //let indexPath = NSIndexPath(forRow: view.tag, inSection: 0)
+        //var cell: UICollectionViewCell  = dieSelectionCollectionView.cellForItemAtIndexPath(indexPath)! as UICollectionViewCell
+        
+        addDieToDiceView(savedDice[view.tag].name, sides: savedDice[view.tag].sides, color: UIColor(hexString: savedDice[view.tag].color), startPoint: dieSelectionCollectionView.convertPoint(view.center, toView: diceView))
     }
     
     // Recognizes and handles when a collection view cell has been selected
@@ -228,12 +251,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Note that I had to convert the cell.center to the proper coordinate system
         addDieToDiceView(savedDice[currentDie].name, sides: savedDice[currentDie].sides, color: UIColor(hexString: savedDice[currentDie].color), startPoint: collectionView.convertPoint(cell.center, toView: diceView))
-        
-        // dispatch this so that the UI is updated
-        dispatch_async(dispatch_get_main_queue()) {
-            //self.dieLabel.text = savedDice[currentDie].name
-        }
-        
     }
+
 }
 

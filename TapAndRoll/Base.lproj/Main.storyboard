@@ -19,16 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-jI-b7K" userLabel="DiceView">
-                                <rect key="frame" x="139" y="190" width="320" height="320"/>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-jI-b7K" userLabel="DiceView" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
+                                <rect key="frame" x="140" y="190" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="iG5-Ha-TsO"/>
                                     <constraint firstAttribute="width" constant="320" id="ucH-gL-ye4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GA-kJe">
-                                <rect key="frame" x="255" y="562" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcA-GA-kJe" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
+                                <rect key="frame" x="225" y="564" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="K1F-8Y-smv"/>
+                                    <constraint firstAttribute="width" constant="150" id="qoG-2h-wmZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Change Dice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,23 +41,8 @@
                                     <segue destination="cSg-0j-pJw" kind="show" id="RfC-xv-7oH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-Mc-iPf">
-                                <rect key="frame" x="276" y="535" width="48" height="30"/>
-                                <state key="normal" title="Roll All">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rollButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lk8-mi-3Wg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-cK-PZC">
-                                <rect key="frame" x="262" y="35" width="75" height="23"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6L-M4S">
-                                <rect key="frame" x="5" y="59" width="588" height="110"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999987" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6L-M4S">
+                                <rect key="frame" x="5" y="70" width="588" height="110"/>
                                 <color key="backgroundColor" red="0.16173358721607126" green="0.52092385249554363" blue="0.1757865681042905" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="JiB-Dc-qX6"/>
@@ -93,25 +83,49 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="4or-da-9uM"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-Mc-iPf" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
+                                <rect key="frame" x="225" y="528" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2uQ-Rj-gpa"/>
+                                    <constraint firstAttribute="width" constant="150" id="VHs-wZ-wJ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Roll All">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rollButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lk8-mi-3Wg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-cK-PZC">
+                                <rect key="frame" x="240" y="28" width="121" height="25"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.56862745098039214" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ReZ-6L-M4S" secondAttribute="trailing" constant="-9" id="3gW-Y5-qk5"/>
                             <constraint firstAttribute="centerX" secondItem="7i5-cK-PZC" secondAttribute="centerX" id="7yR-zZ-bde"/>
                             <constraint firstItem="ReZ-6L-M4S" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-11" id="BX3-bz-rqq"/>
-                            <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="Cr5-0B-U3b"/>
+                            <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Cr5-0B-U3b"/>
+                            <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="6" id="HkM-PD-vsr"/>
                             <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="28" id="IcV-O9-vfu"/>
-                            <constraint firstAttribute="centerX" secondItem="VRZ-jI-b7K" secondAttribute="centerX" constant="1" id="O8w-5h-kwr"/>
+                            <constraint firstAttribute="centerX" secondItem="VRZ-jI-b7K" secondAttribute="centerX" id="O8w-5h-kwr"/>
                             <constraint firstAttribute="centerX" secondItem="Oun-Mc-iPf" secondAttribute="centerX" id="Sa3-DZ-ln7"/>
+                            <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="6" id="aEx-wh-Yhn"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="6" id="aaj-OQ-mIM"/>
                             <constraint firstItem="ReZ-6L-M4S" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="d8l-40-b2h"/>
+                            <constraint firstItem="VRZ-jI-b7K" firstAttribute="top" secondItem="ReZ-6L-M4S" secondAttribute="bottom" constant="10" id="fe7-BN-5gc"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="8" id="h21-3n-Op3"/>
                             <constraint firstAttribute="centerX" secondItem="hcA-GA-kJe" secondAttribute="centerX" id="hUo-c6-YHG"/>
                             <constraint firstAttribute="centerY" secondItem="VRZ-jI-b7K" secondAttribute="centerY" constant="-50" id="scH-W8-qtd"/>
-                            <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="-3" id="z6t-XW-dub"/>
+                            <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="8" id="z6t-XW-dub"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
-                                <color key="value" red="0.32114974178829131" green="0.69227430555555558" blue="0.35465644639466015" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.30588235294117649" green="0.6588235294117647" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
                                 <color key="value" red="0.2470588235" green="0.52941176469999995" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,7 +136,11 @@
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="d8l-40-b2h"/>
                                 <exclude reference="IcV-O9-vfu"/>
+                                <exclude reference="h21-3n-Op3"/>
+                                <exclude reference="aEx-wh-Yhn"/>
+                                <exclude reference="z6t-XW-dub"/>
                             </mask>
                         </variation>
                     </view>
@@ -216,17 +234,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Xl-V8o">
-                                <rect key="frame" x="252" y="136" width="94" height="29"/>
+                                <rect key="frame" x="252" y="134" width="94" height="29"/>
+                                <color key="backgroundColor" red="0.29150423920000001" green="0.62837009799999999" blue="0.32191792209999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="sidesChoice:" destination="cSg-0j-pJw" eventType="valueChanged" id="msp-Ga-XSf"/>
                                 </connections>
                             </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YR-qH-PrI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YR-qH-PrI" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
                                 <rect key="frame" x="225" y="542" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7Fk-DP-KbP"/>
                                     <constraint firstAttribute="width" constant="150" id="eJq-1I-LmE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Roll Dice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -235,8 +256,14 @@
                                     <segue destination="vXZ-lx-hvc" kind="show" id="YJg-Wz-VVT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-My-TIh">
-                                <rect key="frame" x="257" y="62" width="85" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-My-TIh" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
+                                <rect key="frame" x="225" y="60" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.29150423920000001" green="0.62837009799999999" blue="0.32191792209999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Aov-D4-c9h"/>
+                                    <constraint firstAttribute="height" constant="30" id="xr8-tS-dwp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Select Color">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -245,10 +272,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-Xl-Omv">
-                                <rect key="frame" x="150" y="212" width="300" height="312"/>
+                                <rect key="frame" x="150" y="206" width="300" height="310"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Hvg-Of-y5l"/>
+                                    <constraint firstAttribute="height" constant="280" id="fp1-uU-g2h"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.69019607839999997" green="0.85098039219999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -265,42 +293,58 @@
                                         <color key="value" red="0.42352941176470588" green="0.61568627450980395" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fp1-uU-g2h"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="cSg-0j-pJw" id="5tj-8t-7gD"/>
                                     <outlet property="delegate" destination="cSg-0j-pJw" id="zYH-gl-ylN"/>
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-GM-Yb5">
-                                <rect key="frame" x="251" y="98" width="97" height="30"/>
+                                <rect key="frame" x="250" y="98" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.3211497418" green="0.69227430560000003" blue="0.35465644639999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SFy-hV-cbr"/>
-                                    <constraint firstAttribute="width" constant="97" id="up2-XJ-IOG"/>
+                                    <constraint firstAttribute="width" constant="100" id="up2-XJ-IOG"/>
                                 </constraints>
-                                <color key="textColor" red="0.50196078431372548" green="0.68627450980392157" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-FO-txd">
-                                <rect key="frame" x="190" y="102" width="51" height="21"/>
+                                <rect key="frame" x="181" y="98" width="90" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="51" id="H2j-6l-S5M"/>
+                                    <constraint firstAttribute="width" constant="90" id="H2j-6l-S5M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 sides" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-Yq-CCw">
-                                <rect key="frame" x="272" y="173" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="264" y="169" width="70" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Xv2-zj-SHa"/>
+                                    <constraint firstAttribute="width" constant="70" id="io3-iA-Tl4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNE-kd-Pw0">
-                                <rect key="frame" x="350" y="98" width="60" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-Mb-aJs">
+                                <rect key="frame" x="221" y="28" width="157" height="25"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNE-kd-Pw0" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
+                                <rect key="frame" x="358" y="98" width="90" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Ekd-4W-aqd"/>
+                                    <constraint firstAttribute="width" constant="90" id="Ekd-4W-aqd"/>
                                     <constraint firstAttribute="height" constant="30" id="aGz-pi-gah"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Update">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -308,35 +352,37 @@
                                     <action selector="saveButton:" destination="cSg-0j-pJw" eventType="touchUpInside" id="qaC-T9-jRU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-Mb-aJs">
-                                <rect key="frame" x="246" y="28" width="109" height="23"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.56862745098039214" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="c7N-GM-Yb5" secondAttribute="trailing" constant="2" id="774-8y-Zzm"/>
+                            <constraint firstItem="fMg-Xl-Omv" firstAttribute="top" secondItem="fTp-Yq-CCw" secondAttribute="bottom" constant="18" id="40I-yJ-ZjR"/>
+                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="87" id="6Ju-fz-j34"/>
+                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="c7N-GM-Yb5" secondAttribute="trailing" constant="8" id="774-8y-Zzm"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Ad3-58-Fjw"/>
-                            <constraint firstItem="JhS-FO-txd" firstAttribute="baseline" secondItem="NNE-kd-Pw0" secondAttribute="baseline" id="C9E-1O-rhB"/>
+                            <constraint firstItem="JhS-FO-txd" firstAttribute="baseline" secondItem="NNE-kd-Pw0" secondAttribute="baseline" constant="4.5" id="C9E-1O-rhB"/>
                             <constraint firstAttribute="centerX" secondItem="wgV-My-TIh" secondAttribute="centerX" id="CQ3-ah-fKW"/>
                             <constraint firstItem="NNE-kd-Pw0" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="78" id="D3a-A2-xa6"/>
-                            <constraint firstAttribute="centerX" secondItem="fTp-Yq-CCw" secondAttribute="centerX" id="E9S-aY-9wC"/>
-                            <constraint firstItem="c7N-GM-Yb5" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="6" id="HdS-4N-AT3"/>
-                            <constraint firstItem="JhS-FO-txd" firstAttribute="baseline" secondItem="NNE-kd-Pw0" secondAttribute="firstBaseline" id="Imf-FW-Qzy"/>
-                            <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="44" id="MSc-lN-wgY"/>
-                            <constraint firstItem="wgV-My-TIh" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="42" id="QFo-6e-jl3"/>
+                            <constraint firstAttribute="centerX" secondItem="fTp-Yq-CCw" secondAttribute="centerX" constant="1" id="E9S-aY-9wC"/>
+                            <constraint firstItem="c7N-GM-Yb5" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="8" id="HdS-4N-AT3"/>
+                            <constraint firstItem="JhS-FO-txd" firstAttribute="baseline" secondItem="NNE-kd-Pw0" secondAttribute="firstBaseline" constant="4.5" id="Imf-FW-Qzy"/>
+                            <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="wgV-My-TIh" secondAttribute="bottom" constant="46" id="MSc-lN-wgY"/>
+                            <constraint firstItem="wgV-My-TIh" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="40" id="QFo-6e-jl3"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Rjl-fT-L83"/>
                             <constraint firstAttribute="centerX" secondItem="5YR-qH-PrI" secondAttribute="centerX" id="SgN-yv-JaK"/>
+                            <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="c7N-GM-Yb5" secondAttribute="bottom" constant="6" id="VRv-gK-1FY"/>
+                            <constraint firstItem="IhT-Mb-aJs" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="8" id="XiG-T1-K7m"/>
                             <constraint firstAttribute="centerX" secondItem="IhT-Mb-aJs" secondAttribute="centerX" constant="0.5" id="a80-jR-C2h"/>
-                            <constraint firstItem="JhS-FO-txd" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="82" id="cUX-LJ-eZd"/>
+                            <constraint firstItem="JhS-FO-txd" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="78" id="cUX-LJ-eZd"/>
                             <constraint firstItem="c7N-GM-Yb5" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="10" id="evj-eq-hbu"/>
-                            <constraint firstItem="fTp-Yq-CCw" firstAttribute="top" secondItem="Oc2-Xl-V8o" secondAttribute="bottom" constant="8" id="f1m-ds-Xzl"/>
+                            <constraint firstItem="fTp-Yq-CCw" firstAttribute="top" secondItem="Oc2-Xl-V8o" secondAttribute="bottom" constant="6" id="f1m-ds-Xzl"/>
                             <constraint firstAttribute="centerX" secondItem="c7N-GM-Yb5" secondAttribute="centerX" id="fSa-Do-NTY"/>
+                            <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="c7N-GM-Yb5" secondAttribute="bottom" constant="8" symbolic="YES" id="gba-Pr-sRh"/>
                             <constraint firstItem="N95-JJ-o8e" firstAttribute="top" secondItem="5YR-qH-PrI" secondAttribute="bottom" constant="28" id="hrd-hV-0FV"/>
-                            <constraint firstItem="fMg-Xl-Omv" firstAttribute="top" secondItem="fTp-Yq-CCw" secondAttribute="bottom" constant="19" id="nJv-Qo-crv"/>
-                            <constraint firstItem="5YR-qH-PrI" firstAttribute="top" secondItem="fMg-Xl-Omv" secondAttribute="bottom" constant="18" id="tO0-2s-ube"/>
+                            <constraint firstItem="5YR-qH-PrI" firstAttribute="top" secondItem="fMg-Xl-Omv" secondAttribute="bottom" constant="26" id="kr3-32-nqi"/>
+                            <constraint firstItem="fMg-Xl-Omv" firstAttribute="top" secondItem="fTp-Yq-CCw" secondAttribute="bottom" constant="16" id="mqo-Ut-RAf"/>
+                            <constraint firstItem="fMg-Xl-Omv" firstAttribute="top" secondItem="fTp-Yq-CCw" secondAttribute="bottom" constant="18" id="nJv-Qo-crv"/>
+                            <constraint firstItem="5YR-qH-PrI" firstAttribute="top" secondItem="fMg-Xl-Omv" secondAttribute="bottom" constant="26" id="tO0-2s-ube"/>
+                            <constraint firstItem="fTp-Yq-CCw" firstAttribute="top" secondItem="Oc2-Xl-V8o" secondAttribute="bottom" constant="6" id="x4o-n9-x7Y"/>
                             <constraint firstAttribute="centerX" secondItem="5YR-qH-PrI" secondAttribute="centerX" id="xVS-Oc-JzW"/>
                             <constraint firstAttribute="centerX" secondItem="Oc2-Xl-V8o" secondAttribute="centerX" constant="1" id="xix-AJ-3ax"/>
                             <constraint firstItem="IhT-Mb-aJs" firstAttribute="top" secondItem="LCL-xG-KYh" secondAttribute="topMargin" constant="28" id="yGw-1S-Jf3"/>
@@ -346,12 +392,25 @@
                                 <color key="value" red="0.2470588235" green="0.52941176469999995" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
-                                <color key="value" red="0.3211497418" green="0.69227430560000003" blue="0.35465644639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.30588235289999999" green="0.6588235294" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="patternSize">
                                 <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yGw-1S-Jf3"/>
+                                <exclude reference="40I-yJ-ZjR"/>
+                                <exclude reference="Rjl-fT-L83"/>
+                                <exclude reference="nJv-Qo-crv"/>
+                                <exclude reference="evj-eq-hbu"/>
+                                <exclude reference="MSc-lN-wgY"/>
+                                <exclude reference="gba-Pr-sRh"/>
+                                <exclude reference="f1m-ds-Xzl"/>
+                                <exclude reference="tO0-2s-ube"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="colorButton" destination="wgV-My-TIh" id="fU4-Cd-vec"/>
