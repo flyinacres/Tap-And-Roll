@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // This is the number of sides to use for the die
 var dieSides = 8
@@ -40,6 +41,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         updateSaveButtonLabelOnChange()
     }
     
+
     
     // Popup the color selection popover
     @IBAction func colorSelection(sender: UIButton) {
@@ -174,6 +176,14 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         dieTableView.layer.borderWidth = 3
         dieTableView.layer.cornerRadius = 20.0
         dieTableView.layer.shadowOpacity = 10.0
+        
+        var gestureRecognizer = UISwipeGestureRecognizer(target: self, action: "segueToRollDice:")
+        gestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func segueToRollDice(gesture: UIGestureRecognizer) {
+        performSegueWithIdentifier("toRollDice", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {

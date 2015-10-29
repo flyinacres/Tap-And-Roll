@@ -14,6 +14,15 @@ import AVFoundation
 let imageFile = ImageFile()
 let reuseIdentifier = "AvailableDieCell"
 
+// Audio player for dice cup sound effects
+var diceCupAudio: AVAudioPlayer = AVAudioPlayer()
+
+// Audio player for die roll sound effects
+var diceRollAudio: AVAudioPlayer = AVAudioPlayer()
+
+var smallRollAudio: AVAudioPlayer = AVAudioPlayer()
+var largeRollAudio: AVAudioPlayer = AVAudioPlayer()
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var dieImage: UIImageView!
@@ -21,11 +30,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var dieSelectionCollectionView: UICollectionView!
 
+
     // Reference to the class that does all of the actual dice image drawing
     let drawDice = DrawDice()
-    
-    // Audio player for sound effects
-    var player: AVAudioPlayer = AVAudioPlayer()
     
     // The current die side showing
     var curSide = 1
@@ -58,7 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         var newDieImage = UIImage(named: imageFile.imageFilePath(name, fileNumber: sides))
 
-        let newDie = Die(image: newDieImage!, name: name, sides: sides, dieSound: player, rdfv: removeDieFromDiceView)
+        let newDie = Die(image: newDieImage!, name: name, sides: sides, rdfv: removeDieFromDiceView)
         
         ViewController.allDice.append(newDie)
         
@@ -131,12 +138,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     // Roll the die if the button is tapped
     @IBAction func rollButton(sender: AnyObject) {
+        
+        diceRollAudio = smallRollAudio
+        if ViewController.allDice.count > 2 {
+            diceRollAudio = largeRollAudio
+        }
         for die in ViewController.allDice {
             die.rollDie()
         }
+
     }
 
-    
+
     // Enable this view controller to get shake events, and others
     override func canBecomeFirstResponder() -> Bool {
         return true
@@ -145,10 +158,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // Roll the die if the phone is shaken
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        
+        diceRollAudio = smallRollAudio
         if motion == .MotionShake {
+            if ViewController.allDice.count > 2 {
+                diceRollAudio = largeRollAudio
+            }
             for die in ViewController.allDice {
                 die.rollDie()
             }
+
         }
     }
     
@@ -166,31 +185,52 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
+    // Only support portrait mode for now
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         curSide = 1
         // Set up the sound effects
         var e: NSErrorPointer = NSErrorPointer()
-        let audioPath = NSBundle.mainBundle().pathForResource("diceroll", ofType: "caf")!
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath), error: e)
+        var audioPath = NSBundle.mainBundle().pathForResource("diceroll", ofType: "caf")!
+        smallRollAudio = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath), error: e)
+        audioPath = NSBundle.mainBundle().pathForResource("manyDice", ofType: "caf")!
+        largeRollAudio = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath), error: e)
+        diceRollAudio = smallRollAudio
         if e != nil {
-            println("Error playing sound effect \(e)")
+            println("Error fetching diceroll sound effect \(e)")
         }
         
+        // Set up the sound effects
+        audioPath = NSBundle.mainBundle().pathForResource("dicecup2", ofType: "caf")!
+        diceCupAudio = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath), error: e)
+        if e != nil {
+            println("Error fetching dicecup sound effect \(e)")
+        }
+
         dieSelectionCollectionView.layer.borderWidth = 2
         dieSelectionCollectionView.layer.cornerRadius = 20.0
 
         diceView.layer.borderWidth = 2
         diceView.layer.cornerRadius = 20.0
         diceView.clipsToBounds = true
-        //var diceViewBackground = UIImageView(image: UIImage(named: "woodbackground"))
-        //diceView.addSubview(diceViewBackground)
+        
+        var gestureRecognizer = UISwipeGestureRecognizer(target: self, action: "segueToCreateDice:")
+        gestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(gestureRecognizer)
         
         // Put a first die in the view
         for die in ViewController.allDice {
             diceView.addSubview(die)
         }
+    }
+    
+    func segueToCreateDice(gesture: UIGestureRecognizer) {
+        performSegueWithIdentifier("toCreateDice", sender: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -12,9 +12,6 @@ import AVFoundation
 
 class Die: UIImageView {
     
-    // Audio player for sound effects
-    private var dieSound: AVAudioPlayer? = nil
-    
     // Indicates whether this die is currently being animated
     private var isAnimating = false
     
@@ -38,11 +35,10 @@ class Die: UIImageView {
     
     var removeDieFromView: (dieToRemove: Die) -> Void
     
-    init(image: UIImage, name: String, sides: Int, dieSound: AVAudioPlayer?, rdfv: (dieToRemove: Die) -> Void) {
+    init(image: UIImage, name: String, sides: Int, rdfv: (dieToRemove: Die) -> Void) {
         
         self.name = name
         self.sides = sides
-        self.dieSound = dieSound
         self.removeDieFromView = rdfv
         
         super.init(image: image)
@@ -62,7 +58,6 @@ class Die: UIImageView {
         
         name = "unnamed"
         sides = 0
-        dieSound = nil
         // Another hack because the arrogant idiots designing Swift have no
         // business making a new language. 
         removeDieFromView = Die.dummyFuncBecauseSwiftDesignersAreIdiots
@@ -76,6 +71,8 @@ class Die: UIImageView {
     
     // Roll the die if the image is tapped
     func imageTapped(sender: UITapGestureRecognizer) {
+        // When a single die is tapped, don't make the big sound
+        diceRollAudio = smallRollAudio
         rollDie()
     }
     
@@ -87,6 +84,15 @@ class Die: UIImageView {
         // Don't allow die roll when it is still animating another roll
         if isAnimating {
             return
+        }
+        
+        diceCupAudio.prepareToPlay()
+        
+        // Play the dice cup sound effect at the start of the roll
+        var b: Bool = diceCupAudio.play()
+        
+        if b == false {
+            println("ERROR: Attempt to play sound during animation failed")
         }
         
         totalRolls = Int(arc4random_uniform(6)) + 2
@@ -113,16 +119,10 @@ class Die: UIImageView {
         }
         
         setCurDieImage(curSide, rotation: rotation)
-        dieSound!.prepareToPlay()
         
         // Play the sound effect just after the rolls start
-        if curRolls == 1 {
-            var b: Bool = true
-            if dieSound != nil {
-                b = dieSound!.play()
-            } else {
-                println("ERROR: The dieSound was nil")
-            }
+        if curRolls == 2 {
+            var b: Bool = diceRollAudio.play()
             if b == false {
                 println("ERROR: Attempt to play sound during animation failed")
             }

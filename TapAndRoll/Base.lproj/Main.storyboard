@@ -19,6 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundv7.png" translatesAutoresizingMaskIntoConstraints="NO" id="ucW-bY-YeN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-jI-b7K" userLabel="DiceView" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
                                 <rect key="frame" x="140" y="190" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +41,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cSg-0j-pJw" kind="show" id="RfC-xv-7oH"/>
+                                    <segue destination="cSg-0j-pJw" kind="show" identifier="toCreateDice" id="RfC-xv-7oH"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999987" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6L-M4S">
@@ -233,7 +236,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Xl-V8o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundv7.png" translatesAutoresizingMaskIntoConstraints="NO" id="VN4-fF-XdL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <stepper opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Xl-V8o">
                                 <rect key="frame" x="252" y="134" width="94" height="29"/>
                                 <color key="backgroundColor" red="0.29150423920000001" green="0.62837009799999999" blue="0.32191792209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +259,7 @@
                                 </state>
                                 <connections>
                                     <action selector="rollButton:" destination="cSg-0j-pJw" eventType="touchUpInside" id="aQE-om-RWz"/>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="YJg-Wz-VVT"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="toRollDice" id="YJg-Wz-VVT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-My-TIh" customClass="DieButton" customModule="TapAndRoll" customModuleProvider="target">
@@ -303,7 +309,7 @@
                                     <outlet property="delegate" destination="cSg-0j-pJw" id="zYH-gl-ylN"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-GM-Yb5">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-GM-Yb5">
                                 <rect key="frame" x="250" y="98" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.3211497418" green="0.69227430560000003" blue="0.35465644639999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -313,6 +319,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-FO-txd">
+                                <rect key="frame" x="175" y="98" width="90" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="H2j-6l-S5M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 sides" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-Yq-CCw">
                                 <rect key="frame" x="264" y="169" width="70" height="21"/>
                                 <constraints>
@@ -343,15 +358,6 @@
                                     <action selector="saveButton:" destination="cSg-0j-pJw" eventType="touchUpInside" id="qaC-T9-jRU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-FO-txd">
-                                <rect key="frame" x="175" y="98" width="90" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="H2j-6l-S5M"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.56862745098039214" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -423,10 +429,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8d-Xu-ZHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="427"/>
+            <point key="canvasLocation" x="286" y="389"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backgroundv7.png" width="640" height="1136"/>
         <image name="palette" width="268" height="430"/>
     </resources>
 </document>

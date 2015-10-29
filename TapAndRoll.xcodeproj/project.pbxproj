@@ -20,6 +20,10 @@
 		A57772B21BC369F2003C1D05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57772B01BC369F2003C1D05 /* Interface.storyboard */; };
 		A57772B41BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772B31BC369F2003C1D05 /* Images.xcassets */; };
 		A57772B71BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5BC43EA1BE2AB6F008EBEA4 /* backgroundv7.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC43E91BE2AB6F008EBEA4 /* backgroundv7.png */; };
+		A5BC43EF1BE2C599008EBEA4 /* dicecup.caf in Resources */ = {isa = PBXBuildFile; fileRef = A5BC43EE1BE2C331008EBEA4 /* dicecup.caf */; };
+		A5BC43F01BE2C59C008EBEA4 /* manyDice.caf in Resources */ = {isa = PBXBuildFile; fileRef = A5BC43ED1BE2C328008EBEA4 /* manyDice.caf */; };
+		A5BC43F21BE2DD4E008EBEA4 /* dicecup2.caf in Resources */ = {isa = PBXBuildFile; fileRef = A5BC43F11BE2DD4E008EBEA4 /* dicecup2.caf */; };
 		A5EFEE4F1BD9513C00F51885 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */; };
 		A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE501BD957A600F51885 /* ImageFile.swift */; };
 		A5EFEE531BD983B200F51885 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEE521BD983B200F51885 /* colorPalette.plist */; };
@@ -94,6 +98,10 @@
 		A57772AF1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57772B11BC369F2003C1D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A57772B31BC369F2003C1D05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A5BC43E91BE2AB6F008EBEA4 /* backgroundv7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundv7.png; sourceTree = "<group>"; };
+		A5BC43ED1BE2C328008EBEA4 /* manyDice.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = manyDice.caf; sourceTree = "<group>"; };
+		A5BC43EE1BE2C331008EBEA4 /* dicecup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dicecup.caf; sourceTree = "<group>"; };
+		A5BC43F11BE2DD4E008EBEA4 /* dicecup2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dicecup2.caf; sourceTree = "<group>"; };
 		A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		A5EFEE501BD957A600F51885 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
 		A5EFEE521BD983B200F51885 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
@@ -159,24 +167,28 @@
 		A50C64681BC32F28008FB51F /* TapAndRoll */ = {
 			isa = PBXGroup;
 			children = (
-				A5EFEED21BE178F100F51885 /* DieButton.swift */,
-				A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */,
-				A5EFEE521BD983B200F51885 /* colorPalette.plist */,
-				A50C646B1BC32F28008FB51F /* AppDelegate.swift */,
-				A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */,
-				A50C646D1BC32F28008FB51F /* ViewController.swift */,
-				A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */,
-				A5EFEEC81BDEC75900F51885 /* Die.swift */,
-				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
-				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
+				A50C64721BC32F28008FB51F /* Images.xcassets */,
+				A5EFEE521BD983B200F51885 /* colorPalette.plist */,
+				A5EFEE581BDB544300F51885 /* DieSets.xcdatamodeld */,
+				A5BC43E91BE2AB6F008EBEA4 /* backgroundv7.png */,
+				A50C64741BC32F28008FB51F /* LaunchScreen.xib */,
+				A5BC43ED1BE2C328008EBEA4 /* manyDice.caf */,
+				A5BC43EE1BE2C331008EBEA4 /* dicecup.caf */,
+				A5BC43F11BE2DD4E008EBEA4 /* dicecup2.caf */,
+				A5EFEEC21BDD54FF00F51885 /* diceroll.caf */,
+				A5EFEE541BD983CC00F51885 /* ColorPickerViewController.swift */,
+				A5EFEEC81BDEC75900F51885 /* Die.swift */,
+				A5EFEED21BE178F100F51885 /* DieButton.swift */,
+				A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */,
+				A50C646B1BC32F28008FB51F /* AppDelegate.swift */,
+				A50C646D1BC32F28008FB51F /* ViewController.swift */,
+				A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */,
+				A5EFEE501BD957A600F51885 /* ImageFile.swift */,
 				A5EFEED01BE14BC900F51885 /* PatternedView.swift */,
 				A5EFEEC61BDD8DF900F51885 /* DieViewCell.swift */,
-				A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */,
 				A5EFEE5B1BDC20BC00F51885 /* DicePersistence.swift */,
-				A50C64721BC32F28008FB51F /* Images.xcassets */,
-				A50C64741BC32F28008FB51F /* LaunchScreen.xib */,
-				A5EFEEC21BDD54FF00F51885 /* diceroll.caf */,
+				A5EFEE561BD9D5E700F51885 /* YLColor.swift */,
 				A50C64691BC32F28008FB51F /* Supporting Files */,
 			);
 			path = TapAndRoll;
@@ -371,7 +383,11 @@
 				A5EFEEC31BDD62A300F51885 /* diceroll.caf in Resources */,
 				A5EFEE531BD983B200F51885 /* colorPalette.plist in Resources */,
 				A50C64711BC32F28008FB51F /* Main.storyboard in Resources */,
+				A5BC43F21BE2DD4E008EBEA4 /* dicecup2.caf in Resources */,
+				A5BC43EF1BE2C599008EBEA4 /* dicecup.caf in Resources */,
 				A50C64761BC32F28008FB51F /* LaunchScreen.xib in Resources */,
+				A5BC43EA1BE2AB6F008EBEA4 /* backgroundv7.png in Resources */,
+				A5BC43F01BE2C59C008EBEA4 /* manyDice.caf in Resources */,
 				A50C64731BC32F28008FB51F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
