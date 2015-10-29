@@ -184,8 +184,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         diceView.layer.borderWidth = 2
         diceView.layer.cornerRadius = 20.0
         diceView.clipsToBounds = true
-        var diceViewBackground = UIImageView(image: UIImage(named: "WoodBackground.png"))
-        diceView.addSubview(diceViewBackground)
+        //var diceViewBackground = UIImageView(image: UIImage(named: "woodbackground"))
+        //diceView.addSubview(diceViewBackground)
         
         // Put a first die in the view
         for die in ViewController.allDice {
@@ -222,6 +222,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             readImage = drawDice.createDieImages(savedDice[i].name, sides: savedDice[i].sides, color: UIColor(hexString: savedDice[i].color), width: 100, height: 100, radius: 50)
         }
         
+        cell.dieCellImage.alpha = 1.0
         cell.dieCellImage.image = readImage
         var gestureRecognizer = UISwipeGestureRecognizer(target: self, action: "cellSwiped:")
         gestureRecognizer.direction = UISwipeGestureRecognizerDirection.Down

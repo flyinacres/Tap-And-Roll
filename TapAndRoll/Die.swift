@@ -113,11 +113,18 @@ class Die: UIImageView {
         }
         
         setCurDieImage(curSide, rotation: rotation)
+        dieSound!.prepareToPlay()
         
         // Play the sound effect just after the rolls start
         if curRolls == 1 {
+            var b: Bool = true
             if dieSound != nil {
-                dieSound!.play()
+                b = dieSound!.play()
+            } else {
+                println("ERROR: The dieSound was nil")
+            }
+            if b == false {
+                println("ERROR: Attempt to play sound during animation failed")
             }
         }
         

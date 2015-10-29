@@ -42,8 +42,8 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999987" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-6L-M4S">
-                                <rect key="frame" x="5" y="70" width="588" height="110"/>
-                                <color key="backgroundColor" red="0.16173358721607126" green="0.52092385249554363" blue="0.1757865681042905" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="5" y="74" width="588" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="JiB-Dc-qX6"/>
                                 </constraints>
@@ -98,18 +98,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-cK-PZC">
-                                <rect key="frame" x="240" y="28" width="121" height="25"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                                <rect key="frame" x="214" y="27" width="161" height="33"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1803921568627451" green="0.56862745098039214" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.31506796793461561" green="0.12163556756831527" blue="0.57509251644736847" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ReZ-6L-M4S" secondAttribute="trailing" constant="-9" id="3gW-Y5-qk5"/>
-                            <constraint firstAttribute="centerX" secondItem="7i5-cK-PZC" secondAttribute="centerX" id="7yR-zZ-bde"/>
+                            <constraint firstAttribute="centerX" secondItem="7i5-cK-PZC" secondAttribute="centerX" constant="5.5" id="7yR-zZ-bde"/>
                             <constraint firstItem="ReZ-6L-M4S" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-11" id="BX3-bz-rqq"/>
-                            <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Cr5-0B-U3b"/>
+                            <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="7" id="Cr5-0B-U3b"/>
                             <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="6" id="HkM-PD-vsr"/>
                             <constraint firstItem="7i5-cK-PZC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="28" id="IcV-O9-vfu"/>
                             <constraint firstAttribute="centerX" secondItem="VRZ-jI-b7K" secondAttribute="centerX" id="O8w-5h-kwr"/>
@@ -117,7 +117,7 @@
                             <constraint firstItem="hcA-GA-kJe" firstAttribute="top" secondItem="Oun-Mc-iPf" secondAttribute="bottom" constant="6" id="aEx-wh-Yhn"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="6" id="aaj-OQ-mIM"/>
                             <constraint firstItem="ReZ-6L-M4S" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="d8l-40-b2h"/>
-                            <constraint firstItem="VRZ-jI-b7K" firstAttribute="top" secondItem="ReZ-6L-M4S" secondAttribute="bottom" constant="10" id="fe7-BN-5gc"/>
+                            <constraint firstItem="VRZ-jI-b7K" firstAttribute="top" secondItem="ReZ-6L-M4S" secondAttribute="bottom" constant="6" id="fe7-BN-5gc"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hcA-GA-kJe" secondAttribute="bottom" constant="8" id="h21-3n-Op3"/>
                             <constraint firstAttribute="centerX" secondItem="hcA-GA-kJe" secondAttribute="centerX" id="hUo-c6-YHG"/>
                             <constraint firstAttribute="centerY" secondItem="VRZ-jI-b7K" secondAttribute="centerY" constant="-50" id="scH-W8-qtd"/>
@@ -128,10 +128,10 @@
                                 <color key="value" red="0.30588235294117649" green="0.6588235294117647" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
-                                <color key="value" red="0.2470588235" green="0.52941176469999995" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.42352941176470588" green="0.16862745098039217" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="patternSize">
-                                <real key="value" value="4"/>
+                                <integer key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
@@ -313,15 +313,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-FO-txd">
-                                <rect key="frame" x="181" y="98" width="90" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="H2j-6l-S5M"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 sides" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-Yq-CCw">
                                 <rect key="frame" x="264" y="169" width="70" height="21"/>
                                 <constraints>
@@ -333,8 +324,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Dice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-Mb-aJs">
-                                <rect key="frame" x="221" y="28" width="157" height="25"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                                <rect key="frame" x="196" y="27" width="209" height="33"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -352,11 +343,20 @@
                                     <action selector="saveButton:" destination="cSg-0j-pJw" eventType="touchUpInside" id="qaC-T9-jRU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-FO-txd">
+                                <rect key="frame" x="175" y="98" width="90" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="H2j-6l-S5M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.56862745098039214" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fMg-Xl-Omv" firstAttribute="top" secondItem="fTp-Yq-CCw" secondAttribute="bottom" constant="18" id="40I-yJ-ZjR"/>
-                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="87" id="6Ju-fz-j34"/>
+                            <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="93" id="6Ju-fz-j34"/>
                             <constraint firstItem="NNE-kd-Pw0" firstAttribute="leading" secondItem="c7N-GM-Yb5" secondAttribute="trailing" constant="8" id="774-8y-Zzm"/>
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Ad3-58-Fjw"/>
                             <constraint firstItem="JhS-FO-txd" firstAttribute="baseline" secondItem="NNE-kd-Pw0" secondAttribute="baseline" constant="4.5" id="C9E-1O-rhB"/>
@@ -370,8 +370,8 @@
                             <constraint firstAttribute="centerX" secondItem="fMg-Xl-Omv" secondAttribute="centerX" id="Rjl-fT-L83"/>
                             <constraint firstAttribute="centerX" secondItem="5YR-qH-PrI" secondAttribute="centerX" id="SgN-yv-JaK"/>
                             <constraint firstItem="Oc2-Xl-V8o" firstAttribute="top" secondItem="c7N-GM-Yb5" secondAttribute="bottom" constant="6" id="VRv-gK-1FY"/>
-                            <constraint firstItem="IhT-Mb-aJs" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="8" id="XiG-T1-K7m"/>
-                            <constraint firstAttribute="centerX" secondItem="IhT-Mb-aJs" secondAttribute="centerX" constant="0.5" id="a80-jR-C2h"/>
+                            <constraint firstItem="IhT-Mb-aJs" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="7" id="XiG-T1-K7m"/>
+                            <constraint firstAttribute="centerX" secondItem="IhT-Mb-aJs" secondAttribute="centerX" constant="-0.5" id="a80-jR-C2h"/>
                             <constraint firstItem="JhS-FO-txd" firstAttribute="top" secondItem="P2b-gO-wk7" secondAttribute="bottom" constant="78" id="cUX-LJ-eZd"/>
                             <constraint firstItem="c7N-GM-Yb5" firstAttribute="leading" secondItem="JhS-FO-txd" secondAttribute="trailing" constant="10" id="evj-eq-hbu"/>
                             <constraint firstItem="fTp-Yq-CCw" firstAttribute="top" secondItem="Oc2-Xl-V8o" secondAttribute="bottom" constant="6" id="f1m-ds-Xzl"/>
@@ -389,13 +389,13 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
-                                <color key="value" red="0.2470588235" green="0.52941176469999995" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.42352941176470588" green="0.16862745098039217" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
                                 <color key="value" red="0.30588235289999999" green="0.6588235294" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="patternSize">
-                                <real key="value" value="4"/>
+                                <integer key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <variation key="default">

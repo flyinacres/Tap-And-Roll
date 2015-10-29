@@ -34,7 +34,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func sidesChoice(sender: UIStepper) {
         sidesLabel.text = Int(sender.value).description
         dieSides = Int(sender.value)
-        nameField.text = "D\(dieSides)"
+        nameField.text = "d\(dieSides)"
         
         // Programmatic changes to the field do not trigger the text watcher, so see if I need to update the button label here
         updateSaveButtonLabelOnChange()

@@ -21,7 +21,7 @@ class DieButton: UIButton {
         self.alpha = 1.0
         clipsToBounds = true
         
-        let image = UIImage(named: "WoodBackground.png") as UIImage?
+        let image = UIImage(named: "lighterwoodbackground") as UIImage?
         setBackgroundImage(image, forState: .Normal)
         
         titleLabel!.font = UIFont(name: "COPPERPLATE-BOLD", size: 20)

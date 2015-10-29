@@ -17,10 +17,10 @@ class DrawDice {
         
         let dieSize = CGSize(width: Int(width), height: Int(height))
         
-        // It makes no sense to have fewer than 3 or more than 10 sides...
+        // It makes no sense to have fewer than 2 or more than 10 sides...
         var drawableSides = sides
-        if sides < 5 {
-            drawableSides = 5
+        if sides < 4 {
+            drawableSides = 4
         } else if sides > 12 {
             drawableSides = 12
         }
@@ -127,12 +127,8 @@ class DrawDice {
     
     
     // Painful to create but cool now that it is working--fill the dice with a gradient
-    // clipped to the path I already created
-    func fillWithGradient(ctx: CGContextRef, path: CGPathRef, color: UIColor, lighterColor: UIColor, x: CGFloat, y: CGFloat) {
-        
-        // Use the path I already created to clip
-        CGContextAddPath(ctx, path)
-        CGContextClip(ctx)
+    // pre-clipped to the path I already created
+    func fillWithGradient(ctx: CGContextRef, color: UIColor, lighterColor: UIColor, x: CGFloat, y: CGFloat) {
         
         // Set up the color space
 
@@ -180,41 +176,72 @@ class DrawDice {
     
     
     
-    
+    // Draws the polygon, or if it has two sides, the circle.  Should be split into two different functions...
     func drawPolygonUsingPath(ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:Int, curSide: Int, color:UIColor, lighterColor: UIColor, arcRadius: Int, font: String)->UIImage {
-        let startAngle: CGFloat = degree2radian((360/CGFloat(sides*2))*CGFloat(curSide))
-        var path = roundedPolygonPath(x, y: y, radius: radius, sides: sides, startAngle: startAngle, arcRadius: arcRadius)
-        CGContextAddPath(ctx, path)
-        //CGContextSetFillColorWithColor(ctx, color.CGColor)
-        //CGContextFillPath(ctx)
-        fillWithGradient(ctx, path: path, color: color, lighterColor: lighterColor, x: x, y: y)
         
-        // Draw the inset portion of the polygon, if needed
-        // Gives a small 3d effect
-        if sides > 4 {
-            var innerPath = roundedPolygonPath(x, y: y, radius: radius-innerRadiusDelta, sides: sides, startAngle: startAngle, arcRadius: arcRadius)
-            CGContextAddPath(ctx, innerPath)
+        // If it has two sides it is really just a coin--make a circle
+        if sides == 2 {
+            var startAngle: Float = Float(2 * M_PI)
+            var endAngle: Float = 0.0
             
-            CGContextSetFillColorWithColor(ctx, lighterColor.CGColor)
-            CGContextFillPath(ctx)
+            // Find the middle of the circle
+            let center = CGPointMake(x, y)
             
-            // And draw the side lines
-            let innerPoints = polygonPointArray(sides, x: x, y: y,radius: radius-innerRadiusDelta, startAngle: startAngle)
-            let outerPoints = polygonPointArray(sides, x: x, y: y,radius: radius, startAngle: startAngle)
-            let sideLinesPath = CGPathCreateMutable()
+            // Set the stroke color
+            CGContextSetStrokeColorWithColor(ctx, color.CGColor)
+            
+            // Set the line width
+            CGContextSetLineWidth(ctx, CGFloat(6))
+            
+            // Rotate the angles so that the inputted angles are intuitive like the clock face: the top is 0 (or 2π), the right is π/2, the bottom is π and the left is 3π/2.
+            // In essence, this appears like a unit circle rotated π/2 anti clockwise.
+            startAngle = startAngle - Float(M_PI_2)
+            endAngle = endAngle - Float(M_PI_2)
+            
+            // Draw the arc around the circle
+            CGContextAddArc(ctx, center.x, center.y, CGFloat(radius) - CGFloat(arcRadius), CGFloat(startAngle), CGFloat(endAngle), 0)
+            CGContextClip(ctx)
+            
+            // Draw the arc
+            CGContextDrawPath(ctx, kCGPathStroke) // or kCGPathFillStroke to fill and stroke the circle
+            fillWithGradient(ctx, color: color, lighterColor: lighterColor, x: x, y: y)
+        } else {
+            let startAngle: CGFloat = degree2radian((360/CGFloat(sides*2))*CGFloat(curSide))
+            var path = roundedPolygonPath(x, y: y, radius: radius, sides: sides, startAngle: startAngle, arcRadius: arcRadius)
+            
+            // Use the path I already created to clip
+            CGContextAddPath(ctx, path)
+            CGContextClip(ctx)
 
-            for (outer, inner) in zip (outerPoints, innerPoints) {
-                CGPathMoveToPoint(sideLinesPath, nil, outer.x, outer.y)
-                CGPathAddLineToPoint(sideLinesPath, nil, inner.x, inner.y)
+            fillWithGradient(ctx, color: color, lighterColor: lighterColor, x: x, y: y)
+            
+            // Draw the inset portion of the polygon, if needed
+            // Gives a small 3d effect
+            if sides > 4 {
+                var innerPath = roundedPolygonPath(x, y: y, radius: radius-innerRadiusDelta, sides: sides, startAngle: startAngle, arcRadius: arcRadius)
+                CGContextAddPath(ctx, innerPath)
+                
+                CGContextSetFillColorWithColor(ctx, lighterColor.CGColor)
+                CGContextFillPath(ctx)
+                
+                // And draw the side lines
+                let innerPoints = polygonPointArray(sides, x: x, y: y,radius: radius-innerRadiusDelta, startAngle: startAngle)
+                let outerPoints = polygonPointArray(sides, x: x, y: y,radius: radius, startAngle: startAngle)
+                let sideLinesPath = CGPathCreateMutable()
+
+                for (outer, inner) in zip (outerPoints, innerPoints) {
+                    CGPathMoveToPoint(sideLinesPath, nil, outer.x, outer.y)
+                    CGPathAddLineToPoint(sideLinesPath, nil, inner.x, inner.y)
+                }
+                CGPathCloseSubpath(sideLinesPath)
+                CGContextAddPath(ctx, sideLinesPath)
+                CGContextSetStrokeColorWithColor(ctx, lighterColor.CGColor)
+                CGContextDrawPath(ctx, kCGPathStroke)
             }
-            CGPathCloseSubpath(sideLinesPath)
-            CGContextAddPath(ctx, sideLinesPath)
-            CGContextSetStrokeColorWithColor(ctx, lighterColor.CGColor)
-            CGContextDrawPath(ctx, kCGPathStroke)
+            
+            //drawPip(ctx, x: x, y: y)
+            //        drawText(ctx, x: x, y: y, radius: radius, color: UIColor.blackColor(), text: "\(curSide)")
         }
-        
-        //drawPip(ctx, x: x, y: y)
-        //        drawText(ctx, x: x, y: y, radius: radius, color: UIColor.blackColor(), text: "\(curSide)")
         return textToImage("\(curSide)", inImage: UIGraphicsGetImageFromCurrentImageContext(), atPoint: CGPoint(x: x, y: y), font: font)
     }
     
