@@ -37,7 +37,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // The current die side showing
     var curSide = 1
 
-    private static var allDice = [Die]()
+    private static var allDice = [RollableDie]()
     
     var numDSCVRows = 1
 
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let maxDicePerRow: Int = 3
     
     // Add the specified die to the view, if possible
-    func addDieToDiceView(name: String, sides: Int, color: UIColor, startPoint: CGPoint) {
+    func addDieToDiceView(die: Die, startPoint: CGPoint) {
         var totalDiceInView = ViewController.allDice.count
         
         if totalDiceInView == 9 {
@@ -63,9 +63,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Need to figure out how to increase the bounds, and where to add the new die
         var height = CGFloat((totalDiceInView / maxDicePerRow + 1) * 105 + 5)
         
-        var newDieImage = UIImage(named: imageFile.imageFilePath(name, fileNumber: sides))
-
-        let newDie = Die(image: newDieImage!, name: name, sides: sides, rdfv: removeDieFromDiceView)
+        let newDie = RollableDie(die: die, rdfv: removeDieFromDiceView)
         
         ViewController.allDice.append(newDie)
         
@@ -105,7 +103,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // The painful process of removing a particular die
-    func removeDieFromDiceView(dieToRemove: Die) {
+    func removeDieFromDiceView(dieToRemove: RollableDie) {
         
         // A little delta in the y angle to make it interesting
         var yDelta = CGFloat(arc4random_uniform(200)) - 100
@@ -229,9 +227,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    // On a swipe segue to the other main view
     func segueToCreateDice(gesture: UIGestureRecognizer) {
         performSegueWithIdentifier("toCreateDice", sender: nil)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -244,11 +244,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     internal func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numDSCVRows
     }
+    
+    
     // UICollectionViewDataSource Protocol:
     // Returns the number of columns in collection view
     internal func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return savedDice.count
     }
+    
+    
     // UICollectionViewDataSource Protocol:
     // Initializes the collection view cells
     internal func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -257,10 +261,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let i = indexPath.section
         // Read the image--if it does not exist then create the image set
-        var readImage = UIImage(named: imageFile.imageFilePath(savedDice[i].name, fileNumber: savedDice[i].sides))
-        if readImage == nil {
-            readImage = drawDice.createDieImages(savedDice[i].name, sides: savedDice[i].sides, color: UIColor(hexString: savedDice[i].color), width: 100, height: 100, radius: 50)
-        }
+        var readImage = savedDice[i].getImage(savedDice[i].sides-1)
         
         cell.dieCellImage.alpha = 1.0
         cell.dieCellImage.image = readImage
@@ -277,21 +278,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // Allow user to swipe down to add a die to the set
     func cellSwiped(gesture: UIGestureRecognizer) {
         let view: UIView = gesture.view!
-        //let indexPath = NSIndexPath(forRow: view.tag, inSection: 0)
-        //var cell: UICollectionViewCell  = dieSelectionCollectionView.cellForItemAtIndexPath(indexPath)! as UICollectionViewCell
         
-        addDieToDiceView(savedDice[view.tag].name, sides: savedDice[view.tag].sides, color: UIColor(hexString: savedDice[view.tag].color), startPoint: dieSelectionCollectionView.convertPoint(view.center, toView: diceView))
+        addDieToDiceView(savedDice[view.tag], startPoint: dieSelectionCollectionView.convertPoint(view.center, toView: diceView))
     }
     
     // Recognizes and handles when a collection view cell has been selected
     internal func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var cell: UICollectionViewCell  = collectionView.cellForItemAtIndexPath(indexPath)! as UICollectionViewCell
         
-        // Update to the selected die
-        currentDie = cell.tag
-        
         // Note that I had to convert the cell.center to the proper coordinate system
-        addDieToDiceView(savedDice[currentDie].name, sides: savedDice[currentDie].sides, color: UIColor(hexString: savedDice[currentDie].color), startPoint: collectionView.convertPoint(cell.center, toView: diceView))
+        addDieToDiceView(savedDice[cell.tag], startPoint: collectionView.convertPoint(cell.center, toView: diceView))
     }
 
 }

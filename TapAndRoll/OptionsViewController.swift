@@ -9,17 +9,11 @@
 import UIKit
 import AVFoundation
 
-// This is the number of sides to use for the die
-var dieSides = 8
-// This is the color of the current die
-var dieColor = UIColor.blueColor()
-// This is the current die to use from the list of savedDice
-var currentDie = 0
 
 // The dice currently saved long term, including some pre-created ones
 // Start with a standard D&D set
 var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "d4", color: "#D0643E", sides: 4), (dieSet: 0, name: "d6", color: "#3246AD", sides: 6), (dieSet: 0, name: "d8", color: "#4B6947", sides: 8), (dieSet: 0, name: "d10", color: "#870A15", sides: 10), (dieSet: 0, name: "d10 alt", color: "#A90C1B", sides: 10), (dieSet: 0, name: "d12", color: "#B81AB8", sides: 12), (dieSet: 0, name: "d20 The Big Gun", color: "#5910F6", sides: 20)]
-var savedDice: [(dieSet: Int, name: String, color: String, sides: Int)]  = []
+var savedDice = [Die]()
 
 class OptionsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITextFieldDelegate  {
 
@@ -31,14 +25,17 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBOutlet weak var saveButtonLabel: UIButton!
     @IBOutlet weak var dieTableView: UITableView!
     
+    // Need a var to save the color from the color picker, as the color picker
+    // disappears after a selection has been made
+    private var dieColor = UIColor.blueColor()
+    
     // Called when the stepper changes
     @IBAction func sidesChoice(sender: UIStepper) {
-        sidesLabel.text = Int(sender.value).description
-        dieSides = Int(sender.value)
-        nameField.text = "d\(dieSides)"
+        sidesLabel.text = "\(Int(sender.value).description) sides"
+        nameField.text = "d\(Int(sender.value))"
         
         // Programmatic changes to the field do not trigger the text watcher, so see if I need to update the button label here
-        updateSaveButtonLabelOnChange()
+        updateButtonLabelsOnChange()
     }
     
 
@@ -78,25 +75,16 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func saveButton(sender: AnyObject) {
         var duplicateDie = false
         
+        // First check to see if this is an update to an existing die
         if let index = findDieByName(nameField.text) {
             // Only update the color--this die already exists
-            savedDice[index] = (dieSet: 0, name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
+            savedDice[index].color = dieColor.toHexString()
             
             // Now update the info for this die
-            DicePersistence.sharedInstance.updateDieInStorage(0, name: savedDice[index].name, color: dieColor.toHexString(), sides: savedDice[index].sides)
+            DicePersistence.sharedInstance.updateDieInStorage(savedDice[index])
             
-            // Delete the old file so that they will be rewritten.
-            var e = NSErrorPointer()
-            println("Removing file \(savedDice[index].name) \(savedDice[index].sides)")
-            var result = NSFileManager.defaultManager().removeItemAtPath(imageFile.imageFilePath(savedDice[index].name, fileNumber: savedDice[index].sides), error: e)
-            if e != nil {
-                println("Error trying to erase previous file: \(e)")
-            }
-            println("Result of the delete was \(result)")
-            var readImage = UIImage(named: imageFile.imageFilePath(savedDice[index].name, fileNumber: savedDice[index].sides))
-            if readImage != nil {
-                println("Found file that should have been deleted")
-            }
+            // Delete the old info so that they will be rewritten.
+            savedDice[index].releaseImages(false)
 
             // Make sure table updates to show any changes
             dieTableView.reloadData()
@@ -104,22 +92,20 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         } else {
             // Add new die
             
-            // Swift bug--thanks for wasting hours of my life...
-            // Swift cannot figure out the types of tuples and refuses to add them to an array.
-            savedDice.append(dieSet: 0 as Int, name: nameField.text as String, color: dieColor.toHexString() as String, sides: dieSides as Int)
+            // Swift bug--thanks for wasting hours of my life... Swift cannot figure out the types of tuples and refuses to add them to an array.
+            // Fortunately I switched from tuples to an actual class and everything works great
+            var newDie = Die(dieSet: 0 as Int, name: nameField.text as String, color: dieColor.toHexString() as String, sides: Int(curStepperValue.value),
+                width: standardDieWidth, height: standardDieHeight, radius: standardDieRadius)
+            savedDice.append(newDie)
             
             // Now permanently save this die
-            DicePersistence.sharedInstance.saveDieToStorage(0, name: nameField.text, color: dieColor.toHexString(), sides: dieSides)
-            
-            // Don't forget to update the selection to the newly added die
-            currentDie = savedDice.count - 1
-            
+            DicePersistence.sharedInstance.saveDieToStorage(newDie)
             
             // Make sure table updates to show this die
             dieTableView.reloadData()
             
             // And update the button labels
-            updateSaveButtonLabelOnChange()
+            updateButtonLabelsOnChange()
  
         }
     }
@@ -136,7 +122,9 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         return .None
     }
     
-    func setButtonColor (color: UIColor) {
+    // Set the last color selected from the popover panel.  Note that the panel disappears, so the
+    // color needs to be saved somewhere
+    func setOptionColor (color: UIColor) {
         colorButton.setTitleColor(color, forState:UIControlState.Normal)
         dieColor = color
     }
@@ -153,10 +141,14 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         // Initialize the set of saved dice at least the first time.  After this assume that dice are
         // added as they are saved or updated
         if savedDice.count == 0 {
-            var readDice: [(dieSet: Int, name: String, color: String, sides: Int)]?
-            readDice = DicePersistence.sharedInstance.loadDiceFromStorage(0)
+            var readDice = DicePersistence.sharedInstance.loadDiceFromStorage(0)
             if readDice == nil || readDice!.count == 0 {
-                DicePersistence.sharedInstance.saveDieSet(0, theSavedDice: originalSavedDice)
+                // Translate the originally persisted dice from the tuples to actual Die instances...
+                var originalSaved = [Die]()
+                for d in originalSavedDice {
+                    originalSaved.append(Die(dieSet: d.dieSet, name: d.name, color: d.color, sides: d.sides, width: standardDieWidth, height: standardDieHeight, radius: standardDieRadius))
+                }
+                DicePersistence.sharedInstance.saveDieSet(0, theSavedDice: originalSaved)
                 readDice = DicePersistence.sharedInstance.loadDiceFromStorage(0)
                 if readDice != nil {
                    savedDice = readDice!
@@ -171,7 +163,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         nameField.delegate = self
         
         // On view load the current options must all represent the selected die
-        updateForCurrentDie(currentDie)
+        updateForCurrentDie(0)
         
         dieTableView.layer.borderWidth = 3
         dieTableView.layer.cornerRadius = 20.0
@@ -215,16 +207,21 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
         let newString: NSString =
         currentString.stringByReplacingCharactersInRange(range, withString: string)
         
-        updateSaveButtonLabelOnChange()
         return newString.length <= maxLength
     }
     
+    // Editing is done--see if this is the name of an existing die
+    func textFieldDidEndEditing(textField: UITextField) {
+        println("TextField did end editing method called")
+        updateButtonLabelsOnChange()
+    }
     
     // If the die is not a dup, update the roll button label to include the fact that the button will be saved
-    func updateSaveButtonLabelOnChange() {
+    func updateButtonLabelsOnChange() {
         if let index = findDieByName(nameField.text) {
             
             saveButtonLabel.setTitle("Update", forState: .Normal)
+            setOptionColor(UIColor(hexString: savedDice[index].color))
         } else {
             // Update the button label so the user knows they will get a new die
             saveButtonLabel.setTitle("Save", forState: .Normal)
@@ -252,13 +249,9 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             sidesLabel.text = "\(currentDieFromRow.sides) sides"
             nameField.text = currentDieFromRow.name
             
-            dieSides = currentDieFromRow.sides
-            curStepperValue.value = Double(dieSides)
+            curStepperValue.value = Double(currentRow)
             
-            setButtonColor(UIColor(hexString: currentDieFromRow.color))
-            
-            // Now update the global current die, to ensure it is in sync with the UI
-            currentDie = currentRow
+            setOptionColor(UIColor(hexString: currentDieFromRow.color))
         }
         
     }
@@ -267,7 +260,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     // Make sure that all of the variables/display reflect the row that will be selected
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         updateForCurrentDie(indexPath.row)
-        updateSaveButtonLabelOnChange()
+        updateButtonLabelsOnChange()
         
         return indexPath
     }

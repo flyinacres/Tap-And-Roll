@@ -97,7 +97,12 @@ class ColorPickerViewController: UIViewController, UICollectionViewDelegate, UIC
 			var hexString = colorPalette[cell.tag]
 			color = hexStringToUIColor(hexString)
 			self.view.backgroundColor = color
-			delegate?.setButtonColor(color)
+			delegate?.setOptionColor(color)
+            
+            // Dismiss the popover as soon as a color is chosen--probably not needed anymore
+            self.dismissViewControllerAnimated(true, completion: {
+                //println("Controller going bye-bye")
+                })
 		}
 	}
 }

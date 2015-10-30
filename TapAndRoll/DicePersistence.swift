@@ -23,26 +23,25 @@ class DicePersistence {
     }
 
     // Save an entire die set to storage
-    func saveDieSet(dieSet: Int, theSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)]) {
+    func saveDieSet(dieSet: Int, theSavedDice: [Die]) {
         for die in theSavedDice {
             if dieSet == die.dieSet {
-                saveDieToStorage(dieSet, name: die.name, color: die.color, sides: die.sides)
+                saveDieToStorage(die)
             }
         }
     }
     
     // Update an existing die in storage
-    func updateDieInStorage(dieSet: Int, name: String, color: String, sides: Int) {
+    func updateDieInStorage(die: Die) {
         var e: NSErrorPointer = NSErrorPointer()
         
         let request = NSFetchRequest(entityName: "DieInfo")
         request.returnsObjectsAsFaults = false
-        let predicateDieSet = NSPredicate(format: "dieSet == %i", dieSet)
-        let predicateName = NSPredicate(format: "name == %@", name)
+        let predicateDieSet = NSPredicate(format: "dieSet == %i", die.dieSet)
+        let predicateName = NSPredicate(format: "name == %@", die.name)
         let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType,
             subpredicates: [predicateDieSet, predicateName])
         
-//        request.predicate = NSPredicate(format: "dieSet == %@ AND name == %@", dieSet, name)
         request.predicate = predicate
 
 
@@ -54,15 +53,15 @@ class DicePersistence {
                 // This should be the unique result we wish to update
                 var result = saveDieResults[0] as! NSManagedObject
                 
-                result.setValue(dieSet, forKey: "dieSet")
-                result.setValue(name, forKey: "name")
-                result.setValue(color, forKey: "color")
-                result.setValue(sides, forKey: "sides")
+                result.setValue(die.dieSet, forKey: "dieSet")
+                result.setValue(die.name, forKey: "name")
+                result.setValue(die.color, forKey: "color")
+                result.setValue(die.sides, forKey: "sides")
                 
                 // Now actually save the values
                 context.save(e)
                 if e != nil {
-                    println("Error updating die \(name): \(e)")
+                    println("Error updating die \(die.name): \(e)")
                 }
 
             } else {
@@ -74,26 +73,26 @@ class DicePersistence {
     }
 
     // Save a new die to storage
-    func saveDieToStorage(dieSet: Int, name: String, color: String, sides: Int) {
+    func saveDieToStorage(die: Die) {
         var e: NSErrorPointer = NSErrorPointer()
         
         var newDie: AnyObject = NSEntityDescription.insertNewObjectForEntityForName("DieInfo", inManagedObjectContext: context)
-        newDie.setValue(dieSet, forKey: "dieSet")
-        newDie.setValue(name, forKey: "name")
-        newDie.setValue(color, forKey: "color")
-        newDie.setValue(sides, forKey: "sides")
+        newDie.setValue(die.dieSet, forKey: "dieSet")
+        newDie.setValue(die.name, forKey: "name")
+        newDie.setValue(die.color, forKey: "color")
+        newDie.setValue(die.sides, forKey: "sides")
         
         context.save(e)
         if e != nil {
-            println("Error saving die \(name): \(e)")
+            println("Error saving die \(die.name): \(e)")
         }
     }
 
     // Load all of the values for a particular Die Set
-    func loadDiceFromStorage(dieSet: Int) ->  [(dieSet: Int, name: String, color: String, sides: Int)]? {
+    func loadDiceFromStorage(dieSet: Int) ->  [Die]? {
         var e: NSErrorPointer = NSErrorPointer()
         
-        var loadedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = []
+        var loadedDice: [Die] = []
         
         let request = NSFetchRequest(entityName: "DieInfo")
         request.returnsObjectsAsFaults = false
@@ -106,10 +105,11 @@ class DicePersistence {
                 for result in saveDieResults as! [NSManagedObject] {
                     let curDieSet = result.valueForKey("dieSet") as! Int
                     if curDieSet == dieSet {
-                        let newDie = (dieSet: dieSet,
+                        let newDie = Die(dieSet: dieSet,
                             name: result.valueForKey("name") as! String,
                             color: result.valueForKey("color") as! String,
-                            sides: result.valueForKey("sides") as! Int)
+                            sides: result.valueForKey("sides") as! Int,
+                            width: standardDieWidth, height: standardDieHeight, radius: standardDieRadius)
                         loadedDice.append(newDie)
                     }
                 }

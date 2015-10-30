@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+let standardDieWidth: CGFloat = 100
+let standardDieHeight: CGFloat = 100
+let standardDieRadius: CGFloat = 50
+
 class DrawDice {
 
     
@@ -19,8 +23,11 @@ class DrawDice {
         
         // It makes no sense to have fewer than 2 or more than 10 sides...
         var drawableSides = sides
-        if sides < 4 {
+        if sides == 2 {
+            // We have a coin 
             drawableSides = 4
+        } else if sides < 5 {
+            drawableSides = 5
         } else if sides > 12 {
             drawableSides = 12
         }

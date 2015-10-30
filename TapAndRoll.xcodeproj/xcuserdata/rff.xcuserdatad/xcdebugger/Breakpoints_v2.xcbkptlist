@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "colorSelection(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467850647.096302"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467850647.096302"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467850647.096302"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "textField(_:shouldChangeCharactersInRange:replacementString:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467850647.096302"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "updateForCurrentDie(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467850647.096302"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "tableView(_:willSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -191,7 +191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "updateDieInStorage(_:name:color:sides:)"
+            landmarkName = "updateDieInStorage(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,28 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DicePersistence.swift"
-            timestampString = "467418957.779617"
+            timestampString = "467862769.112989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "updateDieInStorage(_:name:color:sides:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "updateDieInStorage(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -239,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "updateDieInStorage(_:name:color:sides:)"
+            landmarkName = "updateDieInStorage(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467879510.135317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "numberOfSectionsInCollectionView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -393,13 +377,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467851644.553041"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "init(image:name:sides:rdfv:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "init(die:rdfv:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -441,13 +425,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467851644.553041"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "Die"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "RollableDie"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -457,13 +441,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467851644.553041"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "init(image:name:sides:rdfv:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "init(die:rdfv:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -479,7 +463,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "addDieToDiceView(_:sides:color:startPoint:)"
+            landmarkName = "addDieToDiceView(_:startPoint:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -489,24 +473,24 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467851644.553041"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "Die"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "RollableDie"
             landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TapAndRoll.Die.removeDieFromView.getter (dieToRemove : TapAndRoll.Die) -&gt; ()"
+                  symbolName = "TapAndRoll.RollableDie.removeDieFromView.getter (dieToRemove : TapAndRoll.RollableDie) -&gt; ()"
                   moduleName = "TapAndRoll"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/Die.swift"
-                  timestampString = "467852179.992519"
+                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/RollableDie.swift"
+                  timestampString = "467879566.771099"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -517,11 +501,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TapAndRoll.Die.removeDieFromView.setter (dieToRemove : TapAndRoll.Die) -&gt; ()"
+                  symbolName = "TapAndRoll.RollableDie.removeDieFromView.setter (dieToRemove : TapAndRoll.RollableDie) -&gt; ()"
                   moduleName = "TapAndRoll"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/Die.swift"
-                  timestampString = "467852179.992888"
+                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/RollableDie.swift"
+                  timestampString = "467879566.771314"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -532,11 +516,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TapAndRoll.Die.removeDieFromView.materializeForSet (dieToRemove : TapAndRoll.Die) -&gt; ()"
+                  symbolName = "TapAndRoll.RollableDie.removeDieFromView.materializeForSet (dieToRemove : TapAndRoll.RollableDie) -&gt; ()"
                   moduleName = "TapAndRoll"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/Die.swift"
-                  timestampString = "467852179.993013"
+                  urlString = "file:///Users/rff/Desktop/Dev/TapAndRoll/TapAndRoll/RollableDie.swift"
+                  timestampString = "467879566.771461"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -552,12 +536,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467852503.152134"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "setCurDieImage(_:rotation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -569,11 +553,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467743045.846688"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "roundedPolygonPath(_:y:radius:sides:startAngle:arcRadius:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -581,15 +565,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467743045.846688"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "polygonPath(_:y:radius:sides:startAngle:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -601,11 +585,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467743045.846688"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "roundedPolygonPath(_:y:radius:sides:startAngle:arcRadius:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -616,28 +600,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467743045.846688"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "createDieImages(_:sides:color:width:height:radius:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -645,47 +613,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "saveButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "saveButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -697,27 +633,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -729,11 +649,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -744,40 +664,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "saveButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "changeDiceSelected(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
@@ -792,12 +680,28 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467852503.152134"
+            filePath = "TapAndRoll/ViewController.swift"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "changeDiceSelected(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "setCurDieImage(_:rotation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -809,11 +713,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467800574.766718"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "fillWithGradient(_:color:lighterColor:x:y:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -825,11 +729,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467800574.766718"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "fillWithGradient(_:color:lighterColor:x:y:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -841,11 +745,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467801526.68149"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "drawPolygonUsingPath(_:x:y:radius:sides:curSide:color:lighterColor:arcRadius:font:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -857,11 +761,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "removeDieFromDiceView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -873,12 +777,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "addDieToDiceView(_:sides:color:startPoint:)"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "addDieToDiceView(_:startPoint:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -904,28 +808,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "cellSwiped(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TapAndRoll/OptionsViewController.swift"
-            timestampString = "467845596.466346"
+            timestampString = "467882201.242846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "sidesChoice(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -936,24 +824,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467852503.152134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "doDieAnimation()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467852503.152134"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
@@ -965,15 +837,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "doDieAnimation()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467801251.235679"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "drawPolygonUsingPath(_:x:y:radius:sides:curSide:color:lighterColor:arcRadius:font:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -985,11 +873,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/DrawDice.swift"
-            timestampString = "467801526.68149"
+            timestampString = "467877672.464677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "drawPolygonUsingPath(_:x:y:radius:sides:curSide:color:lighterColor:arcRadius:font:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1001,11 +889,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1017,11 +905,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1032,12 +920,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapAndRoll/Die.swift"
-            timestampString = "467852503.152134"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "rollDie()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1049,11 +937,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852032.121625"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "motionEnded(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1065,11 +953,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "rollButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1081,12 +969,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TapAndRoll/ViewController.swift"
-            timestampString = "467852503.152134"
+            timestampString = "467880431.63204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapAndRoll/DrawDice.swift"
+            timestampString = "467877672.464677"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "drawPolygonUsingPath(_:x:y:radius:sides:curSide:color:lighterColor:arcRadius:font:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapAndRoll/Die.swift"
+            timestampString = "467880954.189591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "Die"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapAndRoll/RollableDie.swift"
+            timestampString = "467880954.189591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "init(die:rdfv:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
