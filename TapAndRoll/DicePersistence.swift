@@ -14,6 +14,10 @@ class DicePersistence {
     
     static let sharedInstance = DicePersistence()
     
+    // The other type of persistence handled here--sharing to defaults so that an AppleWatch can get the info
+    let sharedDefaults = NSUserDefaults(suiteName: "group.com.qpiapps.TapAndRoll")
+    
+
     var appDel:AppDelegate
     var context: NSManagedObjectContext
 
@@ -29,6 +33,18 @@ class DicePersistence {
                 saveDieToStorage(die)
             }
         }
+    }
+    
+    func updateSharedDice() {
+        var dieNames = [String]()
+        
+        for die in savedDice {
+            dieNames.append(die.name)
+            sharedDefaults?.setValue(die.dieSet, forKey: "\(die.name)DieSet")
+            sharedDefaults?.setValue(die.sides, forKey: "\(die.name)Sides")
+            sharedDefaults?.setValue(die.color, forKey: "\(die.name)Color")
+        }
+        sharedDefaults?.setObject(dieNames, forKey: "DieNames")
     }
     
     // Update an existing die in storage

@@ -15,61 +15,62 @@ let standardDieRadius: CGFloat = 50
 
 class DrawDice {
 
+    // Cannot share this with the watchkit extension.  The functionality has been moved to Die.swit anyway.
     
-    // Create the images for all of the die's sides
-    func createDieImages(name: String, sides: Int, color: UIColor, width: CGFloat, height: CGFloat, radius: CGFloat) -> UIImage? {
-        
-        let dieSize = CGSize(width: Int(width), height: Int(height))
-        
-        // It makes no sense to have fewer than 2 or more than 10 sides...
-        var drawableSides = sides
-        if sides == 2 {
-            // We have a coin 
-            drawableSides = 4
-        } else if sides < 5 {
-            drawableSides = 5
-        } else if sides > 12 {
-            drawableSides = 12
-        }
-        drawableSides = drawableSides - 2
-        var arcRadius = Int(arc4random_uniform(10)) + 1
-        
-        // Pick a different brightness for the die
-        // Jitter the delta a bit...  Make some dice look flatter than others
-        var delta: CGFloat = CGFloat(arc4random_uniform(200)) / CGFloat(500) + 0.2
-        var lighterColor = getLighterColor(color, delta: delta)
-        
-        // Figure out the font for the die (just a little variety)
-        var font: String = "Helvetica Bold"
-        var fontChoice = Int(arc4random_uniform(4))
-        switch fontChoice {
-        case 1:
-            font = "Verdana-Bold"
-        case 2:
-            font = "Palatino-Bold"
-        case 3:
-            font = "Superclarendon-Bold"
-        default:
-            font = "Helvetica Bold"
-        }
-        
-        var image: UIImage? = nil
-        
-        for centerX in 1...sides {
-            UIGraphicsBeginImageContext(dieSize)
-            let context = UIGraphicsGetCurrentContext()
-            
-            //draw a shape at centerX
-            image = drawPolygonUsingPath(context, x: width/2, y: height/2, radius: radius, sides: drawableSides, curSide: centerX, color: color, lighterColor: lighterColor, arcRadius: arcRadius, font: font)
-            
-            // Write the image as a file
-            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: name, fileNumber: centerX)
-            
-            UIGraphicsEndImageContext()
-        }
-        
-        return image
-    }
+//    // Create the images for all of the die's sides
+//    func createDieImages(name: String, sides: Int, color: UIColor, width: CGFloat, height: CGFloat, radius: CGFloat) -> UIImage? {
+//        
+//        let dieSize = CGSize(width: Int(width), height: Int(height))
+//        
+//        // It makes no sense to have fewer than 2 or more than 10 sides...
+//        var drawableSides = sides
+//        if sides == 2 {
+//            // We have a coin 
+//            drawableSides = 4
+//        } else if sides < 5 {
+//            drawableSides = 5
+//        } else if sides > 12 {
+//            drawableSides = 12
+//        }
+//        drawableSides = drawableSides - 2
+//        var arcRadius = Int(arc4random_uniform(10)) + 1
+//        
+//        // Pick a different brightness for the die
+//        // Jitter the delta a bit...  Make some dice look flatter than others
+//        var delta: CGFloat = CGFloat(arc4random_uniform(200)) / CGFloat(500) + 0.2
+//        var lighterColor = getLighterColor(color, delta: delta)
+//        
+//        // Figure out the font for the die (just a little variety)
+//        var font: String = "Helvetica Bold"
+//        var fontChoice = Int(arc4random_uniform(4))
+//        switch fontChoice {
+//        case 1:
+//            font = "Verdana-Bold"
+//        case 2:
+//            font = "Palatino-Bold"
+//        case 3:
+//            font = "Superclarendon-Bold"
+//        default:
+//            font = "Helvetica Bold"
+//        }
+//        
+//        var image: UIImage? = nil
+//        
+//        for centerX in 1...sides {
+//            UIGraphicsBeginImageContext(dieSize)
+//            let context = UIGraphicsGetCurrentContext()
+//            
+//            //draw a shape at centerX
+//            image = drawPolygonUsingPath(context, x: width/2, y: height/2, radius: radius, sides: drawableSides, curSide: centerX, color: color, lighterColor: lighterColor, arcRadius: arcRadius, font: font)
+//            
+//            // Write the image as a file
+//            imageFile.writeImage(UIImagePNGRepresentation(image), dieName: name, fileNumber: centerX)
+//            
+//            UIGraphicsEndImageContext()
+//        }
+//        
+//        return image
+//    }
     
     
     func degree2radian(a:CGFloat)->CGFloat {
@@ -161,7 +162,7 @@ class DrawDice {
             0)
     }
     
-    let innerRadiusDelta: CGFloat = 24
+    var innerRadiusDelta: CGFloat = 24
     let brightnessDelta: CGFloat = 0.05
     
     
@@ -225,6 +226,9 @@ class DrawDice {
             // Draw the inset portion of the polygon, if needed
             // Gives a small 3d effect
             if sides > 4 {
+                // Ensure that this value scales with the radius
+                innerRadiusDelta = radius / 2 - 1
+                
                 var innerPath = roundedPolygonPath(x, y: y, radius: radius-innerRadiusDelta, sides: sides, startAngle: startAngle, arcRadius: arcRadius)
                 CGContextAddPath(ctx, innerPath)
                 
@@ -249,7 +253,7 @@ class DrawDice {
             //drawPip(ctx, x: x, y: y)
             //        drawText(ctx, x: x, y: y, radius: radius, color: UIColor.blackColor(), text: "\(curSide)")
         }
-        return textToImage("\(curSide)", inImage: UIGraphicsGetImageFromCurrentImageContext(), atPoint: CGPoint(x: x, y: y), font: font)
+        return textToImage("\(curSide)", inImage: UIGraphicsGetImageFromCurrentImageContext(), atPoint: CGPoint(x: x, y: y), font: font, radius: radius)
     }
     
     func drawPip(ctx:CGContextRef, x:CGFloat, y:CGFloat) {
@@ -265,11 +269,14 @@ class DrawDice {
     }
     
     // Draw arbitrary text on to my image
-    let fontSize: CGFloat = 24
-    func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint, font: String)->UIImage{
+    var fontSize: CGFloat = 24
+    func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint, font: String, radius: CGFloat)->UIImage{
         
         // Setup the font specific variables
         var textColor: UIColor = UIColor.whiteColor()
+        
+        // Scale the fontSize with the radius.  Hopefully it does not end up at an invalid size
+        fontSize = radius / 2 - 1
  
         var textFont: UIFont? = UIFont(name: font, size: fontSize)
         if textFont == nil {

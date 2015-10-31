@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14F1021" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lHN-gr-zf4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Roll Die-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TapAndRoll_WatchKit_App" customModuleProvider="target">
+                <controller identifier="Roll Die" title="Roll Die" backgroundImage="background" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TapAndRoll_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="6" textAlignment="center" id="UfG-zN-TI4"/>
-                        <imageView width="136" height="98" alignment="left" id="HM5-Pc-wIo"/>
+                        <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="HM5-Pc-wIo"/>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="Roll" id="5rY-XV-TlD">
                             <connections>
                                 <action selector="rollButton" destination="AgC-eL-Hgc" id="N2n-xi-hiI"/>
@@ -20,11 +19,40 @@
                     </items>
                     <connections>
                         <outlet property="dieImage" destination="HM5-Pc-wIo" id="3Ep-7W-pcg"/>
-                        <outlet property="dieLabel" destination="UfG-zN-TI4" id="fUL-KT-uth"/>
+                        <outlet property="rollLabel" destination="5rY-XV-TlD" id="md1-4V-m9i"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="351"/>
+            <point key="canvasLocation" x="497" y="372"/>
+        </scene>
+        <!--Pick Die-->
+        <scene sceneID="6NF-3U-Mi3">
+            <objects>
+                <controller identifier="Pick Die" title="Pick Die" backgroundImage="background" id="lHN-gr-zf4" customClass="SelectDiceInterfaceController" customModule="TapAndRoll_WatchKit_Extension">
+                    <items>
+                        <table alignment="center" id="j4H-Qc-qAp">
+                            <items>
+                                <tableRow identifier="diceTableRowController" id="g6w-SS-gdc" customClass="TableRowController" customModule="TapAndRoll_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="JRI-NM-tpH">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Row 1" textAlignment="left" id="Uqx-gN-koA"/>
+                                            <imageView alignment="right" verticalAlignment="center" id="gDI-lL-U31"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowImage" destination="gDI-lL-U31" id="ria-lI-eQH"/>
+                                        <outlet property="rowLabel" destination="Uqx-gN-koA" id="SH3-D3-WvS"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="diceTable" destination="j4H-Qc-qAp" id="5a0-dr-R6x"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="277" y="378"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

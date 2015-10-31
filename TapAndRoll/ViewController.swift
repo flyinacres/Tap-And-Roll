@@ -47,6 +47,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let diceViewBoundsDelta: CGFloat = 105
     let maxDicePerRow: Int = 3
     
+    // Small bugs if the code is allowed to add or delete dice while it is animating adding or deleting of dice...
+    // This is not fool proof, but should ameliorate an already rare problem
+    var mustFinish = false
+    
     // Add the specified die to the view, if possible
     func addDieToDiceView(die: Die, startPoint: CGPoint) {
         var totalDiceInView = ViewController.allDice.count
@@ -58,6 +62,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             self.presentViewController(alertController, animated: true, completion: nil)
             return
+        }
+        
+        // If something is already going on that needs to complete, don't allow this add to continue
+        if mustFinish {
+            println("An attempt to add another die while add or remove is in progress")
+            return
+        } else {
+            // Set the protection flag to avoid problems during the animation
+            mustFinish = true
         }
 
         // Need to figure out how to increase the bounds, and where to add the new die
@@ -88,6 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 newDie.center = finalPoint
                 
                 newDie.removeDieFromView = self.removeDieFromDiceView
+                self.mustFinish = false
         })
 
     }
@@ -105,9 +119,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // The painful process of removing a particular die
     func removeDieFromDiceView(dieToRemove: RollableDie) {
         
+        
         // A little delta in the y angle to make it interesting
         var yDelta = CGFloat(arc4random_uniform(200)) - 100
         
+        // Guard against adding new dice while the delete is proceeding
+        // Delete pretty much must be done, as all other code already expects it to proceed
+        mustFinish = true
         UIView.animateWithDuration(1, animations: { () -> Void in
             dieToRemove.center = CGPointMake(dieToRemove.center.x + 400, dieToRemove.center.y + yDelta)
             }, completion: { finished in
@@ -129,6 +147,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
                        // die.frame = self.figureDiePosFrameRect(i-1)
                     }
+                    
+                    self.mustFinish = false
                 }
         })
         
@@ -225,6 +245,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         for die in ViewController.allDice {
             diceView.addSubview(die)
         }
+        
+        
+        // In case it got stuck (it should not), reset this var
+        mustFinish = false
     }
     
     // On a swipe segue to the other main view
@@ -235,7 +259,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Accordingto profiler, this actually works like a champ.  (Used the 'simulate low memory' in the simulator
+        // And the images on screen stayed visible!
+        for die in savedDice {
+            die.releaseImages(false)
+        }
     }
     
     

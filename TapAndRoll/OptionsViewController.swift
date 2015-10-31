@@ -156,7 +156,9 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             } else {
                 savedDice = readDice!
             }
-
+            
+            // Save these dice to the set shared with the Apple Watch extension
+            DicePersistence.sharedInstance.updateSharedDice()
         }
         
         // Set up the delegate for working with the editable die name field
@@ -180,7 +182,8 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //println("Low memory warning in OptionsViewController")
+
     }
     
     
@@ -249,7 +252,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             sidesLabel.text = "\(currentDieFromRow.sides) sides"
             nameField.text = currentDieFromRow.name
             
-            curStepperValue.value = Double(currentRow)
+            curStepperValue.value = Double(currentDieFromRow.sides)
             
             setOptionColor(UIColor(hexString: currentDieFromRow.color))
         }
@@ -266,7 +269,7 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     
-    // Set up the table based upon the contents of the savedDice array of tuples
+    // Set up the table based upon the contents of the savedDice
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "dieCell")
         cell.textLabel?.text = savedDice[indexPath.row].name

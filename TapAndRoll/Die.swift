@@ -47,7 +47,8 @@ class Die {
     // how useless these initializations are, and whether NSCoder functionality will ever
     // be used
     init() {
-        
+        sideImages = [UIImage?](count: sides, repeatedValue: nil)
+
     }
     
     init(dieSet: Int, name: String, color: String, sides: Int, width: CGFloat, height: CGFloat, radius: CGFloat) {
@@ -59,10 +60,6 @@ class Die {
         self.height = height
         self.radius = radius
         sideImages = [UIImage?](count: sides, repeatedValue: nil)
-        
-        
-        // Set the UI parameters needed for drawing this die
-        let dieSize = CGSize(width: Int(width), height: Int(height))
         
         // It makes no sense to have fewer than 2 or more than 10 sides...
         drawableSides = sides
@@ -126,10 +123,11 @@ class Die {
         
         return sideImages[dieSide]!
     }
-    
+
     
     // Release unneeded images.  Possibly save the iconic,last image, as that is used
     // to represent the die in UI components
+    // Tested in profiler--this seems to be working!
     func releaseImages(saveIconicImage: Bool) {
         if saveIconicImage {
             sideImages = [UIImage?](count: sides-1, repeatedValue: nil)

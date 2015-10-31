@@ -13,6 +13,8 @@
 		A50C64731BC32F28008FB51F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50C64721BC32F28008FB51F /* Images.xcassets */; };
 		A50C64761BC32F28008FB51F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50C64741BC32F28008FB51F /* LaunchScreen.xib */; };
 		A50C64821BC32F29008FB51F /* TapAndRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50C64811BC32F29008FB51F /* TapAndRollTests.swift */; };
+		A540099B1BE4235500E23419 /* diceroll.caf in Resources */ = {isa = PBXBuildFile; fileRef = A54009991BE4227600E23419 /* diceroll.caf */; };
+		A540099D1BE423DB00E23419 /* dicecup.caf in Resources */ = {isa = PBXBuildFile; fileRef = A540099C1BE423DB00E23419 /* dicecup.caf */; };
 		A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A11BC369F2003C1D05 /* InterfaceController.swift */; };
 		A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A31BC369F2003C1D05 /* NotificationController.swift */; };
 		A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772A51BC369F2003C1D05 /* Images.xcassets */; };
@@ -26,6 +28,10 @@
 		A5BC43F21BE2DD4E008EBEA4 /* dicecup2.caf in Resources */ = {isa = PBXBuildFile; fileRef = A5BC43F11BE2DD4E008EBEA4 /* dicecup2.caf */; };
 		A5BC43F41BE2FB15008EBEA4 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BC43F31BE2FB15008EBEA4 /* Die.swift */; };
 		A5BC43F51BE36B98008EBEA4 /* DrawDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */; };
+		A5BC43F61BE36C37008EBEA4 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BC43F31BE2FB15008EBEA4 /* Die.swift */; };
+		A5BC43F71BE36E59008EBEA4 /* YLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE561BD9D5E700F51885 /* YLColor.swift */; };
+		A5BC43F91BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BC43F81BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift */; };
+		A5BC43FB1BE40163008EBEA4 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BC43FA1BE40163008EBEA4 /* TableRowController.swift */; };
 		A5EFEE4F1BD9513C00F51885 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */; };
 		A5EFEE511BD957A600F51885 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEE501BD957A600F51885 /* ImageFile.swift */; };
 		A5EFEE531BD983B200F51885 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5EFEE521BD983B200F51885 /* colorPalette.plist */; };
@@ -89,6 +95,10 @@
 		A50C647B1BC32F29008FB51F /* TapAndRollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapAndRollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50C64801BC32F29008FB51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A50C64811BC32F29008FB51F /* TapAndRollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapAndRollTests.swift; sourceTree = "<group>"; };
+		A54009991BE4227600E23419 /* diceroll.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = diceroll.caf; path = "../TapAndRoll WatchKit App/diceroll.caf"; sourceTree = "<group>"; };
+		A540099C1BE423DB00E23419 /* dicecup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dicecup.caf; sourceTree = "<group>"; };
+		A540099E1BE4248D00E23419 /* TapAndRoll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TapAndRoll.entitlements; sourceTree = "<group>"; };
+		A540099F1BE424F800E23419 /* TapAndRoll WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TapAndRoll WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		A577729C1BC369F2003C1D05 /* TapAndRoll WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TapAndRoll WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A577729F1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57772A01BC369F2003C1D05 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -104,6 +114,8 @@
 		A5BC43EE1BE2C331008EBEA4 /* dicecup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dicecup.caf; sourceTree = "<group>"; };
 		A5BC43F11BE2DD4E008EBEA4 /* dicecup2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dicecup2.caf; sourceTree = "<group>"; };
 		A5BC43F31BE2FB15008EBEA4 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		A5BC43F81BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDiceInterfaceController.swift; sourceTree = "<group>"; };
+		A5BC43FA1BE40163008EBEA4 /* TableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
 		A5EFEE4E1BD9513C00F51885 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		A5EFEE501BD957A600F51885 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
 		A5EFEE521BD983B200F51885 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
@@ -168,6 +180,7 @@
 		A50C64681BC32F28008FB51F /* TapAndRoll */ = {
 			isa = PBXGroup;
 			children = (
+				A540099E1BE4248D00E23419 /* TapAndRoll.entitlements */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
 				A5EFEE521BD983B200F51885 /* colorPalette.plist */,
@@ -223,6 +236,11 @@
 		A577729D1BC369F2003C1D05 /* TapAndRoll WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A540099F1BE424F800E23419 /* TapAndRoll WatchKit Extension.entitlements */,
+				A54009991BE4227600E23419 /* diceroll.caf */,
+				A540099C1BE423DB00E23419 /* dicecup.caf */,
+				A5BC43FA1BE40163008EBEA4 /* TableRowController.swift */,
+				A5BC43F81BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift */,
 				A57772A11BC369F2003C1D05 /* InterfaceController.swift */,
 				A57772A31BC369F2003C1D05 /* NotificationController.swift */,
 				A57772A51BC369F2003C1D05 /* Images.xcassets */,
@@ -342,6 +360,12 @@
 				TargetAttributes = {
 					A50C64651BC32F28008FB51F = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3T8T4BQRQJ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A50C647A1BC32F29008FB51F = {
 						CreatedOnToolsVersion = 6.4;
@@ -349,6 +373,12 @@
 					};
 					A577729B1BC369F2003C1D05 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 3T8T4BQRQJ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A57772A81BC369F2003C1D05 = {
 						CreatedOnToolsVersion = 6.4;
@@ -404,8 +434,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A540099D1BE423DB00E23419 /* dicecup.caf in Resources */,
 				A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */,
 				A57772AA1BC369F2003C1D05 /* TapAndRoll WatchKit App.app in Resources */,
+				A540099B1BE4235500E23419 /* diceroll.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +485,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BC43F91BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift in Sources */,
 				A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */,
+				A5BC43F71BE36E59008EBEA4 /* YLColor.swift in Sources */,
 				A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */,
+				A5BC43F61BE36C37008EBEA4 /* Die.swift in Sources */,
+				A5BC43FB1BE40163008EBEA4 /* TableRowController.swift in Sources */,
 				A5BC43F51BE36B98008EBEA4 /* DrawDice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,10 +628,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TapAndRoll/TapAndRoll.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TapAndRoll/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -603,10 +643,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TapAndRoll/TapAndRoll.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TapAndRoll/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -647,6 +691,9 @@
 		A57772B81BC369F2003C1D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TapAndRoll WatchKit Extension/TapAndRoll WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -654,6 +701,7 @@
 				INFOPLIST_FILE = "TapAndRoll WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -661,9 +709,13 @@
 		A57772B91BC369F2003C1D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TapAndRoll WatchKit Extension/TapAndRoll WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "TapAndRoll WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

@@ -230,7 +230,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundv7.png" translatesAutoresizingMaskIntoConstraints="NO" id="VN4-fF-XdL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <stepper opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Xl-V8o">
+                            <stepper opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="99" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-Xl-V8o">
                                 <rect key="frame" x="252" y="134" width="94" height="29"/>
                                 <color key="backgroundColor" red="0.86164378159999999" green="0.68639588659999995" blue="0.61270113179999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

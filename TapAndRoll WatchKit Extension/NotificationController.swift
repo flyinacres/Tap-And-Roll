@@ -29,6 +29,8 @@ class NotificationController: WKUserNotificationInterfaceController {
         super.didDeactivate()
     }
 
+    
+
     /*
     override func didReceiveLocalNotification(localNotification: UILocalNotification, withCompletion completionHandler: ((WKUserNotificationInterfaceType) -> Void)) {
         // This method is called when a local notification needs to be presented.
