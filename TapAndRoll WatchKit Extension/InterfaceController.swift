@@ -12,8 +12,9 @@ import AVFoundation
 
 class InterfaceController: WKInterfaceController {
 
-    @IBOutlet weak var dieImage: WKInterfaceImage!
     @IBOutlet weak var rollLabel: WKInterfaceButton!
+    
+    @IBOutlet weak var dieImage: WKInterfaceImage!
     
     var audioPlayer = AVAudioPlayer()
     
@@ -21,7 +22,16 @@ class InterfaceController: WKInterfaceController {
 
     var selectedDie: Die? = nil
 
+    @IBAction func dieButtonTapped() {
+        rollDie()
+    }
+    
     @IBAction func rollButton() {
+        rollDie()
+    }
+    
+    // Do the actual rolling
+    func rollDie() {
         // Don't allow a roll while animation is in progress
         if animationStatus == 1 {
             return
@@ -33,7 +43,7 @@ class InterfaceController: WKInterfaceController {
         }
         // A crude attempt to stop multiple overlapping button clicks
         animationStatus = 1
-
+        
         
         // Rolls to show, and images to fetch
         var totalRolls = Int(arc4random_uniform(6)) + 2
@@ -57,7 +67,6 @@ class InterfaceController: WKInterfaceController {
         
         dieImage.startAnimatingWithImagesInRange(NSMakeRange(0, totalRolls), duration: duration, repeatCount: 1)
         animationStatus = 0
-
     }
     
     override func awakeWithContext(context: AnyObject?) {

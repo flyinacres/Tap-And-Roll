@@ -10,15 +10,24 @@
             <objects>
                 <controller identifier="Roll Die" title="Roll Die" backgroundImage="background" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TapAndRoll_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="HM5-Pc-wIo"/>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="Roll" id="5rY-XV-TlD">
                             <connections>
                                 <action selector="rollButton" destination="AgC-eL-Hgc" id="N2n-xi-hiI"/>
                             </connections>
                         </button>
+                        <button alignment="center" verticalAlignment="center" id="iJW-mM-W3c">
+                            <group key="contentGroup" width="1" alignment="left" id="92b-du-FrW">
+                                <items>
+                                    <imageView width="100" height="100" alignment="center" verticalAlignment="center" id="31B-iZ-16I"/>
+                                </items>
+                            </group>
+                            <connections>
+                                <action selector="dieButtonTapped" destination="AgC-eL-Hgc" id="rdJ-BP-U2i"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
-                        <outlet property="dieImage" destination="HM5-Pc-wIo" id="3Ep-7W-pcg"/>
+                        <outlet property="dieImage" destination="31B-iZ-16I" id="JLf-yj-ZWO"/>
                         <outlet property="rollLabel" destination="5rY-XV-TlD" id="md1-4V-m9i"/>
                     </connections>
                 </controller>
