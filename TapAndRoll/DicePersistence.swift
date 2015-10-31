@@ -35,6 +35,7 @@ class DicePersistence {
         }
     }
     
+    // Update the dice as shared with the Apple Watch (where dice cannot be created)
     func updateSharedDice() {
         var dieNames = [String]()
         
@@ -45,6 +46,40 @@ class DicePersistence {
             sharedDefaults?.setValue(die.color, forKey: "\(die.name)Color")
         }
         sharedDefaults?.setObject(dieNames, forKey: "DieNames")
+    }
+    
+    // Update a single Die as shared with the Apple Watch (where dice cannot be created)
+    func updateSharedDice(die: Die) {
+        sharedDefaults?.setValue(die.dieSet, forKey: "\(die.name)DieSet")
+        sharedDefaults?.setValue(die.sides, forKey: "\(die.name)Sides")
+        sharedDefaults?.setValue(die.color, forKey: "\(die.name)Color")
+        
+        // The hard part: if the name exists, do nothing.  If not, I need to append it and 
+        // resave the list
+        var dieNames: [String]? = sharedDefaults?.stringArrayForKey("DieNames") as? [String]
+        if dieNames == nil {
+            // Seems like the first die
+            dieNames = [die.name]
+            sharedDefaults?.setObject(dieNames, forKey: "DieNames")
+        } else if !contains(dieNames!, die.name) {
+            // It appears to be a new name, so add it
+            dieNames?.append(die.name)
+            sharedDefaults?.setObject(dieNames, forKey: "DieNames")
+        }
+        // Otherwise the name already exists so nothing to do
+
+        
+        // create Realm_DB-File in shared App-Groups Folder
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.qpiapps.TapAndRoll")!
+        //writing
+        let file = "file.txt"
+        let fileURL: NSURL = directory.URLByAppendingPathComponent(file)
+        let text = "update folder by writing this string to it"
+        var e: NSErrorPointer = NSErrorPointer()
+        text.writeToURL(fileURL, atomically: true, encoding: NSUTF8StringEncoding, error: e)
+        if e != nil {
+            NSLog("ERROR, could not write sentinel file to app groups URL: \(fileURL)")
+        }
     }
     
     // Update an existing die in storage

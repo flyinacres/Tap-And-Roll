@@ -17,7 +17,6 @@
 		A540099D1BE423DB00E23419 /* dicecup.caf in Resources */ = {isa = PBXBuildFile; fileRef = A540099C1BE423DB00E23419 /* dicecup.caf */; };
 		A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A11BC369F2003C1D05 /* InterfaceController.swift */; };
 		A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57772A31BC369F2003C1D05 /* NotificationController.swift */; };
-		A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772A51BC369F2003C1D05 /* Images.xcassets */; };
 		A57772AA1BC369F2003C1D05 /* TapAndRoll WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */; };
 		A57772B21BC369F2003C1D05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57772B01BC369F2003C1D05 /* Interface.storyboard */; };
 		A57772B41BC369F2003C1D05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57772B31BC369F2003C1D05 /* Images.xcassets */; };
@@ -44,6 +43,8 @@
 		A5EFEEC91BDEC75900F51885 /* RollableDie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEEC81BDEC75900F51885 /* RollableDie.swift */; };
 		A5EFEECF1BDFF9B900F51885 /* DrawDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */; };
 		A5EFEED31BE178F100F51885 /* DieButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFEED21BE178F100F51885 /* DieButton.swift */; };
+		A5FACBCA1BE45F5000DBE12F /* FolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FACBC91BE45F5000DBE12F /* FolderMonitor.swift */; };
+		A5FACBCB1BE45F5000DBE12F /* FolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FACBC91BE45F5000DBE12F /* FolderMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +105,6 @@
 		A57772A01BC369F2003C1D05 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		A57772A11BC369F2003C1D05 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		A57772A31BC369F2003C1D05 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		A57772A51BC369F2003C1D05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A57772A91BC369F2003C1D05 /* TapAndRoll WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TapAndRoll WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57772AF1BC369F2003C1D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57772B11BC369F2003C1D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -128,6 +128,7 @@
 		A5EFEEC81BDEC75900F51885 /* RollableDie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollableDie.swift; sourceTree = "<group>"; };
 		A5EFEECE1BDFF9B900F51885 /* DrawDice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawDice.swift; sourceTree = "<group>"; };
 		A5EFEED21BE178F100F51885 /* DieButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DieButton.swift; path = ../DieButton.swift; sourceTree = "<group>"; };
+		A5FACBC91BE45F5000DBE12F /* FolderMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +181,7 @@
 		A50C64681BC32F28008FB51F /* TapAndRoll */ = {
 			isa = PBXGroup;
 			children = (
+				A5FACBC91BE45F5000DBE12F /* FolderMonitor.swift */,
 				A540099E1BE4248D00E23419 /* TapAndRoll.entitlements */,
 				A50C646F1BC32F28008FB51F /* Main.storyboard */,
 				A50C64721BC32F28008FB51F /* Images.xcassets */,
@@ -243,7 +245,6 @@
 				A5BC43F81BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift */,
 				A57772A11BC369F2003C1D05 /* InterfaceController.swift */,
 				A57772A31BC369F2003C1D05 /* NotificationController.swift */,
-				A57772A51BC369F2003C1D05 /* Images.xcassets */,
 				A577729E1BC369F2003C1D05 /* Supporting Files */,
 			);
 			path = "TapAndRoll WatchKit Extension";
@@ -435,7 +436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A540099D1BE423DB00E23419 /* dicecup.caf in Resources */,
-				A57772A61BC369F2003C1D05 /* Images.xcassets in Resources */,
 				A57772AA1BC369F2003C1D05 /* TapAndRoll WatchKit App.app in Resources */,
 				A540099B1BE4235500E23419 /* diceroll.caf in Resources */,
 			);
@@ -459,6 +459,7 @@
 			files = (
 				A50C646E1BC32F28008FB51F /* ViewController.swift in Sources */,
 				A5EFEE4F1BD9513C00F51885 /* OptionsViewController.swift in Sources */,
+				A5FACBCA1BE45F5000DBE12F /* FolderMonitor.swift in Sources */,
 				A5BC43F41BE2FB15008EBEA4 /* Die.swift in Sources */,
 				A5EFEE551BD983CC00F51885 /* ColorPickerViewController.swift in Sources */,
 				A50C646C1BC32F28008FB51F /* AppDelegate.swift in Sources */,
@@ -487,6 +488,7 @@
 			files = (
 				A5BC43F91BE3FD4D008EBEA4 /* SelectDiceInterfaceController.swift in Sources */,
 				A57772A41BC369F2003C1D05 /* NotificationController.swift in Sources */,
+				A5FACBCB1BE45F5000DBE12F /* FolderMonitor.swift in Sources */,
 				A5BC43F71BE36E59008EBEA4 /* YLColor.swift in Sources */,
 				A57772A21BC369F2003C1D05 /* InterfaceController.swift in Sources */,
 				A5BC43F61BE36C37008EBEA4 /* Die.swift in Sources */,

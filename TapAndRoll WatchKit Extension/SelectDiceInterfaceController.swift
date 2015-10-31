@@ -13,10 +13,14 @@ import Foundation
 class SelectDiceInterfaceController: WKInterfaceController {
 
     @IBOutlet weak var diceTable: WKInterfaceTable!
+
+    // Will use this to monitor live changes on the phone (new and changed dice)
+    private var monitor: FolderMonitor!
+
     
     // The dice currently saved long term, including some pre-created ones
     // Start with a standard D&D set
-    var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "d4", color: "#D0643E", sides: 4), (dieSet: 0, name: "d6", color: "#3246AD", sides: 6), (dieSet: 0, name: "d8", color: "#4B6947", sides: 8), (dieSet: 0, name: "d10", color: "#870A15", sides: 10), (dieSet: 0, name: "d10 alt", color: "#A90C1B", sides: 10), (dieSet: 0, name: "d12", color: "#B81AB8", sides: 12), (dieSet: 0, name: "d20 The Big Gun", color: "#5910F6", sides: 20)]
+    var originalSavedDice: [(dieSet: Int, name: String, color: String, sides: Int)] = [(dieSet: 0, name: "d4", color: "#D0643E", sides: 4), (dieSet: 0, name: "d6", color: "#3246AD", sides: 6), (dieSet: 0, name: "d8", color: "#4B6947", sides: 8), (dieSet: 0, name: "d10", color: "#870A15", sides: 10), (dieSet: 0, name: "d10 alt", color: "#A90C1B", sides: 10), (dieSet: 0, name: "d12", color: "#B81AB8", sides: 12), (dieSet: 0, name: "d20 Big Gun", color: "#5910F6", sides: 20)]
     var savedDice = [Die]()
     var smallDice = [Die]()
     
@@ -27,11 +31,13 @@ class SelectDiceInterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        var defaults = NSUserDefaults(suiteName: "group.com.qpiapps.TapAndRoll")
-        
-        // Need to figure out how to store my data in this storage...
-        var receivedData: AnyObject? = defaults?.objectForKey("SavedDice")
-        
+        updateDice()
+ 
+        startMonitor()
+    }
+    
+    // Update the dice on startup or when a change is found
+    func updateDice() {
         savedDice = getSharedDice()
         
         // Populate from the defaults stored on the watch if nothing was found in shared storage
@@ -39,14 +45,16 @@ class SelectDiceInterfaceController: WKInterfaceController {
             // Translate the originally persisted dice from the tuples to actual Die instances...
             for d in originalSavedDice {
                 savedDice.append(Die(dieSet: d.dieSet, name: d.name, color: d.color, sides: d.sides, width: standardDieWidth, height: standardDieHeight, radius: standardDieRadius))
-                smallDice.append(Die(dieSet: d.dieSet, name: d.name, color: d.color, sides: d.sides, width: standardDieWidth/2, height: standardDieHeight/2, radius: standardDieRadius/2))
-            }
-        } else {
-            // Make sure that the small dice matches the big dice in contents
-            for d in savedDice {
-                smallDice.append(Die(dieSet: d.dieSet, name: d.name, color: d.color, sides: d.sides, width: standardDieWidth/2, height: standardDieHeight/2, radius: standardDieRadius/2))
             }
         }
+        
+        // Don't start appending until clearing out any old copies
+        smallDice = [Die]()
+        // Make sure that the small dice matches the big dice in contents
+        for d in savedDice {
+            smallDice.append(Die(dieSet: d.dieSet, name: d.name, color: d.color, sides: d.sides, width: standardDieWidth/2, height: standardDieHeight/2, radius: standardDieRadius/2))
+        }
+        
         
         diceTable.setNumberOfRows(savedDice.count, withRowType: "diceTableRowController")
         
@@ -58,9 +66,9 @@ class SelectDiceInterfaceController: WKInterfaceController {
             row.rowImage.setImage(die.getImage(die.sides-1))
             j++
         }
-
     }
     
+    // Get the dice shared from the main app, if any
     func getSharedDice() -> [Die] {
         var dies = [Die]()
         
@@ -80,6 +88,9 @@ class SelectDiceInterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        // Pick up any dice added while rolling
+        updateDice()
     }
 
     override func didDeactivate() {
@@ -87,7 +98,25 @@ class SelectDiceInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    // Try to check for live changes to the dice.  Very cool if it works...
+    func createMonitorIfNot() {
+        let url = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.qpiapps.TapAndRoll")!
 
+        //let url = NSURL(fileURLWithPath: "~/Desktop".stringByExpandingTildeInPath)!
+        //let url = NSURL(fileURLWithPath: "Desktop")!
+        monitor = monitor ?? FolderMonitor(url: url, handler: {
+            self.updateDice()
+        })
+        //println("Monitoring '\(url)'")
+    }
+    
+    func startMonitor() {
+        createMonitorIfNot()
+    }
+    
+    func stopMonitor() {
+        monitor = nil
+    }
     
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
         if rowIndex < 0 || rowIndex > savedDice.count - 1 {

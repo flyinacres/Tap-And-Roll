@@ -28,7 +28,7 @@
         <!--Pick Die-->
         <scene sceneID="6NF-3U-Mi3">
             <objects>
-                <controller identifier="Pick Die" title="Pick Die" backgroundImage="background" id="lHN-gr-zf4" customClass="SelectDiceInterfaceController" customModule="TapAndRoll_WatchKit_Extension">
+                <controller identifier="Pick Die" title="Pick Die" backgroundImage="background" contentMode="redraw" id="lHN-gr-zf4" customClass="SelectDiceInterfaceController" customModule="TapAndRoll_WatchKit_Extension">
                     <items>
                         <table alignment="center" id="j4H-Qc-qAp">
                             <items>

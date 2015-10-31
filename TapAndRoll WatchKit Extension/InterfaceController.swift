@@ -38,7 +38,7 @@ class InterfaceController: WKInterfaceController {
         // Rolls to show, and images to fetch
         var totalRolls = Int(arc4random_uniform(6)) + 2
         // Make the duration vary based upon the number of rolls, so that the total time is not always constant
-        var duration: NSTimeInterval = NSTimeInterval(totalRolls / 3 + 2)
+        var duration: NSTimeInterval = NSTimeInterval(totalRolls / 3 + 1)
         
         var curSide:Int = 1
         var readImage = [UIImage]()
