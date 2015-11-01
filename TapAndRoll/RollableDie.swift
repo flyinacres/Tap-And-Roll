@@ -91,9 +91,12 @@ class RollableDie: UIImageView {
         
         totalRolls = Int(arc4random_uniform(6)) + 2
         
+        // Update the flurry info so that I get an idea as to what users are doing
+        let dieParams = ["sides": "\(die.sides)", "color": die.color];
+        Flurry.logEvent("Roll_Die", withParameters: dieParams);
+        
         isAnimating = true
         timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: Selector("doDieAnimation"), userInfo: nil, repeats: true)
-
     }
     
     // Macro to convert--easier to think in degrees

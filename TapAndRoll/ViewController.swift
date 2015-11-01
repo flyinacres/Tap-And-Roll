@@ -72,6 +72,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // Set the protection flag to avoid problems during the animation
             mustFinish = true
         }
+        
+        // Update the flurry info so that I get an idea as to what users are doing
+        let dieParams = ["sides": "\(die.sides)", "color": die.color];
+        Flurry.logEvent("Add_Die_To_view", withParameters: dieParams);
 
         // Need to figure out how to increase the bounds, and where to add the new die
         var height = CGFloat((totalDiceInView / maxDicePerRow + 1) * 105 + 5)

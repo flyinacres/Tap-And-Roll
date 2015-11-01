@@ -13,10 +13,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Flurry.startSession("ZS67PSS2Q9WCZKH7THJB")
+        Flurry.logEvent("Started Application")
         return true
     }
 

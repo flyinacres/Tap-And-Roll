@@ -90,6 +90,10 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
 
             // Make sure table updates to show any changes
             dieTableView.reloadData()
+            
+            // Update the flurry info so that I get an idea as to what users are doing
+            let dieParams = ["sides": "\(savedDice[index].sides)", "color": savedDice[index].color];
+            Flurry.logEvent("Die_Updated", withParameters: dieParams);
 
         } else {
             // Add new die
@@ -110,7 +114,10 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
             
             // And update the button labels
             updateButtonLabelsOnChange()
- 
+            
+            // Update the flurry info so that I get an idea as to what users are doing
+            let dieParams = ["sides": "\(newDie.sides)", "color": newDie.color];
+            Flurry.logEvent("Die_Created", withParameters: dieParams);
         }
     }
     
@@ -219,7 +226,6 @@ class OptionsViewController: UIViewController, UIPopoverPresentationControllerDe
     
     // Editing is done--see if this is the name of an existing die
     func textFieldDidEndEditing(textField: UITextField) {
-        println("TextField did end editing method called")
         updateButtonLabelsOnChange()
     }
     

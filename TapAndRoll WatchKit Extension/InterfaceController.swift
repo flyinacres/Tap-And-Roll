@@ -45,6 +45,10 @@ class InterfaceController: WKInterfaceController {
         animationStatus = 1
         
         
+        // Update the flurry info so that I get an idea as to what users are doing
+        let dieParams = ["sides": "\(selectedDie!.sides)", "color": selectedDie!.color];
+        FlurryWatch.logWatchEvent("Roll_Die", withParameters: dieParams);
+        
         // Rolls to show, and images to fetch
         var totalRolls = Int(arc4random_uniform(6)) + 2
         // Make the duration vary based upon the number of rolls, so that the total time is not always constant
