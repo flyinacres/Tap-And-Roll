@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B898B8AED251D41677CEA6B108FB3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E21957F691B5196A58F548033ABBA9 /* Foundation.framework */; };
+		1D2A93763F53AA608BE5CCCF35A5B731 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E21957F691B5196A58F548033ABBA9 /* Foundation.framework */; };
+		22A90AEBB7C716A5B55CC5EFFC2E3391 /* Pods-TapAndRoll WatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C12C795551E1741D75438A49A767F7D /* Pods-TapAndRoll WatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D1E42B17A8A0A6F0DF0ECC00EADDFCD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19803EAD4C7DD17F686BF2B1F3DAD02F /* SystemConfiguration.framework */; };
+		31B35E3A713A1CDAF5A4AC14B15A9A85 /* Pods-TapAndRoll WatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B94DDA5BCE91D9302BD3B9A822BB044E /* Pods-TapAndRoll WatchKit Extension-dummy.m */; };
+		3B9E90E340D958009D2392B765DFF0EC /* Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F011DABA8F42497174D61BFCE277DEC0 /* Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41D848D65434E9015D553B67A0977553 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E18A23885422C5A416731273EF9906 /* Flurry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6064A23E086E4EF54AE93E2E1DF1BF0C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4849220ED6C96F2C5B58FC6A658942A1 /* Security.framework */; };
+		8CE61173ABA361E9150AA44D5285A20B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D579B3BF88F5F8DFEADC05F22B7E6D50 /* UIKit.framework */; };
+		95C90934476377627D9941C821A5A851 /* Pods-TapAndRoll-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7658D3C85E8F888C77620175FA5E00 /* Pods-TapAndRoll-dummy.m */; };
+		B01AFBD80EE4FD4A3026805AC3AAA608 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E21957F691B5196A58F548033ABBA9 /* Foundation.framework */; };
+		B8D8F9B901D8A7FA0E5956205FFA4D96 /* Pods-TapAndRoll-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA0B9B651FACBC4043573284B99A8A11 /* Pods-TapAndRoll-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E83091887D9DD98997002CFDA2036E4F /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC6B9F8B9A4D9A5F7B79387CEB98C95 /* Empty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EA23FD8788AEFACDC2C946594BFBCEC5 /* Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9186D7306EC728C7ADCFA4A365A0C153 /* Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3830071F4237F5200FFB8D599A68F890 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6F085840C3FFA665960A92F6D72B577;
+			remoteInfo = "Pods-TapAndRoll-Flurry-iOS-SDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F7F534DF74C404A473EC9291D9028F6 /* libFlurry_7.1.0.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libFlurry_7.1.0.a; path = Flurry/libFlurry_7.1.0.a; sourceTree = "<group>"; };
+		1832154FD9A0BC8A76366EDE3969005B /* Pods-TapAndRoll WatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapAndRoll WatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		18B6C64D14EACD9D3F8A8A304BF7B6D6 /* Pods-TapAndRoll WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapAndRoll WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		19803EAD4C7DD17F686BF2B1F3DAD02F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		1DC3D4ADF663C585792E03BBC8DFBE6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43CAB7DF973C28D979B12261300592B2 /* Pods-TapAndRoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapAndRoll.debug.xcconfig"; sourceTree = "<group>"; };
+		4849220ED6C96F2C5B58FC6A658942A1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		4B8C09866BED09D65D6C22BC884C6FE7 /* Pods-TapAndRoll-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapAndRoll-frameworks.sh"; sourceTree = "<group>"; };
+		4BD07D2A6A31D6BA5BAF1DED360EE89B /* FlurryWatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlurryWatch.h; path = Flurry/FlurryWatch.h; sourceTree = "<group>"; };
+		4C12C795551E1741D75438A49A767F7D /* Pods-TapAndRoll WatchKit Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapAndRoll WatchKit Extension-umbrella.h"; sourceTree = "<group>"; };
+		5B7F31169D2AD2C0531DE4B4D183E361 /* Pods_TapAndRoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapAndRoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC6B9F8B9A4D9A5F7B79387CEB98C95 /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Empty.m; path = Flurry/Empty.m; sourceTree = "<group>"; };
+		5ECA6CE9E1CCD46FBC2068F7577EEE8A /* Pods-TapAndRoll WatchKit Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TapAndRoll WatchKit Extension.modulemap"; sourceTree = "<group>"; };
+		63CF0801C759CA954525D107830A3695 /* Pods-TapAndRoll-Flurry-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapAndRoll-Flurry-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
+		6B0FE7FF4ECEE724E17FFE711D878B49 /* Pods-TapAndRoll-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapAndRoll-resources.sh"; sourceTree = "<group>"; };
+		7017076E336B189F42107D9D2313A6C4 /* Pods-TapAndRoll-Flurry-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapAndRoll-Flurry-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
+		72D8C87B548C7114F47B817F8003F77B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88E18A23885422C5A416731273EF9906 /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		9186D7306EC728C7ADCFA4A365A0C153 /* Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
+		9421D7868F6037A7A31F741CE57C52D8 /* Pods-TapAndRoll WatchKit Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapAndRoll WatchKit Extension-resources.sh"; sourceTree = "<group>"; };
+		9453367764497D37FC00C03CB3E5F4C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97804969A563CAC4A4CAF580690702A8 /* Pods-TapAndRoll.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TapAndRoll.modulemap"; sourceTree = "<group>"; };
+		A72A348F8CA4FF37D82D131FB6E6C71D /* Pods-TapAndRoll-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapAndRoll-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2B838C271F9C43FC4E95FFB9298C23D /* Pods-TapAndRoll-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapAndRoll-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B94DDA5BCE91D9302BD3B9A822BB044E /* Pods-TapAndRoll WatchKit Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapAndRoll WatchKit Extension-dummy.m"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB45E5C540583C7A7AF0FEE8A80D66CE /* Pods-TapAndRoll WatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapAndRoll WatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		C2377879DF7801096423912FE8F7BA2E /* Pods_TapAndRoll_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapAndRoll_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD19D986793FD60BC9036E35BB8CF839 /* Pods-TapAndRoll-Flurry-iOS-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TapAndRoll-Flurry-iOS-SDK.modulemap"; sourceTree = "<group>"; };
+		D579B3BF88F5F8DFEADC05F22B7E6D50 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D9973D33649DA0E2E34F8AB7806FF189 /* Flurry_iOS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flurry_iOS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0B9B651FACBC4043573284B99A8A11 /* Pods-TapAndRoll-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapAndRoll-umbrella.h"; sourceTree = "<group>"; };
+		EC5A4EE7C49BE62479A3F82A6A5A4A0B /* Pods-TapAndRoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapAndRoll.release.xcconfig"; sourceTree = "<group>"; };
+		F011DABA8F42497174D61BFCE277DEC0 /* Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h"; sourceTree = "<group>"; };
+		F1FF6BBC3315CBA3E06B9E425D566E5F /* Pods-TapAndRoll WatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapAndRoll WatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
+		F4F2437202771221A63CABE7120F5A37 /* Pods-TapAndRoll WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapAndRoll WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		F7E21957F691B5196A58F548033ABBA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FF7658D3C85E8F888C77620175FA5E00 /* Pods-TapAndRoll-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapAndRoll-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5484C5D31402F682065C749CCCC00BBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01AFBD80EE4FD4A3026805AC3AAA608 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E160B03F09C978BAA895D7E63786695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2A93763F53AA608BE5CCCF35A5B731 /* Foundation.framework in Frameworks */,
+				6064A23E086E4EF54AE93E2E1DF1BF0C /* Security.framework in Frameworks */,
+				2D1E42B17A8A0A6F0DF0ECC00EADDFCD /* SystemConfiguration.framework in Frameworks */,
+				8CE61173ABA361E9150AA44D5285A20B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB33870537B88FE27AFDECA53181C804 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00B898B8AED251D41677CEA6B108FB3E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10FD89DA57DEBD108CBF92692824C3AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9973D33649DA0E2E34F8AB7806FF189 /* Flurry_iOS_SDK.framework */,
+				5B7F31169D2AD2C0531DE4B4D183E361 /* Pods_TapAndRoll.framework */,
+				C2377879DF7801096423912FE8F7BA2E /* Pods_TapAndRoll_WatchKit_Extension.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B0C295EE54444B21B0F0CEFB0A36458 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23722A46B2346F6EBD4748196123A130 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				72D8C87B548C7114F47B817F8003F77B /* Info.plist */,
+				CD19D986793FD60BC9036E35BB8CF839 /* Pods-TapAndRoll-Flurry-iOS-SDK.modulemap */,
+				63CF0801C759CA954525D107830A3695 /* Pods-TapAndRoll-Flurry-iOS-SDK.xcconfig */,
+				9186D7306EC728C7ADCFA4A365A0C153 /* Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m */,
+				7017076E336B189F42107D9D2313A6C4 /* Pods-TapAndRoll-Flurry-iOS-SDK-prefix.pch */,
+				F011DABA8F42497174D61BFCE277DEC0 /* Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		5B0C295EE54444B21B0F0CEFB0A36458 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F7E21957F691B5196A58F548033ABBA9 /* Foundation.framework */,
+				4849220ED6C96F2C5B58FC6A658942A1 /* Security.framework */,
+				19803EAD4C7DD17F686BF2B1F3DAD02F /* SystemConfiguration.framework */,
+				D579B3BF88F5F8DFEADC05F22B7E6D50 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		63AD6B62FF13DC04A7F8CB494124305D /* Flurry-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				94C541867BDED35991CBA70FF040D9A6 /* FlurrySDK */,
+				6E0C857218765BA81FFCF93AC7130829 /* FlurryWatchSDK */,
+				23722A46B2346F6EBD4748196123A130 /* Support Files */,
+			);
+			path = "Flurry-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		647AB8B5C13BDFD59FB8EFAE22D5389E /* Pods-TapAndRoll WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9453367764497D37FC00C03CB3E5F4C3 /* Info.plist */,
+				5ECA6CE9E1CCD46FBC2068F7577EEE8A /* Pods-TapAndRoll WatchKit Extension.modulemap */,
+				1832154FD9A0BC8A76366EDE3969005B /* Pods-TapAndRoll WatchKit Extension-acknowledgements.markdown */,
+				BB45E5C540583C7A7AF0FEE8A80D66CE /* Pods-TapAndRoll WatchKit Extension-acknowledgements.plist */,
+				B94DDA5BCE91D9302BD3B9A822BB044E /* Pods-TapAndRoll WatchKit Extension-dummy.m */,
+				F1FF6BBC3315CBA3E06B9E425D566E5F /* Pods-TapAndRoll WatchKit Extension-frameworks.sh */,
+				9421D7868F6037A7A31F741CE57C52D8 /* Pods-TapAndRoll WatchKit Extension-resources.sh */,
+				4C12C795551E1741D75438A49A767F7D /* Pods-TapAndRoll WatchKit Extension-umbrella.h */,
+				F4F2437202771221A63CABE7120F5A37 /* Pods-TapAndRoll WatchKit Extension.debug.xcconfig */,
+				18B6C64D14EACD9D3F8A8A304BF7B6D6 /* Pods-TapAndRoll WatchKit Extension.release.xcconfig */,
+			);
+			name = "Pods-TapAndRoll WatchKit Extension";
+			path = "Target Support Files/Pods-TapAndRoll WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		6E0C857218765BA81FFCF93AC7130829 /* FlurryWatchSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4BD07D2A6A31D6BA5BAF1DED360EE89B /* FlurryWatch.h */,
+				B712E0CEC9294DCB64F6F7ADC9376208 /* Frameworks */,
+			);
+			name = FlurryWatchSDK;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
+				ACDDE0CADA4CA088A63F07511D9341F2 /* Pods */,
+				10FD89DA57DEBD108CBF92692824C3AE /* Products */,
+				A56AEC12672D97076BFE43F8CD4057AF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		94C541867BDED35991CBA70FF040D9A6 /* FlurrySDK */ = {
+			isa = PBXGroup;
+			children = (
+				5DC6B9F8B9A4D9A5F7B79387CEB98C95 /* Empty.m */,
+				88E18A23885422C5A416731273EF9906 /* Flurry.h */,
+				A4173CB56AF35BA81B5D6ACD45286259 /* Frameworks */,
+			);
+			name = FlurrySDK;
+			sourceTree = "<group>";
+		};
+		A4173CB56AF35BA81B5D6ACD45286259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F7F534DF74C404A473EC9291D9028F6 /* libFlurry_7.1.0.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A56AEC12672D97076BFE43F8CD4057AF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7266C879DEBA85C6EB44BA79AD3BB65 /* Pods-TapAndRoll */,
+				647AB8B5C13BDFD59FB8EFAE22D5389E /* Pods-TapAndRoll WatchKit Extension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A7266C879DEBA85C6EB44BA79AD3BB65 /* Pods-TapAndRoll */ = {
+			isa = PBXGroup;
+			children = (
+				1DC3D4ADF663C585792E03BBC8DFBE6F /* Info.plist */,
+				97804969A563CAC4A4CAF580690702A8 /* Pods-TapAndRoll.modulemap */,
+				B2B838C271F9C43FC4E95FFB9298C23D /* Pods-TapAndRoll-acknowledgements.markdown */,
+				A72A348F8CA4FF37D82D131FB6E6C71D /* Pods-TapAndRoll-acknowledgements.plist */,
+				FF7658D3C85E8F888C77620175FA5E00 /* Pods-TapAndRoll-dummy.m */,
+				4B8C09866BED09D65D6C22BC884C6FE7 /* Pods-TapAndRoll-frameworks.sh */,
+				6B0FE7FF4ECEE724E17FFE711D878B49 /* Pods-TapAndRoll-resources.sh */,
+				EA0B9B651FACBC4043573284B99A8A11 /* Pods-TapAndRoll-umbrella.h */,
+				43CAB7DF973C28D979B12261300592B2 /* Pods-TapAndRoll.debug.xcconfig */,
+				EC5A4EE7C49BE62479A3F82A6A5A4A0B /* Pods-TapAndRoll.release.xcconfig */,
+			);
+			name = "Pods-TapAndRoll";
+			path = "Target Support Files/Pods-TapAndRoll";
+			sourceTree = "<group>";
+		};
+		ACDDE0CADA4CA088A63F07511D9341F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63AD6B62FF13DC04A7F8CB494124305D /* Flurry-iOS-SDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B712E0CEC9294DCB64F6F7ADC9376208 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		73378423213E40C1D4A0BB27EE929A46 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8D8F9B901D8A7FA0E5956205FFA4D96 /* Pods-TapAndRoll-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		862DFD133F4233D38D7C9B0EDED3B94D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D848D65434E9015D553B67A0977553 /* Flurry.h in Headers */,
+				3B9E90E340D958009D2392B765DFF0EC /* Pods-TapAndRoll-Flurry-iOS-SDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E537246970A7F61493353E5A0C49006C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22A90AEBB7C716A5B55CC5EFFC2E3391 /* Pods-TapAndRoll WatchKit Extension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2C3B060040208A39EBD03952D22A779F /* Pods-TapAndRoll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2CE7348741C2C9251155F42983A3A80 /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll" */;
+			buildPhases = (
+				8FC2FBDB67692631EAF57BEC8F003ABE /* Sources */,
+				5484C5D31402F682065C749CCCC00BBF /* Frameworks */,
+				73378423213E40C1D4A0BB27EE929A46 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4576E43DF046152CFE4CE74C083538B4 /* PBXTargetDependency */,
+			);
+			name = "Pods-TapAndRoll";
+			productName = "Pods-TapAndRoll";
+			productReference = 5B7F31169D2AD2C0531DE4B4D183E361 /* Pods_TapAndRoll.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4FA8359D9BD13F0562CD2E5973E6B23F /* Pods-TapAndRoll WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866C58A04AF963DAB20B394F5FD676FB /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll WatchKit Extension" */;
+			buildPhases = (
+				F3916EC8A7F2527920340E59495DC10B /* Sources */,
+				EB33870537B88FE27AFDECA53181C804 /* Frameworks */,
+				E537246970A7F61493353E5A0C49006C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-TapAndRoll WatchKit Extension";
+			productName = "Pods-TapAndRoll WatchKit Extension";
+			productReference = C2377879DF7801096423912FE8F7BA2E /* Pods_TapAndRoll_WatchKit_Extension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B6F085840C3FFA665960A92F6D72B577 /* Pods-TapAndRoll-Flurry-iOS-SDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E53F6B062D7BACF9C6AA81778E54A4D /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll-Flurry-iOS-SDK" */;
+			buildPhases = (
+				98C3615F7C887B9612C77EABE8997018 /* Sources */,
+				7E160B03F09C978BAA895D7E63786695 /* Frameworks */,
+				862DFD133F4233D38D7C9B0EDED3B94D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-TapAndRoll-Flurry-iOS-SDK";
+			productName = "Pods-TapAndRoll-Flurry-iOS-SDK";
+			productReference = D9973D33649DA0E2E34F8AB7806FF189 /* Flurry_iOS_SDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 10FD89DA57DEBD108CBF92692824C3AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C3B060040208A39EBD03952D22A779F /* Pods-TapAndRoll */,
+				4FA8359D9BD13F0562CD2E5973E6B23F /* Pods-TapAndRoll WatchKit Extension */,
+				B6F085840C3FFA665960A92F6D72B577 /* Pods-TapAndRoll-Flurry-iOS-SDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FC2FBDB67692631EAF57BEC8F003ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C90934476377627D9941C821A5A851 /* Pods-TapAndRoll-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C3615F7C887B9612C77EABE8997018 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E83091887D9DD98997002CFDA2036E4F /* Empty.m in Sources */,
+				EA23FD8788AEFACDC2C946594BFBCEC5 /* Pods-TapAndRoll-Flurry-iOS-SDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3916EC8A7F2527920340E59495DC10B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31B35E3A713A1CDAF5A4AC14B15A9A85 /* Pods-TapAndRoll WatchKit Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4576E43DF046152CFE4CE74C083538B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-TapAndRoll-Flurry-iOS-SDK";
+			target = B6F085840C3FFA665960A92F6D72B577 /* Pods-TapAndRoll-Flurry-iOS-SDK */;
+			targetProxy = 3830071F4237F5200FFB8D599A68F890 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		101EBB3AB16A6C973BC2055724D5945D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43CAB7DF973C28D979B12261300592B2 /* Pods-TapAndRoll.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll/Pods-TapAndRoll.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TapAndRoll;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6699E0254A841186559D5FB3701A3456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CF0801C759CA954525D107830A3695 /* Pods-TapAndRoll-Flurry-iOS-SDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Pods-TapAndRoll-Flurry-iOS-SDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Pods-TapAndRoll-Flurry-iOS-SDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Flurry_iOS_SDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		775F57A92ABD2E8E4224F6C1A9373D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4F2437202771221A63CABE7120F5A37 /* Pods-TapAndRoll WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll WatchKit Extension/Pods-TapAndRoll WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TapAndRoll_WatchKit_Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		83FDBE4FDC0E992ACE39DD7B01923BC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC5A4EE7C49BE62479A3F82A6A5A4A0B /* Pods-TapAndRoll.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll/Pods-TapAndRoll.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TapAndRoll;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B0C5FFC386E99714338C25FE3BB84E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CF0801C759CA954525D107830A3695 /* Pods-TapAndRoll-Flurry-iOS-SDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Pods-TapAndRoll-Flurry-iOS-SDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll-Flurry-iOS-SDK/Pods-TapAndRoll-Flurry-iOS-SDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Flurry_iOS_SDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C45E732E9B48AC6DDF5DCE19F8DE2282 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18B6C64D14EACD9D3F8A8A304BF7B6D6 /* Pods-TapAndRoll WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapAndRoll WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapAndRoll WatchKit Extension/Pods-TapAndRoll WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TapAndRoll_WatchKit_Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		866C58A04AF963DAB20B394F5FD676FB /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775F57A92ABD2E8E4224F6C1A9373D9D /* Debug */,
+				C45E732E9B48AC6DDF5DCE19F8DE2282 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E53F6B062D7BACF9C6AA81778E54A4D /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll-Flurry-iOS-SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6699E0254A841186559D5FB3701A3456 /* Debug */,
+				B0C5FFC386E99714338C25FE3BB84E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2CE7348741C2C9251155F42983A3A80 /* Build configuration list for PBXNativeTarget "Pods-TapAndRoll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				101EBB3AB16A6C973BC2055724D5945D /* Debug */,
+				83FDBE4FDC0E992ACE39DD7B01923BC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

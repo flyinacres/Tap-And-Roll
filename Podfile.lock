@@ -1,0 +1,12 @@
+PODS:
+  - Flurry-iOS-SDK/FlurrySDK (7.1.0)
+  - Flurry-iOS-SDK/FlurryWatchSDK (7.1.0)
+
+DEPENDENCIES:
+  - Flurry-iOS-SDK/FlurrySDK (= 7.1.0)
+  - Flurry-iOS-SDK/FlurryWatchSDK (= 7.1.0)
+
+SPEC CHECKSUMS:
+  Flurry-iOS-SDK: 7b3fe6c3344c82b73c4c84163652eada84fbfcf4
+
+COCOAPODS: 0.39.0

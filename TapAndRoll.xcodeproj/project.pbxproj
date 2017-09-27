@@ -403,6 +403,7 @@
 		A50C645E1BC32F28008FB51F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = qpiapps;
 				TargetAttributes = {

@@ -1,0 +1,6 @@
+framework module Pods_TapAndRoll {
+  umbrella header "Pods-TapAndRoll-umbrella.h"
+
+  export *
+  module * { export * }
+}
